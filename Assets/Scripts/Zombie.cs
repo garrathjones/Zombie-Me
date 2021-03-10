@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.U2D.IK;
+
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Zombie : MonoBehaviour
@@ -48,7 +48,7 @@ public class Zombie : MonoBehaviour
     Player player;
     Animator zombieAnimator;
     Rigidbody2D zombieRigidBody;
-    IKManager2D zombieIK2D;
+    UnityEngine.U2D.IK.IKManager2D zombieIK2D;
     Transform playerTransform;
     Transform playerTorsoPosition;
     public GameObject[] BodyParts;
@@ -58,7 +58,7 @@ public class Zombie : MonoBehaviour
         player = FindObjectOfType<Player>();
         zombieAnimator = GetComponent<Animator>();
         zombieRigidBody = GetComponent<Rigidbody2D>();
-        zombieIK2D = GetComponent<IKManager2D>();
+        zombieIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
         playerTransform = player.transform;
         playerTorsoPosition = player.LocationOfTorso();
         RandomJump();

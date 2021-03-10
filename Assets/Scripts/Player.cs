@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.U2D.IK;
+
 using UnityStandardAssets.CrossPlatformInput;
 
 
@@ -37,14 +37,14 @@ public class Player : MonoBehaviour
 
     Animator playerAnimator;
     Rigidbody2D playerRigidBody;
-    IKManager2D playerIK2D;
+    UnityEngine.U2D.IK.IKManager2D playerIK2D;
     public GameObject[] BodyParts;
 
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
-        playerIK2D = GetComponent<IKManager2D>();
+        playerIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
     }
 
     private void Update()
