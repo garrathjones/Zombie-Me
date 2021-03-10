@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     private float timer;
     public Text timerText;
+    bool timerRunning = true;
 
     void Start()
     {
@@ -15,8 +16,22 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        timerText.text = timer.ToString();
+        if(timerRunning)
+        {
+            timer += Time.deltaTime;
+            timerText.text = timer.ToString();
+        }
+
+    }
+
+    public float ReadTimer()
+    {
+        return timer;
+    }
+
+    public void StopTimer()
+    {
+        timerRunning = false;
     }
 
 
