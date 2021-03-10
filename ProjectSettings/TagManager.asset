@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - solvers
+  - Player
+  - Zombie
+  - PlayerBlood
+  - ZombieBlood
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1085638021
+    locked: 0
+  - name: Foreground
+    uniqueID: 494559851
+    locked: 0
+  - name: Player & Zombies
+    uniqueID: 3292111491
+    locked: 0
+  - name: Weapons
+    uniqueID: 2890974449
+    locked: 0
+  - name: Dust
+    uniqueID: 3537863227
+    locked: 0
+  - name: PlayerBlood
+    uniqueID: 1502980833
+    locked: 0
+  - name: ZombieBlood
+    uniqueID: 3874125743
+    locked: 0
