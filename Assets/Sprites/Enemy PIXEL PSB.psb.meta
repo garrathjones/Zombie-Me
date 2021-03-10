@@ -24,6 +24,7 @@ ScriptedImporter:
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
+    vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -42,6 +43,9 @@ ScriptedImporter:
     textureType: 8
     textureShape: 1
     singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -61,6 +65,7 @@ ScriptedImporter:
     maxTextureSizeSet: 0
     compressionQualitySet: 0
     textureFormatSet: 0
+    applyGammaDecoding: 0
   spriteImportData:
   - name: 
     originalName: 
@@ -2940,28 +2945,8 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs:
-  - go: {fileID: -3699027483785113968, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 0
-  - go: {fileID: 4173240922411257450, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 1
-  - go: {fileID: -7187088518304801871, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 2
-  - go: {fileID: 1981641967641708926, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 3
-  - go: {fileID: 9113812390647864744, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 4
-  - go: {fileID: -700928766386936394, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 5
-  - go: {fileID: 6190960471485714887, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 6
-  - go: {fileID: -2751696406773364428, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 7
-  - go: {fileID: 2346960715017837830, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 8
-  - go: {fileID: -8334845861565380722, guid: da4ee1963c8774d4ebe958a7a286ea90, type: 3}
-    index: 9
   generateGOHierarchy: 0
   textureAssetName: ME PIXEL PSB Texture
   prefabAssetName: ME PIXEL PSB Prefab
   spriteLibAssetName: ME PIXEL PSB Sprite Lib
+  secondarySpriteTextures: []
