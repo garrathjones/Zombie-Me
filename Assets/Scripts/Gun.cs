@@ -6,6 +6,8 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 100f;
     [SerializeField] float bulletFiringPeriod = 0.1f;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.5f;
 
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject bulletSpawner;
@@ -58,6 +60,7 @@ public class Gun : MonoBehaviour
         {
             var playerDirection = PlayerDirection();
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
+            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
             flashFX.Play();
             smokeFX.Play();
             bullet.transform.localScale *= playerDirection;
