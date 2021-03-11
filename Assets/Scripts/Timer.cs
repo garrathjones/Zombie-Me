@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+
     private float timer;
     public Text timerText;
     bool timerRunning = true;
+    private decimal decimalTimer;
 
     void Start()
     {
@@ -19,7 +21,8 @@ public class Timer : MonoBehaviour
         if(timerRunning)
         {
             timer += Time.deltaTime;
-            timerText.text = timer.ToString();
+            decimalTimer = (decimal)timer;
+            timerText.text = decimalTimer.ToString("F");
         }
 
     }
