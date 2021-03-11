@@ -18,6 +18,6 @@ public class DisplayHealth : MonoBehaviour
 
     void Update()
     {
-        healthDisplayText.text = player.PlayerHealth().ToString();
+        healthDisplayText.text = player.PlayerHealth().ToString() + " %";
     }
 }
