@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour
 {
+    [SerializeField] GameObject bloodSplat;
+    [SerializeField] float splatDuration = 5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +30,18 @@ public class DeathTrigger : MonoBehaviour
         if (player)
         {
             player.FallToDeath();
+            GameObject splat = Instantiate(bloodSplat, player.transform.position, player.transform.rotation);
+            Destroy(splat, splatDuration);
+
         }
         if (zombie)
         {
             zombie.FallToDeath();
+            GameObject splat = Instantiate(bloodSplat, zombie.transform.position, zombie.transform.rotation);
         }
 
     }
+
 
 
 }

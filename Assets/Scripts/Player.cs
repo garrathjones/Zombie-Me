@@ -209,6 +209,7 @@ public class Player : MonoBehaviour
 
     public void FallToDeath()
     {
+        health = 0;
         MakeRagDoll();
         SloMoOn();
         alive = false;
