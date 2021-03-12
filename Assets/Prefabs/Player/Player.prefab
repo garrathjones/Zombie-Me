@@ -551,6 +551,8 @@ MonoBehaviour:
   groundCheckCollider: {fileID: 1122948367}
   machete: {fileID: 5677876603238763195}
   slideKick: {fileID: 9087315}
+  footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
+  footstepVolume: 0.3
   dust: {fileID: 1903921999}
   BodyParts:
   - {fileID: 9110150385413067244}

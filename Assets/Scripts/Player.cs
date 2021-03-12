@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
     [SerializeField] SlideKick slideKick;
 
 
-    //[SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip footstepSFX;
+    [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
     [SerializeField] ParticleSystem dust;
 
     bool ragDolled = false;
@@ -331,11 +332,12 @@ public class Player : MonoBehaviour
         SloMoOff();
     }
 
-    private void CreateDust()
+    private void StepFx()
     {
         if (touchingFloor)
         {
             dust.Play();
+            AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
         }
     }
     private void EnableMachete()

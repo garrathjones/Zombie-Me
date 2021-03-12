@@ -33,6 +33,9 @@ public class Zombie : MonoBehaviour
     [SerializeField] CapsuleCollider2D bodyCollider;
     [SerializeField] BoxCollider2D crawlCollider;
     [SerializeField] BoxCollider2D groundCheckCollider;
+
+    [SerializeField] AudioClip footstepSFX;
+    [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
     [SerializeField] ParticleSystem dust;
  
 
@@ -430,11 +433,12 @@ public class Zombie : MonoBehaviour
 
 
 
-    private void CreateDust()
+    private void FootstepFx()
     {
         if (touchingFloor)
         {
             dust.Play();
+            AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
         }
     }
 

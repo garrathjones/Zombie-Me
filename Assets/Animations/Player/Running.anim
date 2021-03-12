@@ -1456,14 +1456,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.18571429
-    functionName: CreateDust
+    functionName: StepFx
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.5714286
-    functionName: CreateDust
+    functionName: StepFx
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
