@@ -13,12 +13,17 @@ public class LevelEnd : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //AudioSource.PlayClipAtPoint(levelExitSFX, Camera.main.transform.position);
-        gameSession = FindObjectOfType<GameSession>();
-        gameSession.GameWon();
-        timer = FindObjectOfType<Timer>();
-        timer.StopTimer();
-        LoadWinScene();
+        Player player = other.gameObject.GetComponent<Player>();
+        if(player)
+        {
+            //AudioSource.PlayClipAtPoint(levelExitSFX, Camera.main.transform.position);
+            gameSession = FindObjectOfType<GameSession>();
+            gameSession.GameWon();
+            timer = FindObjectOfType<Timer>();
+            timer.StopTimer();
+            LoadWinScene();
+        }
+        return;
     }
 
     public void LoadWinScene()
