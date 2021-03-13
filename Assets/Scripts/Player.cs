@@ -217,6 +217,7 @@ public class Player : MonoBehaviour
         MakeRagDoll();
         SloMoOn();
         alive = false;
+        TriggerGameOver();
     }
 
     public void Die()
@@ -225,6 +226,13 @@ public class Player : MonoBehaviour
         MakeRagDoll();
         SloMoOn();
         alive = false;
+        TriggerGameOver();
+    }
+
+    public void TriggerGameOver()
+    {
+        GameOver gameover = FindObjectOfType<GameOver>();
+        gameover.EnableGameOverUI();
     }
 
     public bool PlayerAlive()
