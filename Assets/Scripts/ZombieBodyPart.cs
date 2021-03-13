@@ -52,7 +52,7 @@ public class ZombieBodyPart : MonoBehaviour
     private void ProcessMacheteHit(Machete machete)
     {
         //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
-        machete.CreateMacheteBlood();
+        machete.CreateMacheteHitFX();
         Vector2 macheteVelocity = machete.GetMacheteDeathHitVelocty() * new Vector2(DirectionOfPlayer(), 1);
         bodyPartRigidBody.velocity = macheteVelocity;        
     }

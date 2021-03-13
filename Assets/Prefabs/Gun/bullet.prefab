@@ -143,6 +143,10 @@ MonoBehaviour:
     type: 3}
   bloodSplat: {fileID: 9099706995083613808, guid: 828eab0f52a1c444dbc7bb9e805529e5,
     type: 3}
+  bulletToFleshSFX: {fileID: 8300000, guid: d9a60aa369f046c4093918131b5ebb1a, type: 3}
+  bulletToFleshVolume: 1
+  bulletToWallSFX: {fileID: 8300000, guid: e742bf5758d995f46b096e7b782c583a, type: 3}
+  bulletToWallVolume: 0.5
 --- !u!96 &3489214005327247352
 TrailRenderer:
   serializedVersion: 2

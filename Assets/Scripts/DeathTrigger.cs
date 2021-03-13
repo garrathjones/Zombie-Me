@@ -7,6 +7,9 @@ public class DeathTrigger : MonoBehaviour
     [SerializeField] GameObject bloodSplat;
     [SerializeField] float splatDuration = 5f;
 
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] [Range(0, 1)] float deathVolume = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class DeathTrigger : MonoBehaviour
         if (player)
         {
             player.FallToDeath();
+            DeathSFX();
             GameObject splat = Instantiate(bloodSplat, player.transform.position, player.transform.rotation);
             Destroy(splat, splatDuration);
 
@@ -37,10 +41,17 @@ public class DeathTrigger : MonoBehaviour
         if (zombie)
         {
             zombie.FallToDeath();
+            DeathSFX();
             GameObject splat = Instantiate(bloodSplat, zombie.transform.position, zombie.transform.rotation);
         }
 
     }
+
+    private void DeathSFX()
+    {
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
+    }
+        
 
 
 

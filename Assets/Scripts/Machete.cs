@@ -13,6 +13,9 @@ public class Machete : MonoBehaviour
     [SerializeField] float splatDuration = 5f;
     [SerializeField] TrailFX trail;
 
+    [SerializeField] AudioClip machetteHitSFX;
+    [SerializeField] [Range(0, 1)] float machetteHitVolume = 1f;
+
 
     BoxCollider2D macheteDamageCollider;
     CapsuleCollider2D macheteDropCollider;
@@ -42,8 +45,9 @@ public class Machete : MonoBehaviour
         return damage;
     }
 
-    public void CreateMacheteBlood()
+    public void CreateMacheteHitFX()
     {
+        AudioSource.PlayClipAtPoint(machetteHitSFX, Camera.main.transform.position, machetteHitVolume);
         GameObject splat = Instantiate(bloodSplat, transform.position, transform.rotation);
         Destroy(splat, splatDuration);
     }     

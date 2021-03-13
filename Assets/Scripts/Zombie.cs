@@ -204,7 +204,7 @@ public class Zombie : MonoBehaviour
             CheckIfTouchingGround();
             if (touchingFloor)
             {
-                //AudioSource.PlayClipAtPoint(jumpSFX, Camera.main.transform.position);           
+                AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
                 Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x, jumpSpeed);
                 zombieRigidBody.velocity = newVelocity;
             }
@@ -278,7 +278,7 @@ public class Zombie : MonoBehaviour
             return;
         }
         health -= machete.GetDamage();
-        machete.CreateMacheteBlood();
+        machete.CreateMacheteHitFX();
         zombieRigidBody.velocity += machete.GetMacheteHitVelocity() * new Vector2(-DirectionOfPlayer(), 1);
         zombieAnimator.SetTrigger("TakingDamage");
         zombieAnimator.SetBool("Biting", false);

@@ -1640,7 +1640,7 @@ MonoBehaviour:
   crawlCollider: {fileID: 889859521}
   groundCheckCollider: {fileID: 4359190671662179412}
   footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
-  footstepVolume: 0.205
+  footstepVolume: 0.15
   dust: {fileID: 2234925484165585624}
   BodyParts:
   - {fileID: 1950160763128927491}

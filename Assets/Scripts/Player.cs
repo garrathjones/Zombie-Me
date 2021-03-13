@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
+    [SerializeField] AudioClip meleeSFX;
+    [SerializeField] [Range(0, 1)] float meleeVolume = 1f;
     [SerializeField] ParticleSystem dust;
 
     bool ragDolled = false;
@@ -102,7 +104,7 @@ public class Player : MonoBehaviour
         CheckIfTouchingGround();
         if (CrossPlatformInputManager.GetButtonDown("Jump") && touchingFloor == true)
         {
-            //AudioSource.PlayClipAtPoint(jumpSFX, Camera.main.transform.position);           
+            AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
             Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
             playerRigidBody.velocity = newVelocity;
         }
@@ -184,6 +186,7 @@ public class Player : MonoBehaviour
         if (alive && Input.GetButtonDown("Fire2"))
         {
             playerAnimator.SetTrigger("Attacking");
+            AudioSource.PlayClipAtPoint(meleeSFX, Camera.main.transform.position, meleeVolume);
         }
     }
 

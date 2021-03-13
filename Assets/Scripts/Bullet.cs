@@ -13,6 +13,11 @@ public class Bullet : MonoBehaviour
     //[SerializeField] GameObject bulletTrail;
     //[SerializeField] float trailDuration = 2f;
 
+    [SerializeField] AudioClip bulletToFleshSFX;
+    [SerializeField] [Range(0, 1)] float bulletToFleshVolume = 1f;
+    [SerializeField] AudioClip bulletToWallSFX;
+    [SerializeField] [Range(0, 1)] float bulletToWallVolume = 0.5f;
+
 
 
     //private void BulletTrail()
@@ -30,6 +35,7 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBulletWithDust()
     {
+        AudioSource.PlayClipAtPoint(bulletToWallSFX, Camera.main.transform.position, bulletToWallVolume);
         GameObject poof = Instantiate(bulletImpactDust, transform.position, transform.rotation);
         Destroy(poof, dustDuration);  
         Destroy(gameObject);
@@ -37,6 +43,7 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBulletWithBloodSplat()
     {
+        AudioSource.PlayClipAtPoint(bulletToFleshSFX, Camera.main.transform.position, bulletToFleshVolume);
         GameObject splat = Instantiate(bloodSplat, transform.position, transform.rotation);
         Destroy(splat, splatDuration);
         Destroy(gameObject);
