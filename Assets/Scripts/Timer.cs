@@ -36,6 +36,10 @@ public class Timer : MonoBehaviour
     {
         timerRunning = false;
     }
+    public void StartTimer()
+    {
+        timerRunning = true;
+    }
 
 
 

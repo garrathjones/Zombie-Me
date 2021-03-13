@@ -42,34 +42,39 @@ public class Player : MonoBehaviour
     Rigidbody2D playerRigidBody;
     UnityEngine.U2D.IK.IKManager2D playerIK2D;
     public GameObject[] BodyParts;
+    Pause pause;
 
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
+        pause = FindObjectOfType<Pause>();
     }
 
     private void Update()
     {
-        FallModifier();
-        if (alive)
+        if(!pause.paused)
         {
-            Run();
-            Flip();
-            Jump();
-
-            FlipSprite();
-            MeleeAttack();
-            if (Input.GetKeyDown("q"))
+            FallModifier();
+            if (alive)
             {
-                Die();
-            }
-            if (Input.GetKeyDown("g"))
-            {
-                ToggleSloMo();
+                Run();
+                Flip();
+                Jump();
+                FlipSprite();
+                MeleeAttack();
+                //if (Input.GetKeyDown("q"))
+                //{
+                //    Die();
+                //}
+                //if (Input.GetKeyDown("g"))
+                //{
+                //    ToggleSloMo();
+                //}
             }
         }
+
     }
 
 

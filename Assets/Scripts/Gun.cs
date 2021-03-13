@@ -21,10 +21,12 @@ public class Gun : MonoBehaviour
     Coroutine firingCoroutine;
     Rigidbody2D gunRigidBody;
     Collider2D gunCollider;    
-    Player player;            
+    Player player;
+    Pause pause;
 
     void Start()
     {
+        pause = FindObjectOfType<Pause>();
         player = FindObjectOfType<Player>();
         gunRigidBody = GetComponent<Rigidbody2D>();
         gunCollider = GetComponent<Collider2D>();
@@ -36,7 +38,8 @@ public class Gun : MonoBehaviour
         if (!player.PlayerAlive())
         {
             DropGun();
-        }
+        }       
+
     }
 
     private void Fire()
@@ -50,8 +53,13 @@ public class Gun : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            StopCoroutine(firingCoroutine);            
+            if (player.PlayerAlive())
+            {
+                StopCoroutine(firingCoroutine);
+            }
+                       
         }
+        return;
     }
 
     IEnumerator FireContinuously()
