@@ -11,15 +11,21 @@ public class Pause : MonoBehaviour
     [SerializeField] TextMeshProUGUI menuButtonText;
 
     GameOver gameOver;
+    Player player;
 
     public bool paused = false;
 
     private void Update()
     {
+        PauseGame();
+    }
+
+    private void PauseGame()
+    {
         if (Input.GetKeyDown("escape"))
         {
             gameOver = FindObjectOfType<GameOver>();
-            if(!paused && !gameOver.gameOver)
+            if (!paused && !gameOver.gameOver)
             {
                 EnablePauseUI();
                 Time.timeScale = 0;
@@ -27,11 +33,21 @@ public class Pause : MonoBehaviour
             else
             {
                 DisablePauseUI();
-                Time.timeScale = 1;
+                player = FindObjectOfType<Player>();
+                if (player.isSloMoEnabled)
+                {
+                    player.SloMoOn();
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                }
             }
         }
     }
-        
+
+
+
     public void EnablePauseUI()
     {
         pauseText.enabled = true;

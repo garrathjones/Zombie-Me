@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
-    bool isSloMoEnabled = false;
+    public bool isSloMoEnabled = false;
 
 
     Animator playerAnimator;
