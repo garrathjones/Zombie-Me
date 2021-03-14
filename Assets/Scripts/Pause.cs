@@ -10,13 +10,16 @@ public class Pause : MonoBehaviour
     [SerializeField] Button menuButton;
     [SerializeField] TextMeshProUGUI menuButtonText;
 
+    GameOver gameOver;
+
     public bool paused = false;
 
     private void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
-            if(!paused)
+            gameOver = FindObjectOfType<GameOver>();
+            if(!paused && !gameOver.gameOver)
             {
                 EnablePauseUI();
                 Time.timeScale = 0;

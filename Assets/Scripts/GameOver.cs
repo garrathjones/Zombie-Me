@@ -10,12 +10,14 @@ public class GameOver : MonoBehaviour
     [SerializeField] Button menuButton;
     [SerializeField] TextMeshProUGUI menuButtonText;
 
+    public bool gameOver = false;
 
     public void EnableGameOverUI()
     {
         gameOverText.enabled = true;
         menuButton.enabled = true;
         menuButtonText.enabled = true;
+        gameOver = true;
         return;
     }
 
