@@ -36,6 +36,10 @@ public class Zombie : MonoBehaviour
 
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
+
+    [SerializeField] AudioClip biteSFX;
+    [SerializeField] [Range(0, 1)] float biteVolume = 0.3f;
+
     [SerializeField] ParticleSystem dust;
  
 
@@ -334,6 +338,7 @@ public class Zombie : MonoBehaviour
     public void BitingBlood()
     {
         GameObject splurt = Instantiate(bitingBlood, mouth.transform.position, mouth.transform.rotation);
+        AudioSource.PlayClipAtPoint(biteSFX, Camera.main.transform.position, biteVolume);
         Destroy(splurt, bleedingDuration);
     }
 
