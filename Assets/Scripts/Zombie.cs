@@ -38,7 +38,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
 
     [SerializeField] AudioClip biteSFX;
-    [SerializeField] [Range(0, 1)] float biteVolume = 0.3f;
+    [SerializeField] [Range(0, 1)] float biteVolume = 1f;
 
     [SerializeField] ParticleSystem dust;
  

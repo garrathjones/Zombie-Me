@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
         pause = FindObjectOfType<Pause>();
+
+        SloMoOff();
     }
 
     private void Update()
