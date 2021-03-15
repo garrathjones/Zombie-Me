@@ -41,7 +41,11 @@ public class Zombie : MonoBehaviour
     [SerializeField] [Range(0, 1)] float biteVolume = 1f;
 
     [SerializeField] ParticleSystem dust;
- 
+
+    [SerializeField] [Range(0, 100)] float slomoChance = 30f;
+    [SerializeField] float minSlomoTime = 0.5f;
+    [SerializeField] float maxSlomoTime = 2f;
+
 
 
     bool ragDolled = false;
@@ -376,18 +380,22 @@ public class Zombie : MonoBehaviour
 
     private void Die()
     {
-        //GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        //Destroy(explosion, explosionDuration);
         //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-        float randomTime = Random.Range(0f, 1.5f);
-        if (randomTime > 0.5f)
-        {
-            player.SloMoEvent(randomTime);
-        }        
+        RandomSlomo();
         DeathKick();
         MakeRagDoll();
         alive = false;
         BleedWhenDead();
+    }
+
+    private void RandomSlomo()
+    {
+        float randomChance = Random.Range(0, 100);
+        float randomTime = Random.Range(minSlomoTime, maxSlomoTime);
+        if (randomChance < slomoChance)
+        {
+            player.SloMoEvent(randomTime);
+        }
     }
 
     private void DeathKick()

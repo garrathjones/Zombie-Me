@@ -1644,6 +1644,9 @@ MonoBehaviour:
   biteSFX: {fileID: 8300000, guid: 75ba34b5c5abcca40afd47304a203d68, type: 3}
   biteVolume: 1
   dust: {fileID: 2234925484165585624}
+  slomoChance: 33.7
+  minSlomoTime: 0.5
+  maxSlomoTime: 2
   BodyParts:
   - {fileID: 1950160763128927491}
   - {fileID: 7948961617055766009}
