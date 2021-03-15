@@ -1,32 +1,32 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBodyPart : MonoBehaviour
-{    
-
+public class AlmostDeadBleed : MonoBehaviour
+{
     [SerializeField] float bleedingDuration = 5f;
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
 
-    bool bodyPartIsBleeding = false;
+    bool bleeding = false;
 
-
-
-    private void OnJointBreak2D(Joint2D joint)
+    public void AlmostDeadBleeding()
     {
-        bodyPartIsBleeding = true;
+        bleeding = true;
         StartCoroutine(BodyPartBleedingCoroutine());
     }
 
     IEnumerator BodyPartBleedingCoroutine()
     {
-        while (bodyPartIsBleeding)
+        while (bleeding)
         {
             GameObject splurt = Instantiate(bloodSplurt, transform.position, transform.rotation);
             Destroy(splurt, bleedingDuration);
             yield return new WaitForSeconds(pulseRate);
         }
     }
+
+
+
 
 }

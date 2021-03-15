@@ -10,6 +10,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     [SerializeField] float health = 100;
+    [SerializeField] float almostDeadhealth = 30;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float runBob = 2f;
     [SerializeField] float slideSpeed = 10f;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] SlideKick slideKick;
 
 
+
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
     [SerializeField] AudioClip meleeSFX;
@@ -37,20 +39,21 @@ public class Player : MonoBehaviour
     bool touchingFloor;
     public bool isSloMoEnabled = false;
 
-
     Animator playerAnimator;
     Rigidbody2D playerRigidBody;
     UnityEngine.U2D.IK.IKManager2D playerIK2D;
     public GameObject[] BodyParts;
     Pause pause;
+    AlmostDeadBleed almostDeadBleed;
+
 
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
+        almostDeadBleed = GetComponent<AlmostDeadBleed>();
         pause = FindObjectOfType<Pause>();
-
         SloMoOff();
     }
 
@@ -206,6 +209,11 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetTrigger("TakingDamage");
             health -= damage;
+            if(health<=almostDeadhealth)
+            {
+                almostDeadBleed = FindObjectOfType<AlmostDeadBleed>();
+                almostDeadBleed.AlmostDeadBleeding();
+            }
             if (health <= 0)
             {
                 Die();

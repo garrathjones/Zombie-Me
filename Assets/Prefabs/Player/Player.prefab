@@ -5039,7 +5039,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 958869566383719676}
   m_Bounds:
-    m_Center: {x: -0.035226166, y: 0.9276167, z: 0}
+    m_Center: {x: -0.035233796, y: 0.9276167, z: 0}
     m_Extent: {x: 0.18975547, y: 0.16737714, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -21659,6 +21659,53 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+--- !u!1 &6509723417998583494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2839377999128339206}
+  - component: {fileID: 2161755641644751551}
+  m_Layer: 0
+  m_Name: AlmostDeadBleed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2839377999128339206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509723417998583494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.111, y: 0.734, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4966405683308701556}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2161755641644751551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509723417998583494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88734704e9459f844b256a57bec5083d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bleedingDuration: 5
+  pulseRate: 0.5
+  bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
+    type: 3}
 --- !u!1 &6511187084100139523
 GameObject:
   m_ObjectHideFlags: 0
@@ -36801,6 +36848,7 @@ Transform:
   - {fileID: 3905851679510286200}
   - {fileID: 3113543751178477406}
   - {fileID: 3059822804877334104}
+  - {fileID: 2839377999128339206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36941,6 +36989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  almostDeadhealth: 30
   runSpeed: 8
   runBob: 2
   slideSpeed: 10
@@ -37032,7 +37081,7 @@ Transform:
   - {fileID: 304188144511833337}
   m_Father: {fileID: 8925190316652148439}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.85}
 --- !u!50 &8128692260185227937
 Rigidbody2D:
   serializedVersion: 4
