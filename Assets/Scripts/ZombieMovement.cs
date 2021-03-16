@@ -9,6 +9,7 @@ public class ZombieMovement : MonoBehaviour
     Zombie zombie;
     ZombieHealth zombieHealth;
     [SerializeField] float CanSeePlayerDistance = 40f;
+    [SerializeField] float StopAtDistanceFormPlayer = 10f;
     [SerializeField] float runSpeed = 4f;
     [SerializeField] float jumpSpeed = 5f;
 
@@ -42,12 +43,6 @@ public class ZombieMovement : MonoBehaviour
         zombieAttack = GetComponent<ZombieAttack>();
         playerPosition = GetComponent<PlayerPosition>();
         RandomJump();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -101,11 +96,11 @@ public class ZombieMovement : MonoBehaviour
         {
             FlipSprite();
             var distance = Vector3.Distance(playerPosition.GetPlayerPosition(), transform.position);
-            if (distance <= CanSeePlayerDistance && distance >= zombieAttack.bufferDistance + zombieAttack.biteRange)
+            if (distance <= CanSeePlayerDistance && distance >= zombieAttack.bufferDistance + zombieAttack.biteRange && distance > StopAtDistanceFormPlayer)
             {
                 Run();
             }
-            if (distance > CanSeePlayerDistance)
+            if (distance > CanSeePlayerDistance || distance < StopAtDistanceFormPlayer)
             {
                 Idle();
             }

@@ -1484,7 +1484,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -5913543239917230201, guid: da4ee1963c8774d4ebe958a7a286ea90,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 889859521}
   - component: {fileID: 1184375097}
   m_Layer: 10
-  m_Name: Zombie
+  m_Name: GunZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1597,7 +1597,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5443224788286009869}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 10351bff7097d6a4ab9fd7131558f6c6, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanSeePlayerDistance: 40
-  StopAtDistanceFormPlayer: 0
+  StopAtDistanceFormPlayer: 5
   runSpeed: 4
   jumpSpeed: 5
   fallMultiplier: 3
@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5443224788286009869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e5eac2e276916e42bda04895e38fc6f, type: 3}
   m_Name: 
