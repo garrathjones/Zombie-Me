@@ -1614,15 +1614,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   biteDamage: 10
-  runSpeed: 4.5
+  runSpeed: 5
   jumpSpeed: 5
   deathKickSpeed: 7
   KickSpeedLimit: 5
   fallMultiplier: 3
   randomJumpMaxTime: 7
   randomJumpMinTime: 2
-  zombieReactionTime: 0.6
-  CanSeePlayerDistance: 50
+  zombieReactionTime: 0.4
+  CanSeePlayerDistance: 40
   bufferDistance: 0.5
   biteRange: 1
   biteRangeWhenPlayerDead: 1.5
