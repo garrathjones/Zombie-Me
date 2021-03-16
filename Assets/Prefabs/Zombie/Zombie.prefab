@@ -1526,7 +1526,10 @@ GameObject:
   - component: {fileID: 3467959068446964198}
   - component: {fileID: 3467959068446964200}
   - component: {fileID: -1532222620364742108}
+  - component: {fileID: 6209749696917032875}
+  - component: {fileID: -9191040769358429334}
   - component: {fileID: 3467959068446964199}
+  - component: {fileID: -4696246064777154912}
   - component: {fileID: 3467959068446964202}
   - component: {fileID: 4359190671662179412}
   - component: {fileID: 889859521}
@@ -1613,6 +1616,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0251a6c4a85b6c4e8750678e67647b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 30
+  alive: 1
+--- !u!114 &6209749696917032875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443224788286009869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6726ad8bd12a8ad45a47f4e573aa8a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanSeePlayerDistance: 40
+  runSpeed: 4
+  jumpSpeed: 5
+  fallMultiplier: 3
+  randomJumpMaxTime: 7
+  randomJumpMinTime: 2
+  zombieReactionTime: 0.6
+  groundCheckCollider: {fileID: 4359190671662179412}
+  bodyCollider: {fileID: 3467959068446964200}
+  crawlCollider: {fileID: 889859521}
+  footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
+  footstepVolume: 0.3
+  dust: {fileID: 2234925482739006677, guid: 00a55bfe42acd774787f0cddfbd6fe7c, type: 3}
+  zombieRigidBody: {fileID: 3467959068446964198}
+--- !u!114 &-9191040769358429334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443224788286009869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5eac2e276916e42bda04895e38fc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biteDamage: 10
+  bufferDistance: 0.8
+  biteRange: 0.5
+  biteRangeWhenPlayerDead: 1.2
+  crawlHeight: 0.8
+  mouth: {fileID: 920050890}
+  bitingBlood: {fileID: 7013355043255392215, guid: 5c512448cc543144a919e083b85f99f6,
+    type: 3}
+  biteBloodDuration: 5
+  biteSFX: {fileID: 8300000, guid: 75ba34b5c5abcca40afd47304a203d68, type: 3}
+  biteVolume: 1
 --- !u!114 &3467959068446964199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1625,41 +1679,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a05d619a0b2c4cb5f50e676c4c671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  biteDamage: 10
-  runSpeed: 5
-  jumpSpeed: 5
   deathKickSpeed: 7
-  KickSpeedLimit: 5
-  fallMultiplier: 3
-  randomJumpMaxTime: 7
-  randomJumpMinTime: 2
-  zombieReactionTime: 0.4
-  CanSeePlayerDistance: 40
-  bufferDistance: 0.5
-  biteRange: 1
-  biteRangeWhenPlayerDead: 1.5
-  crawlHeight: 0.6
-  bleedingDuration: 5
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
-  bitingBlood: {fileID: 7013355043255392215, guid: 5c512448cc543144a919e083b85f99f6,
-    type: 3}
   torsoBleedPoint: {fileID: 3766100390431547097}
-  mouth: {fileID: 920050890}
   mainBone: {fileID: 1950160763128927491}
-  bodyCollider: {fileID: 3467959068446964200}
-  crawlCollider: {fileID: 889859521}
-  groundCheckCollider: {fileID: 4359190671662179412}
-  footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
-  footstepVolume: 0.15
-  biteSFX: {fileID: 8300000, guid: 75ba34b5c5abcca40afd47304a203d68, type: 3}
-  biteVolume: 1
-  dust: {fileID: 2234925484165585624}
   slomoChance: 33.7
   minSlomoTime: 0.5
   maxSlomoTime: 2
+  bleedDuration: 5
+  zombieAnimator: {fileID: 3467959068446964202}
   BodyParts:
   - {fileID: 1950160763128927491}
   - {fileID: 7948961617055766009}
@@ -1671,6 +1701,18 @@ MonoBehaviour:
   - {fileID: 1038700155474186919}
   - {fileID: 8586150821707630229}
   - {fileID: 6624402676272749597}
+--- !u!114 &-4696246064777154912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443224788286009869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6948608f39b53e449dcd678f0a26fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3467959068446964202
 Animator:
   serializedVersion: 3
@@ -2554,6 +2596,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2234925482739006678, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2234925482739006679, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2614,12 +2661,6 @@ PrefabInstance:
 --- !u!4 &2234925484165585626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2234925482739006679, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1426597389}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2234925484165585624 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2234925482739006677, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
     type: 3}
   m_PrefabInstance: {fileID: 1426597389}
   m_PrefabAsset: {fileID: 0}

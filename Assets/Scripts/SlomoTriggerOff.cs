@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SloMoTriggerOff : MonoBehaviour
+public class SlomoTriggerOff : MonoBehaviour
 {
+    SlomoController slomoController;
+
+    private void Start()
+    {
+        slomoController = FindObjectOfType<SlomoController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.gameObject.GetComponent<Player>();
@@ -11,7 +18,7 @@ public class SloMoTriggerOff : MonoBehaviour
         if (!player) { return; }
         if (player)
         {
-            player.SloMoOff();
+            slomoController.SlomoOff();
         }
     }
 }

@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SloMoTriggerOn : MonoBehaviour
+public class SlomoTriggerOn : MonoBehaviour
 {
+    SlomoController slomoController;
+
+    private void Start()
+    {
+        slomoController = FindObjectOfType<SlomoController>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,7 +18,7 @@ public class SloMoTriggerOn : MonoBehaviour
         if (!player) { return; }
         if (player)
         {
-            player.SloMoOn();
+            slomoController.SlomoOn();
         }
     }
 }

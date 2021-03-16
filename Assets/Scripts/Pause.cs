@@ -10,11 +10,16 @@ public class Pause : MonoBehaviour
     [SerializeField] Button menuButton;
     [SerializeField] TextMeshProUGUI menuButtonText;
 
+    SlomoController slomoController;
     GameOver gameOver;
     Player player;
 
     public bool paused = false;
 
+    private void Start()
+    {
+        slomoController = FindObjectOfType<SlomoController>();
+    }
     private void Update()
     {
         PauseGame();
@@ -34,9 +39,9 @@ public class Pause : MonoBehaviour
             {
                 DisablePauseUI();
                 player = FindObjectOfType<Player>();
-                if (player.isSloMoEnabled)
+                if (slomoController.isSlomoEnabled)
                 {
-                    player.SloMoOn();
+                    slomoController.SlomoOn();
                 }
                 else
                 {

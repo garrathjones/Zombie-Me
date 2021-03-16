@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float runBob = 2f;
     [SerializeField] float slideSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     //[SerializeField] float RagDollKick = 5f;
     [SerializeField] float deathKickSpeed = 5f;
@@ -37,7 +38,8 @@ public class Player : MonoBehaviour
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
-    public bool isSloMoEnabled = false;
+
+
 
     Animator playerAnimator;
     Rigidbody2D playerRigidBody;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
     public GameObject[] BodyParts;
     Pause pause;
     AlmostDeadBleed almostDeadBleed;
+    SlomoController slomoController;
 
 
     void Start()
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour
         playerIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();
         almostDeadBleed = GetComponent<AlmostDeadBleed>();
         pause = FindObjectOfType<Pause>();
-        SloMoOff();
+        slomoController = FindObjectOfType<SlomoController>();
     }
 
     private void Update()
@@ -131,10 +134,12 @@ public class Player : MonoBehaviour
             }
             if (playerRigidBody.transform.localScale.x == 1)
             {
+                slomoController.SlomoEvent(flipSlomoTime);
                 playerAnimator.SetTrigger("FlipLeft");
             }
             if (playerRigidBody.transform.localScale.x == -1)
             {
+                slomoController.SlomoEvent(flipSlomoTime);
                 playerAnimator.SetTrigger("FlipRight");
             }
         }
@@ -230,7 +235,7 @@ public class Player : MonoBehaviour
     {
         health = 0;
         MakeRagDoll();
-        SloMoOn();
+        slomoController.SlomoOn();
         alive = false;
         TriggerGameOver();
     }
@@ -239,7 +244,7 @@ public class Player : MonoBehaviour
     {
         DeathKick();
         MakeRagDoll();
-        SloMoOn();
+        slomoController.SlomoOn();
         alive = false;
         TriggerGameOver();
     }
@@ -320,43 +325,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public void SloMoOn()
-    {
-        Time.timeScale = 0.4f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        isSloMoEnabled = true;
-    }
 
-    public void SloMoOff()
-    {
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = 0.02f;
-        isSloMoEnabled = false;
-    }
 
-    private void ToggleSloMo()
-    {
-        if (!isSloMoEnabled)
-        {
-            SloMoOn();
-        }
-        else if (isSloMoEnabled)
-        {
-            SloMoOff();
-        }
-    }
 
-    public void SloMoEvent(float sloMoTime)
-    {
-        StartCoroutine(SloMoEventCoroutine(sloMoTime));
-    }
-
-    IEnumerator SloMoEventCoroutine(float sloMoTime)
-    {
-        SloMoOn();
-        yield return new WaitForSeconds(sloMoTime);
-        SloMoOff();
-    }
 
     private void StepFx()
     {
