@@ -6,13 +6,12 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Zombie : MonoBehaviour
 {
-    //CONFIG
-    [SerializeField] float health = 30;
+
     [SerializeField] float biteDamage = 10f;
     [SerializeField] float runSpeed = 4f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float deathKickSpeed = 5f;
-    [SerializeField] float KickSpeedLimit = 5f;
+
     [SerializeField] float fallMultiplier = 3f;
     [SerializeField] float randomJumpMaxTime = 7f;
     [SerializeField] float randomJumpMinTime = 2f;
@@ -49,7 +48,7 @@ public class Zombie : MonoBehaviour
 
 
     bool ragDolled = false;
-    bool alive = true;
+    public bool alive = true;
     bool touchingFloor;
     float randomJumpPeriod = 0f;
     bool isMovementAICoroutineExecuting = false;
@@ -57,8 +56,8 @@ public class Zombie : MonoBehaviour
 
 
     Player player;
-    Animator zombieAnimator;
-    Rigidbody2D zombieRigidBody;
+    public Animator zombieAnimator;
+    public Rigidbody2D zombieRigidBody;
     UnityEngine.U2D.IK.IKManager2D zombieIK2D;
     Transform playerTransform;
     Transform playerTorsoPosition;
@@ -231,7 +230,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private int DirectionOfPlayer()
+    public int DirectionOfPlayer()
     {
         if (PlayerPosition().x > transform.position.x)
         {
@@ -241,78 +240,7 @@ public class Zombie : MonoBehaviour
             return -1;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Bullet bullet = other.gameObject.GetComponent<Bullet>();
-        Machete machete = other.gameObject.GetComponent<Machete>();
-        SlideKick slideKick = other.gameObject.GetComponent<SlideKick>();
-        if (!bullet && !machete && !slideKick) { return; }
-        if(bullet)
-        {
-            ProcessBulletHit(bullet);
-        }
-        if(machete)
-        {
-            ProcessMacheteHit(machete);
-        }
-        if (slideKick)
-        {
-            ProcessSlideKick(slideKick);
-        }
 
-    }
-
-    private void CheckIfDead()
-    {
-        if (health <= 0)
-        {
-            zombieRigidBody.constraints = RigidbodyConstraints2D.None;
-            Die();
-        }
-    }
-
-    private void ProcessBulletHit(Bullet bullet)
-    {
-        health -= bullet.GetDamage();
-        bullet.DestroyBulletWithBloodSplat();
-        //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
-        CheckIfDead();
-    }
-
-    private void ProcessMacheteHit(Machete machete)
-    {
-        if(zombieRigidBody.velocity.y > KickSpeedLimit)
-        {
-            return;
-        }
-        health -= machete.GetDamage();
-        machete.CreateMacheteHitFX();
-        zombieRigidBody.velocity += machete.GetMacheteHitVelocity() * new Vector2(-DirectionOfPlayer(), 1);
-        zombieAnimator.SetTrigger("TakingDamage");
-        zombieAnimator.SetBool("Biting", false);
-        zombieAnimator.SetBool("Running", true);
-        //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
-        CheckIfDead();
-    }
-
-    private void ProcessSlideKick(SlideKick slideKick)
-    {
-        if(zombieRigidBody.velocity.y > KickSpeedLimit)
-        {
-            return;
-        }
-        if (zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("TakingDamage"))
-        {
-            return;
-        }
-        health -= slideKick.GetDamage();
-        zombieRigidBody.velocity += slideKick.GetSlideKickVelocity() * new Vector2(-DirectionOfPlayer(), 1);
-        zombieAnimator.SetTrigger("TakingDamage");
-        zombieAnimator.SetBool("Biting", false);
-        zombieAnimator.SetBool("Running", true);
-        CheckIfDead();
-
-    }
 
 
     private void Run()
@@ -347,7 +275,6 @@ public class Zombie : MonoBehaviour
     }
 
 
-
     private void FlipSprite()
     {
         transform.localScale = new Vector2(-DirectionOfPlayer(), 1);
@@ -378,17 +305,9 @@ public class Zombie : MonoBehaviour
         BleedWhenDead();
     }
 
-    private void Die()
-    {
-        //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-        RandomSlomo();
-        DeathKick();
-        MakeRagDoll();
-        alive = false;
-        BleedWhenDead();
-    }
 
-    private void RandomSlomo()
+
+    public void RandomSlomo()
     {
         float randomChance = Random.Range(0, 100);
         float randomTime = Random.Range(minSlomoTime, maxSlomoTime);
@@ -398,14 +317,14 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void DeathKick()
+    public void DeathKick()
     {
         zombieRigidBody.constraints = RigidbodyConstraints2D.None;
         Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x, deathKickSpeed);
         zombieRigidBody.velocity = newVelocity;
     }
 
-    private void BleedWhenDead()
+    public void BleedWhenDead()
     {
         StartCoroutine(MakeTorsoBleed());
     }
@@ -417,7 +336,6 @@ public class Zombie : MonoBehaviour
             if (!torsoBleeding)
             {
                 torsoBleeding = true;
-                //GameObject splurt = Instantiate(bloodSplurt, transform.position, transform.rotation);
                 GameObject splurt = Instantiate(bloodSplurt, torsoBleedPoint.transform.position, torsoBleedPoint.transform.rotation);
                 Destroy(splurt, bleedingDuration);
                 yield return new WaitForSeconds(pulseRate);
@@ -426,7 +344,7 @@ public class Zombie : MonoBehaviour
     }
         
 
-    private void MakeRagDoll()
+    public void MakeRagDoll()
     {
         if (ragDolled) { return; }
         zombieAnimator.enabled = false;
