@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanSeePlayerDistance: 40
-  StopAtDistanceFormPlayer: 0
+  StopAtDistanceFromPlayer: 0
   runSpeed: 4
   jumpSpeed: 5
   fallMultiplier: 3
@@ -1645,6 +1645,7 @@ MonoBehaviour:
   footstepVolume: 0.3
   dust: {fileID: 2234925482739006677, guid: 00a55bfe42acd774787f0cddfbd6fe7c, type: 3}
   zombieRigidBody: {fileID: 3467959068446964198}
+  playerInFiringRange: 0
 --- !u!114 &-9191040769358429334
 MonoBehaviour:
   m_ObjectHideFlags: 0

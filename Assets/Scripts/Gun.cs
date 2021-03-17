@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
         if (!player.PlayerAlive())
         {
             DropGun();
-        }       
+        }
 
     }
 
@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour
         return playerDirection;
     }
 
-    private void DropGun()
+    public void DropGun()
     {
         gunRigidBody.isKinematic = false;
         gunCollider.enabled = true;

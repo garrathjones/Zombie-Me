@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
 {
-
-
     Zombie zombie;
     ZombieHealth zombieHealth;
     [SerializeField] float CanSeePlayerDistance = 40f;
-    [SerializeField] float StopAtDistanceFormPlayer = 10f;
+    [SerializeField] float StopAtDistanceFromPlayer = 10f;
     [SerializeField] float runSpeed = 4f;
     [SerializeField] float jumpSpeed = 5f;
 
@@ -32,6 +30,7 @@ public class ZombieMovement : MonoBehaviour
 
     bool isMovementAICoroutineExecuting = false;
     bool touchingFloor;
+    public bool playerInFiringRange = false;
 
 
     // Start is called before the first frame update
@@ -45,10 +44,31 @@ public class ZombieMovement : MonoBehaviour
         RandomJump();
     }
 
+    private void Update()
+    {
+        PlayerInFiringRange();
+        Debug.Log(playerInFiringRange);
+    }
+
     private void FixedUpdate()
     {
         FallModifier();
-        MovementAI();
+        MovementAI();        
+    }
+
+    private void PlayerInFiringRange()
+    {
+        var distance = Vector3.Distance(playerPosition.GetPlayerPosition(), transform.position);
+        Debug.Log(distance);
+        if (distance < CanSeePlayerDistance)
+        {
+            playerInFiringRange = true;
+        }
+        if (distance > CanSeePlayerDistance)
+        {
+            playerInFiringRange = false;
+        }
+
     }
 
     private void Run()
@@ -96,11 +116,11 @@ public class ZombieMovement : MonoBehaviour
         {
             FlipSprite();
             var distance = Vector3.Distance(playerPosition.GetPlayerPosition(), transform.position);
-            if (distance <= CanSeePlayerDistance && distance >= zombieAttack.bufferDistance + zombieAttack.biteRange && distance > StopAtDistanceFormPlayer)
+            if (distance <= CanSeePlayerDistance && distance >= zombieAttack.bufferDistance + zombieAttack.biteRange && distance > StopAtDistanceFromPlayer)
             {
                 Run();
             }
-            if (distance > CanSeePlayerDistance || distance < StopAtDistanceFormPlayer)
+            if (distance > CanSeePlayerDistance || distance < StopAtDistanceFromPlayer)
             {
                 Idle();
             }

@@ -27,8 +27,6 @@ public class Player : MonoBehaviour
     [SerializeField] Machete machete;
     [SerializeField] SlideKick slideKick;
 
-
-
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
     [SerializeField] AudioClip meleeSFX;
@@ -247,6 +245,7 @@ public class Player : MonoBehaviour
         slomoController.SlomoOn();
         alive = false;
         TriggerGameOver();
+
     }
 
     public void TriggerGameOver()
