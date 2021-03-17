@@ -83,9 +83,17 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Bullet bullet = other.gameObject.GetComponent<Bullet>();
+        if (!bullet) { return; }
+        if (bullet)
+        {
+            ProcessBulletHit(bullet);
+        }
+    }
 
-
-    private void Run()
+        private void Run()
     {
         if(PlayerIsSliding())
         {
@@ -203,7 +211,11 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    private void ProcessBulletHit(Bullet bullet)
+    {
+        PlayerDamage(bullet.GetDamage());     
+        bullet.DestroyBulletWithBloodSplat();
+    }
 
 
     public void PlayerDamage(float damage)
