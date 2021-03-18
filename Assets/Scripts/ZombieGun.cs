@@ -41,7 +41,6 @@ public class ZombieGun : MonoBehaviour
     {
         //var zombieDirection = zombie.transform.localScale.x;
         var zombieDirection = this.transform.parent.parent.parent.parent.parent.localScale.x;
-        Debug.Log("zomb direction = " + zombieDirection);
         return zombieDirection;
     }
 }

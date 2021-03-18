@@ -24,17 +24,14 @@ public class ZombieFireGun : MonoBehaviour
     void Update()
     {
         Fire();
-        Debug.Log("firing = " + firing);
     }
 
 
 
     void Fire()
     {
-        Debug.Log("fIRE CALLED");
         if (zombieMovement.playerInFiringRange && !firing && zombieHealth.alive)
         {
-            Debug.Log("firing coroutine called");
             firing = true;
             firingCoroutine = StartCoroutine(FireContinuously());
         }

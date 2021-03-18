@@ -47,7 +47,6 @@ public class ZombieMovement : MonoBehaviour
     private void Update()
     {
         PlayerInFiringRange();
-        Debug.Log(playerInFiringRange);
     }
 
     private void FixedUpdate()
@@ -59,7 +58,6 @@ public class ZombieMovement : MonoBehaviour
     private void PlayerInFiringRange()
     {
         var distance = Vector3.Distance(playerPosition.GetPlayerPosition(), transform.position);
-        Debug.Log(distance);
         if (distance < CanSeePlayerDistance)
         {
             playerInFiringRange = true;

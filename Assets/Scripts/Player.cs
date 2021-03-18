@@ -70,6 +70,8 @@ public class Player : MonoBehaviour
                 Jump();
                 FlipSprite();
                 MeleeAttack();
+                Duck();
+                UnDuck();
                 //if (Input.GetKeyDown("q"))
                 //{
                 //    Die();
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
         }
     }
 
-        private void Run()
+    private void Run()
     {
         if(PlayerIsSliding())
         {
@@ -102,9 +104,37 @@ public class Player : MonoBehaviour
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         Vector2 playerVeloctiy = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
         playerRigidBody.velocity = playerVeloctiy;
-        bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
         playerAnimator.SetBool("Running", playerHasHorizontalSpeed);
         Slide();
+    }
+
+    private void Duck()
+    {
+        
+        if (!playerAnimator.GetBool("Duck"))
+        {
+            float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
+            if (verticalInput < 0 && playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                playerAnimator.SetBool("Duck", true);
+            }
+        }       
+    
+    }
+
+    private void UnDuck()
+    {
+        if (playerAnimator.GetBool("Duck"))
+        {
+            float horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal");
+            float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
+            if(horizontalInput!=0 || verticalInput >0)
+            {
+                playerAnimator.SetBool("Duck", false);
+            }
+        }
+            
     }
 
     private void RunBob()
@@ -116,7 +146,8 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if(PlayerIsFlipping() || PlayerIsSliding())
+        
+        if (PlayerIsFlipping() || PlayerIsSliding())
         {
             return;
         }
