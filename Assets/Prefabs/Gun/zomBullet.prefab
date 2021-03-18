@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2740575260925246106}
   - component: {fileID: -2942816598467936356}
   - component: {fileID: 3489214005327247352}
-  m_Layer: 14
-  m_Name: bullet
+  m_Layer: 13
+  m_Name: zomBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -169,11 +169,12 @@ MonoBehaviour:
   bulletSpeed: 10
   shootSound: {fileID: 8300000, guid: 6771d4dd7581e7c46901c3182c69f079, type: 3}
   shootSoundVolume: 0.5
-  bulletPrefab: {fileID: 3547458333759893242, guid: 401232a04b7e7074a861468eb5472a1f,
+  bulletPrefab: {fileID: 3547458333759893242, guid: c243089bf363c10488b17bdf7a37277e,
     type: 3}
   bulletSpawner: {fileID: 586882571746128501}
   flashFX: {fileID: 5201375966289589879}
   smokeFX: {fileID: 2153267894926868113}
+  zombie: {fileID: 0}
   firing: 0
 --- !u!1 &5201375966216320085
 GameObject:
