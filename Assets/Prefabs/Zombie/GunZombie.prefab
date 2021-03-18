@@ -479,7 +479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eda7870d6df19c4081ee3d8d8ae10e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAimOffset: 1
+  yAimOffset: 0.5
+  aimingPeriod: 1.5
+  aimInaccuracy: 2
 --- !u!1 &1898098032
 GameObject:
   m_ObjectHideFlags: 0
