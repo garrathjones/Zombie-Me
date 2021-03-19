@@ -136,9 +136,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  bulletBlastMultiplier: 2.5
+  bulletBlastMultiplierX: 0.2
+  bulletBlastMultiplierY: 0.2
+  bodyPartBulletBlastMultiplierX: 3
+  bodyPartBulletBlastMultiplierY: 10
   dustDuration: 2
   splatDuration: 5
+  disablePlayerRunDuration: 0.2
   bulletImpactDust: {fileID: 2234925482739006672, guid: 9bae0b9ba6d795e45a6817ea5731a321,
     type: 3}
   bloodSplat: {fileID: 9099706995083613808, guid: 828eab0f52a1c444dbc7bb9e805529e5,

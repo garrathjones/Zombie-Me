@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,9 +56,14 @@ public class ZombieHealth : MonoBehaviour
     private void ProcessBulletHit(Bullet bullet)
     {
         health -= bullet.GetDamage();
+        zombieMovement.GiveZombieVelocityOnHit(bullet);
         bullet.DestroyBulletWithBloodSplat();
         CheckIfDead();
     }
+
+
+
+
 
     private void ProcessMacheteHit(Machete machete)
     {

@@ -22320,7 +22320,8 @@ MonoBehaviour:
   jumpSpeed: 7
   flipSlomoTime: 1
   fallMultiplier: 2.5
-  deathKickSpeed: 5
+  RunningDisabledOnHitPeriod: 0.2
+  deathKickSpeed: 8
   torsoLocation: {fileID: 2709668468138644715}
   headCollider: {fileID: 7666401187713325665}
   bodyCollider: {fileID: 3375751313175032391}

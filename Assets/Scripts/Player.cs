@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     //[SerializeField] float RagDollKick = 5f;
+    [SerializeField] float RunningDisabledOnHitPeriod = 0.5f;
     [SerializeField] float deathKickSpeed = 5f;
     [SerializeField] public GameObject torsoLocation;
     [SerializeField] CapsuleCollider2D headCollider;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
+    bool hit = false;
 
 
 
@@ -65,7 +67,7 @@ public class Player : MonoBehaviour
             FallModifier();
             if (alive)
             {
-                Run();
+                Run();                            
                 Flip();
                 Jump();
                 FlipSprite();
@@ -98,6 +100,10 @@ public class Player : MonoBehaviour
     private void Run()
     {
         if(PlayerIsSliding())
+        {
+            return;
+        }
+        if(hit)
         {
             return;
         }
@@ -244,8 +250,24 @@ public class Player : MonoBehaviour
 
     private void ProcessBulletHit(Bullet bullet)
     {
-        PlayerDamage(bullet.GetDamage());     
+        hit = true;
+        PlayerDamage(bullet.GetDamage());
+        GivePlayerVelocityOnHit(bullet);
         bullet.DestroyBulletWithBloodSplat();
+        float waitTime = bullet.GetDisablePlayerRunDuration();
+        StartCoroutine(PlayerHit(waitTime));
+    }
+
+    IEnumerator PlayerHit(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        hit = false;
+    }
+    private void GivePlayerVelocityOnHit(Bullet bullet)
+    {
+        Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
+        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY()));
+        playerRigidBody.velocity = newVelocity;
     }
 
 

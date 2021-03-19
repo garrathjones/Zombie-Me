@@ -5,9 +5,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] int damage = 10;
-    [SerializeField] float bulletBlastMultiplier = 1f;
+    [SerializeField] float bulletBlastMultiplierX = 1f;
+    [SerializeField] float bulletBlastMultiplierY = 1f;
+    [SerializeField] float bodyPartBulletBlastMultiplierX = 10f;
+    [SerializeField] float bodyPartBulletBlastMultiplierY = 10f;
     [SerializeField] float dustDuration = 2f;
     [SerializeField] float splatDuration = 5f;
+    [SerializeField] float disablePlayerRunDuration = 0.2f;
     [SerializeField] GameObject bulletImpactDust;
     [SerializeField] GameObject bloodSplat;
     //[SerializeField] GameObject bulletTrail;
@@ -33,6 +37,11 @@ public class Bullet : MonoBehaviour
         return damage;
     }
 
+    public float GetDisablePlayerRunDuration()
+    {
+        return disablePlayerRunDuration;
+    }
+
     public void DestroyBulletWithDust()
     {
         AudioSource.PlayClipAtPoint(bulletToWallSFX, Camera.main.transform.position, bulletToWallVolume);
@@ -49,12 +58,23 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public float GetBulletBlastMultiplier()
+    public float GetBulletBlastMultiplierX()
     {
-        return bulletBlastMultiplier;
+        return bulletBlastMultiplierX;
     }
 
+    public float GetBulletBlastMultiplierY()
+    {
+        return bulletBlastMultiplierY;
+    }
+    public float GetBodyPartBulletBlastMultiplierX()
+    {
+        return bodyPartBulletBlastMultiplierX;
+    }
 
-
+    public float GetBodyPartBulletBlastMultiplierY()
+    {
+        return bodyPartBulletBlastMultiplierY;
+    }
 
 }

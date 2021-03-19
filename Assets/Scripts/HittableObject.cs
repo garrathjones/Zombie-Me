@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +44,8 @@ public class HittableObject : MonoBehaviour
     {
         //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
         Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
-        rigidBody.velocity = bulletVelocity * bulletVelocityDampeningMultiplier * bullet.GetBulletBlastMultiplier();
+        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX() * bulletVelocityDampeningMultiplier, Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY() * bulletVelocityDampeningMultiplier));
+        rigidBody.velocity = newVelocity;
         bullet.DestroyBulletWithDust();
     }
 

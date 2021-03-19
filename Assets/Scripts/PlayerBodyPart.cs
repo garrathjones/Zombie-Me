@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,7 +47,8 @@ public class PlayerBodyPart : MonoBehaviour
     {
         //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
         Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
-        bodyPartRigidBody.velocity = bulletVelocity * bullet.GetBulletBlastMultiplier();
+        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBodyPartBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y + bullet.GetBodyPartBulletBlastMultiplierY()));
+        bodyPartRigidBody.velocity = newVelocity;
         bullet.DestroyBulletWithBloodSplat();
     }
 }

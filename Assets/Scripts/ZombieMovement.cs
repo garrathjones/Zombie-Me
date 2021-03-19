@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -141,7 +142,7 @@ public class ZombieMovement : MonoBehaviour
         while (zombieHealth.alive)
         {
             float randomJumpPeriod;
-            randomJumpPeriod = Random.Range(randomJumpMinTime, randomJumpMaxTime);
+            randomJumpPeriod = UnityEngine.Random.Range(randomJumpMinTime, randomJumpMaxTime);
             yield return new WaitForSeconds(randomJumpPeriod);
             Jump();
         }
@@ -201,5 +202,13 @@ public class ZombieMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
         }
     }
+
+    public void GiveZombieVelocityOnHit(Bullet bullet)
+    {
+        Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
+        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY()));
+        zombieRigidBody.velocity = newVelocity;
+    }
+
 
 }
