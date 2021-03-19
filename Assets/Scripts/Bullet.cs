@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float disablePlayerRunDuration = 0.2f;
     [SerializeField] GameObject bulletImpactDust;
     [SerializeField] GameObject bloodSplat;
+    [SerializeField] GameObject explosionFlash;
+    [SerializeField] GameObject explosionSmoke;
     //[SerializeField] GameObject bulletTrail;
     //[SerializeField] float trailDuration = 2f;
 
@@ -22,14 +24,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] AudioClip bulletToWallSFX;
     [SerializeField] [Range(0, 1)] float bulletToWallVolume = 0.5f;
 
+    [SerializeField] bool isRocket = false;
+    [SerializeField] AudioClip explosionSFX;
+    [SerializeField] [Range(0, 1)] float explosionVolume = 1f;
 
+    [SerializeField] ParticleSystem rocketSmoke;
 
-    //private void BulletTrail()
-    //{
-    //GameObject trail = Instantiate(bulletTrail, transform.position, transform.rotation);
-    //Destroy(trail, trailDuration);
-    //}
-
+    private void Update()
+    {
+        if(isRocket)
+        {
+            rocketSmoke.Play();
+        }
+    }
 
 
     public int GetDamage()
@@ -44,6 +51,14 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBulletWithDust()
     {
+        if (isRocket)
+        {
+            AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position, explosionVolume);
+            GameObject exploSmoke = Instantiate(explosionSmoke, transform.position, transform.rotation);
+            Destroy(exploSmoke, splatDuration);
+            GameObject exploFlash = Instantiate(explosionFlash, transform.position, transform.rotation);
+            Destroy(exploFlash, splatDuration);
+        }
         AudioSource.PlayClipAtPoint(bulletToWallSFX, Camera.main.transform.position, bulletToWallVolume);
         GameObject poof = Instantiate(bulletImpactDust, transform.position, transform.rotation);
         Destroy(poof, dustDuration);  
@@ -52,6 +67,14 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBulletWithBloodSplat()
     {
+        if (isRocket)
+        {
+            AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position, explosionVolume);
+            GameObject exploSmoke = Instantiate(explosionSmoke, transform.position, transform.rotation);
+            Destroy(exploSmoke, splatDuration);
+            GameObject exploFlash = Instantiate(explosionFlash, transform.position, transform.rotation);
+            Destroy(exploFlash, splatDuration);
+        }
         AudioSource.PlayClipAtPoint(bulletToFleshSFX, Camera.main.transform.position, bulletToFleshVolume);
         GameObject splat = Instantiate(bloodSplat, transform.position, transform.rotation);
         Destroy(splat, splatDuration);
@@ -76,5 +99,7 @@ public class Bullet : MonoBehaviour
     {
         return bodyPartBulletBlastMultiplierY;
     }
+
+
 
 }

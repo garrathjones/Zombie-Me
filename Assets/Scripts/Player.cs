@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     //[SerializeField] float RagDollKick = 5f;
-    [SerializeField] float RunningDisabledOnHitPeriod = 0.5f;
     [SerializeField] float deathKickSpeed = 5f;
     [SerializeField] float velocityCapX = 20f;
     [SerializeField] float velocityCapY = 20f;
