@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586882571746128501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.333, y: 0.168, z: 0}
+  m_LocalPosition: {x: -2.43, y: 2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2373764011673415058}
@@ -41,10 +41,10 @@ GameObject:
   - component: {fileID: 2373764011673415058}
   - component: {fileID: 2373764011673415059}
   - component: {fileID: 2373764011673415060}
-  - component: {fileID: 2373764011673415061}
   - component: {fileID: 2373764011673415062}
+  - component: {fileID: -4557923475379472809}
   m_Layer: 0
-  m_Name: gun
+  m_Name: zombiePistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 2373764011673415057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.302, y: 0.002, z: 0}
-  m_LocalScale: {x: -0.7281, y: -0.7281, z: 0.7281}
+  m_LocalScale: {x: 0.05, y: -0.05, z: 0.05}
   m_Children:
   - {fileID: 6775404411137359018}
   - {fileID: 5201375966216320084}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: -1403992847
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 91ef3196cf37fcd4c96d5dfb3f5aba6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d677b4fe5db1e6d459a4ae2bd39b473c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,27 +138,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2373764011673415061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2373764011673415057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f4af0d8cea2693469254f46de93bd46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 15
-  bulletFiringPeriod: 0.25
-  shootSound: {fileID: 8300000, guid: 6771d4dd7581e7c46901c3182c69f079, type: 3}
-  shootSoundVolume: 0.5
-  bulletPrefab: {fileID: 3547458333759893242, guid: 401232a04b7e7074a861468eb5472a1f,
-    type: 3}
-  bulletSpawner: {fileID: 586882571746128501}
-  flashFX: {fileID: 5201375966289589879}
-  smokeFX: {fileID: 2153267894926868113}
 --- !u!70 &2373764011673415062
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,6 +154,28 @@ CapsuleCollider2D:
   m_Offset: {x: 0.043505248, y: 0.0887536}
   m_Size: {x: 0.8774329, y: 0.37099743}
   m_Direction: 1
+--- !u!114 &-4557923475379472809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373764011673415057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231a077bd33ddd341aa3eee6a8bc2115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 10
+  shootSound: {fileID: 8300000, guid: 6771d4dd7581e7c46901c3182c69f079, type: 3}
+  shootSoundVolume: 0.5
+  bulletPrefab: {fileID: 3547458333759893242, guid: c243089bf363c10488b17bdf7a37277e,
+    type: 3}
+  bulletSpawner: {fileID: 586882571746128501}
+  flashFX: {fileID: 5201375966289589879}
+  smokeFX: {fileID: 2153267894926868113}
+  zombie: {fileID: 0}
+  firing: 0
 --- !u!1 &5201375966216320085
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5201375966216320085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.502, y: 0.173, z: 0}
+  m_LocalPosition: {x: 5.14, y: 3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5201375966704216119}

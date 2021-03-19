@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieGun: {fileID: 5299981230694357509}
-  bulletFiringPeriod: 1
+  bulletFiringPeriod: 0.25
 --- !u!1 &5474235203516350498
 GameObject:
   m_ObjectHideFlags: 0
