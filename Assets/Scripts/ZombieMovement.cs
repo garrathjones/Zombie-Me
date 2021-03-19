@@ -11,6 +11,8 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] float StopAtDistanceFromPlayer = 10f;
     [SerializeField] float runSpeed = 4f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float velocityCapX = 15f;
+    [SerializeField] float velocityCapY = 15f;
 
     [SerializeField] float fallMultiplier = 3f;
     [SerializeField] float randomJumpMaxTime = 7f;
@@ -81,6 +83,20 @@ public class ZombieMovement : MonoBehaviour
         zombie.zombieAnimator.SetBool("Crawling", false);
         zombie.zombieAnimator.SetBool("Biting", false);
         zombie.zombieAnimator.SetBool("Running", true);
+    }
+
+    private void VelocityCap()
+    {
+        if (zombieRigidBody.velocity.x > velocityCapX)
+        {
+            Vector2 cappedXVelocity = new Vector2(velocityCapX, zombieRigidBody.velocity.y);
+            zombieRigidBody.velocity = cappedXVelocity;
+        }
+        if (zombieRigidBody.velocity.y > velocityCapY)
+        {
+            Vector2 cappedYVelocity = new Vector2(zombieRigidBody.velocity.x, velocityCapY);
+            zombieRigidBody.velocity = cappedYVelocity;
+        }
     }
 
     private void FallModifier()

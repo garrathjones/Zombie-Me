@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     //[SerializeField] float RagDollKick = 5f;
     [SerializeField] float RunningDisabledOnHitPeriod = 0.5f;
     [SerializeField] float deathKickSpeed = 5f;
+    [SerializeField] float velocityCapX = 20f;
+    [SerializeField] float velocityCapY = 20f;
+    [SerializeField] float hitVelocityToCauseFlip = 8f;
     [SerializeField] public GameObject torsoLocation;
     [SerializeField] CapsuleCollider2D headCollider;
     [SerializeField] BoxCollider2D bodyCollider;
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip meleeSFX;
     [SerializeField] [Range(0, 1)] float meleeVolume = 1f;
     [SerializeField] ParticleSystem dust;
+
 
     bool ragDolled = false;
     bool alive = true;
@@ -74,6 +78,7 @@ public class Player : MonoBehaviour
                 MeleeAttack();
                 Duck();
                 UnDuck();
+                VelocityCap();
                 //if (Input.GetKeyDown("q"))
                 //{
                 //    Die();
@@ -84,6 +89,23 @@ public class Player : MonoBehaviour
                 //}
             }
         }
+
+    }
+
+    private void VelocityCap()
+    {
+        if(playerRigidBody.velocity.x > velocityCapX)
+        {
+            Vector2 cappedXVelocity = new Vector2(velocityCapX, playerRigidBody.velocity.y);
+            playerRigidBody.velocity = cappedXVelocity;
+        }
+        if (playerRigidBody.velocity.y > velocityCapY)
+        {
+            Vector2 cappedYVelocity = new Vector2(playerRigidBody.velocity.x, velocityCapY);
+            playerRigidBody.velocity = cappedYVelocity;
+        }
+
+
 
     }
 
@@ -175,16 +197,21 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            if (playerRigidBody.transform.localScale.x == 1)
-            {
-                slomoController.SlomoEvent(flipSlomoTime);
-                playerAnimator.SetTrigger("FlipLeft");
-            }
-            if (playerRigidBody.transform.localScale.x == -1)
-            {
-                slomoController.SlomoEvent(flipSlomoTime);
-                playerAnimator.SetTrigger("FlipRight");
-            }
+            FlipAnimation();
+        }
+    }
+
+    private void FlipAnimation()
+    {
+        if (playerRigidBody.transform.localScale.x == 1)
+        {
+            slomoController.SlomoEvent(flipSlomoTime);
+            playerAnimator.SetTrigger("FlipLeft");
+        }
+        if (playerRigidBody.transform.localScale.x == -1)
+        {
+            slomoController.SlomoEvent(flipSlomoTime);
+            playerAnimator.SetTrigger("FlipRight");
         }
     }
 
@@ -268,6 +295,10 @@ public class Player : MonoBehaviour
         Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
         Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY()));
         playerRigidBody.velocity = newVelocity;
+        if(playerRigidBody.velocity.x > hitVelocityToCauseFlip || playerRigidBody.velocity.y > hitVelocityToCauseFlip)
+        {
+            FlipAnimation();
+        }
     }
 
 

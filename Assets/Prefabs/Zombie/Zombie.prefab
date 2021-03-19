@@ -1634,6 +1634,8 @@ MonoBehaviour:
   StopAtDistanceFromPlayer: 0
   runSpeed: 4
   jumpSpeed: 5
+  velocityCapX: 10
+  velocityCapY: 10
   fallMultiplier: 3
   randomJumpMaxTime: 7
   randomJumpMinTime: 2
