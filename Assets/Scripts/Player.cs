@@ -35,13 +35,20 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip meleeSFX;
     [SerializeField] [Range(0, 1)] float meleeVolume = 1f;
     [SerializeField] ParticleSystem dust;
+    [SerializeField] AudioClip slideSFX;
+    [SerializeField] [Range(0, 1)] float slideVolume = 1f;
+
+    [SerializeField] float pulseRate = 0.5f;
+    [SerializeField] GameObject bloodSplurt;
+    [SerializeField] GameObject torsoBleedPoint;
+    [SerializeField] float bleedDuration = 5f;
 
 
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
     bool hit = false;
-
+    bool torsoBleeding = false;
 
 
     Animator playerAnimator;
@@ -70,7 +77,11 @@ public class Player : MonoBehaviour
             FallModifier();
             if (alive)
             {
-                Run();                            
+                if(touchingFloor)
+                {
+                    Run();
+                }
+                                           
                 Flip();
                 Jump();
                 FlipSprite();
@@ -196,11 +207,11 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            FlipAnimation();
+            FlipAnimationWithSlomo();
         }
     }
 
-    private void FlipAnimation()
+    private void FlipAnimationWithSlomo()
     {
         if (playerRigidBody.transform.localScale.x == 1)
         {
@@ -210,6 +221,18 @@ public class Player : MonoBehaviour
         if (playerRigidBody.transform.localScale.x == -1)
         {
             slomoController.SlomoEvent(flipSlomoTime);
+            playerAnimator.SetTrigger("FlipRight");
+        }
+    }
+
+    private void FlipAnimation()
+    {
+        if (playerRigidBody.transform.localScale.x == 1)
+        {
+            playerAnimator.SetTrigger("FlipLeft");
+        }
+        if (playerRigidBody.transform.localScale.x == -1)
+        {
             playerAnimator.SetTrigger("FlipRight");
         }
     }
@@ -230,12 +253,14 @@ public class Player : MonoBehaviour
                 if (playerRigidBody.transform.localScale.x == 1)
                 {
                     playerAnimator.SetTrigger("SlideLeft");
+                    AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
                     Vector2 playerVeloctiy = new Vector2(-slideSpeed, playerRigidBody.velocity.y);
                     playerRigidBody.velocity = playerVeloctiy;
                 }
                 if (playerRigidBody.transform.localScale.x == -1)
                 {
                     playerAnimator.SetTrigger("SlideRight");
+                    AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
                     Vector2 playerVeloctiy = new Vector2(slideSpeed, playerRigidBody.velocity.y);
                     playerRigidBody.velocity = playerVeloctiy;
                 }
@@ -292,8 +317,16 @@ public class Player : MonoBehaviour
     private void GivePlayerVelocityOnHit(Bullet bullet)
     {
         Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
-        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY()));
-        playerRigidBody.velocity = newVelocity;
+        if(bullet.isRocket)
+        {
+            Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), bullet.GetBulletBlastMultiplierY());
+            playerRigidBody.velocity = newVelocity;
+        }
+        if(!bullet.isRocket)
+        {
+            Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), playerRigidBody.velocity.y * bullet.GetBulletBlastMultiplierY());
+            playerRigidBody.velocity = newVelocity;
+        }        
         if(playerRigidBody.velocity.x > hitVelocityToCauseFlip || playerRigidBody.velocity.y > hitVelocityToCauseFlip)
         {
             FlipAnimation();
@@ -327,6 +360,7 @@ public class Player : MonoBehaviour
     public void FallToDeath()
     {
         health = 0;
+        BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();
         alive = false;
@@ -335,12 +369,12 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        BleedWhenDead();
         DeathKick();
         MakeRagDoll();
         slomoController.SlomoOn();
         alive = false;
         TriggerGameOver();
-
     }
 
     public void TriggerGameOver()
@@ -420,7 +454,22 @@ public class Player : MonoBehaviour
     }
 
 
+    public void BleedWhenDead()
+    {
+        StartCoroutine(MakeTorsoBleed());
+    }
 
+    IEnumerator MakeTorsoBleed()
+    {
+        if (!torsoBleeding)
+        {
+            torsoBleeding = true;
+            GameObject splurt = Instantiate(bloodSplurt, torsoBleedPoint.transform.position, torsoBleedPoint.transform.rotation);
+            Destroy(splurt, bleedDuration);
+            yield return new WaitForSeconds(pulseRate);
+            torsoBleeding = false;
+        }
+    }
 
 
     private void StepFx()

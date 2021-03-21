@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] AudioClip bulletToWallSFX;
     [SerializeField] [Range(0, 1)] float bulletToWallVolume = 0.5f;
 
-    [SerializeField] bool isRocket = false;
+    [SerializeField] public bool isRocket = false;
     [SerializeField] AudioClip explosionSFX;
     [SerializeField] [Range(0, 1)] float explosionVolume = 1f;
 

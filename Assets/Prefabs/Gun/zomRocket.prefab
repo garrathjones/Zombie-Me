@@ -138,9 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   bulletBlastMultiplierX: 2.5
-  bulletBlastMultiplierY: 12
+  bulletBlastMultiplierY: 40
   bodyPartBulletBlastMultiplierX: 10
-  bodyPartBulletBlastMultiplierY: 10
+  bodyPartBulletBlastMultiplierY: 20
   dustDuration: 2
   splatDuration: 5
   disablePlayerRunDuration: 1.2

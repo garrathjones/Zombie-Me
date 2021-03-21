@@ -222,9 +222,16 @@ public class ZombieMovement : MonoBehaviour
     public void GiveZombieVelocityOnHit(Bullet bullet)
     {
         Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
-        Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), Math.Abs(bulletVelocity.y * bullet.GetBulletBlastMultiplierY()));
-        zombieRigidBody.velocity = newVelocity;
+        if (bullet.isRocket)
+        {
+            Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), bullet.GetBulletBlastMultiplierY());
+            zombieRigidBody.velocity = newVelocity;
+        }
+        if (!bullet.isRocket)
+        {
+            Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), zombieRigidBody.velocity.y * bullet.GetBulletBlastMultiplierY());
+            zombieRigidBody.velocity = newVelocity;
+        }
     }
-
 
 }
