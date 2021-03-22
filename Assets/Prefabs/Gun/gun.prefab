@@ -269,10 +269,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1317502883944733505, guid: 47c192045320c0d458ee0d3c17066484,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1317502883944733511, guid: 47c192045320c0d458ee0d3c17066484,
         type: 3}
       propertyPath: m_Name
       value: Smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317502883944733511, guid: 47c192045320c0d458ee0d3c17066484,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c192045320c0d458ee0d3c17066484, type: 3}
