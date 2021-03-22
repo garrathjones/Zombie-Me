@@ -39,6 +39,7 @@ public class ZombieHealth : MonoBehaviour
         Machete machete = other.gameObject.GetComponent<Machete>();
         SlideKick slideKick = other.gameObject.GetComponent<SlideKick>();
         if (!bullet && !machete && !slideKick) { return; }
+        if(!alive) { return; }
         if (bullet)
         {
             ProcessBulletHit(bullet);

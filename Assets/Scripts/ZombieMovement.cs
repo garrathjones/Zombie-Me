@@ -171,6 +171,7 @@ public class ZombieMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (!zombieHealth.alive) { return; }
         if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("TakingDamage"))
         {
             return;

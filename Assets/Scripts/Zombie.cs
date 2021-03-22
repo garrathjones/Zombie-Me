@@ -18,6 +18,7 @@ public class Zombie : MonoBehaviour
 
     ZombieHealth zombieHealth;
     ZombieMovement zombieMovement;
+    Rigidbody2D zombieRigidBody;
     public Animator zombieAnimator;
     UnityEngine.U2D.IK.IKManager2D zombieIK2D;
     public GameObject[] BodyParts;
@@ -25,6 +26,7 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         zombieAnimator = GetComponent<Animator>();
+        zombieRigidBody = GetComponent<Rigidbody2D>();
         zombieHealth = GetComponent<ZombieHealth>();
         zombieMovement = GetComponent<ZombieMovement>();
         zombieIK2D = GetComponent<UnityEngine.U2D.IK.IKManager2D>();     
@@ -86,6 +88,7 @@ public class Zombie : MonoBehaviour
         zombieMovement.zombieRigidBody.isKinematic = true;
         zombieMovement.zombieRigidBody.transform.position = mainBone.transform.position;
         ragDolled = true;
+        zombieRigidBody.bodyType = RigidbodyType2D.Static;
     }
 
 }

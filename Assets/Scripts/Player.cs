@@ -316,22 +316,26 @@ public class Player : MonoBehaviour
     }
     private void GivePlayerVelocityOnHit(Bullet bullet)
     {
-        Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
-        if(bullet.isRocket)
+        if(alive)
         {
-            Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), bullet.GetBulletBlastMultiplierY());
-            playerRigidBody.velocity = newVelocity;
-        }
-        if(!bullet.isRocket)
-        {
-            Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), playerRigidBody.velocity.y * bullet.GetBulletBlastMultiplierY());
-            playerRigidBody.velocity = newVelocity;
-        }        
-        if(playerRigidBody.velocity.x > hitVelocityToCauseFlip || playerRigidBody.velocity.y > hitVelocityToCauseFlip)
-        {
-            FlipAnimation();
+            Vector2 bulletVelocity = bullet.GetComponent<Rigidbody2D>().velocity;
+            if (bullet.isRocket)
+            {
+                Vector2 newVelocity = new Vector2(bulletVelocity.x * bullet.GetBulletBlastMultiplierX(), bullet.GetBulletBlastMultiplierY());
+                playerRigidBody.velocity = newVelocity;
+            }
+            if (!bullet.isRocket)
+            {
+                Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), playerRigidBody.velocity.y * bullet.GetBulletBlastMultiplierY());
+                playerRigidBody.velocity = newVelocity;
+            }
+            if (playerRigidBody.velocity.x > hitVelocityToCauseFlip || playerRigidBody.velocity.y > hitVelocityToCauseFlip)
+            {
+                FlipAnimation();
+            }
         }
     }
+
 
 
     public void PlayerDamage(float damage)
@@ -369,7 +373,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        BleedWhenDead();
+       // BleedWhenDead();
         DeathKick();
         MakeRagDoll();
         slomoController.SlomoOn();
@@ -450,7 +454,7 @@ public class Player : MonoBehaviour
             BodyParts[i].GetComponent<Collider2D>().enabled = true;
         }
         ragDolled = true;
-
+        playerRigidBody.bodyType = RigidbodyType2D.Static;
     }
 
 
