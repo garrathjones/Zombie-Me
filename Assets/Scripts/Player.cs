@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     Pause pause;
     AlmostDeadBleed almostDeadBleed;
     SlomoController slomoController;
+    CinemachineSwitcher cinemachineSwitcher;
 
 
     void Start()
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
         almostDeadBleed = GetComponent<AlmostDeadBleed>();
         pause = FindObjectOfType<Pause>();
         slomoController = FindObjectOfType<SlomoController>();
+        cinemachineSwitcher = FindObjectOfType<CinemachineSwitcher>();
     }
 
     private void Update()
@@ -329,6 +331,10 @@ public class Player : MonoBehaviour
 
     private void ProcessBulletHit(Bullet bullet)
     {
+        if(bullet.isRocket)
+        {
+            cinemachineSwitcher.ExplosionCamera();
+        }
         hit = true;
         jumping = false;
         PlayerDamage(bullet.GetDamage());
@@ -337,6 +343,9 @@ public class Player : MonoBehaviour
         float waitTime = bullet.GetDisablePlayerRunDuration();
         StartCoroutine(PlayerHit(waitTime));
     }
+
+
+
 
     IEnumerator PlayerHit(float waitTime)
     {
