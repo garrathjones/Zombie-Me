@@ -16662,7 +16662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6509723417998583494}
   m_LocalRotation: {x: -0, y: -0, z: -0.718255, w: 0.69578}
-  m_LocalPosition: {x: 0.5090013, y: 0.03000009, z: 0}
+  m_LocalPosition: {x: 0.487, y: 0.031, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 904776182640107714}
@@ -22321,7 +22321,7 @@ MonoBehaviour:
   jumpSpeed: 7
   flipSlomoTime: 1
   fallMultiplier: 2.5
-  deathKickSpeed: 8
+  deathKickSpeed: 10
   velocityCapX: 15
   velocityCapY: 15
   hitVelocityToCauseFlip: 8
@@ -22594,12 +22594,12 @@ PrefabInstance:
     - target: {fileID: 2558016186615738855, guid: 69da6de7d645dec469f318c62e4eccf9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44328648
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2558016186615738855, guid: 69da6de7d645dec469f318c62e4eccf9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02293861
+      value: -0.024
       objectReference: {fileID: 0}
     - target: {fileID: 2558016186615738855, guid: 69da6de7d645dec469f318c62e4eccf9,
         type: 3}

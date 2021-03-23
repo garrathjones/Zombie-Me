@@ -43,13 +43,13 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject torsoBleedPoint;
     [SerializeField] float bleedDuration = 5f;
 
-
+    float smallDelay = 0.5f;
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
     bool hit = false;
     bool torsoBleeding = false;
-
+    bool jumping = false;
 
     Animator playerAnimator;
     Rigidbody2D playerRigidBody;
@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     {
         if(!pause.paused)
         {
+            Debug.Log("jumpign = " + jumping);
             FallModifier();
             if (alive)
             {
@@ -139,13 +140,20 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        Vector2 playerVeloctiy = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
-        playerRigidBody.velocity = playerVeloctiy;
+        HorizontalMotionControl();
         bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
         playerAnimator.SetBool("Running", playerHasHorizontalSpeed);
         Slide();
     }
+
+    private void HorizontalMotionControl()
+    {
+        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        Vector2 playerVeloctiy = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
+        playerRigidBody.velocity = playerVeloctiy;
+    }
+
+
 
     private void Duck()
     {
@@ -195,8 +203,28 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
             Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
             playerRigidBody.velocity = newVelocity;
+            groundCheckCollider.enabled = false;
+            touchingFloor = false;
+            jumping = true;
+            StartCoroutine(SmallDelay());
+            groundCheckCollider.enabled = true;
+
+        }
+        if(jumping)
+        {
+            HorizontalMotionControl();
+        }
+        if(touchingFloor)
+        {
+            jumping = false;
         }
     }
+
+    IEnumerator SmallDelay()
+    {
+        yield return new WaitForSeconds(smallDelay);
+    }
+
 
     private void Flip()
     {
@@ -302,6 +330,7 @@ public class Player : MonoBehaviour
     private void ProcessBulletHit(Bullet bullet)
     {
         hit = true;
+        jumping = false;
         PlayerDamage(bullet.GetDamage());
         GivePlayerVelocityOnHit(bullet);
         bullet.DestroyBulletWithBloodSplat();

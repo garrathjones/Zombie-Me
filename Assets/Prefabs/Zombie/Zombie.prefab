@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6726ad8bd12a8ad45a47f4e573aa8a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanSeePlayerDistance: 25
+  CanSeePlayerDistance: 20
   StopAtDistanceFromPlayer: 0
   runSpeed: 4
   jumpSpeed: 5
@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a05d619a0b2c4cb5f50e676c4c671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathKickSpeed: 8
+  deathKickSpeed: 10
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
