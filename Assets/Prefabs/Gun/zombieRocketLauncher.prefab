@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231a077bd33ddd341aa3eee6a8bc2115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 12
   shootSound: {fileID: 8300000, guid: 6771d4dd7581e7c46901c3182c69f079, type: 3}
   shootSoundVolume: 0.838
   bulletPrefab: {fileID: 3547458333759893242, guid: 9ecc84d5fdab21b4cad76e7ef9c550c3,
