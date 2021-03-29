@@ -30,6 +30,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] ParticleSystem rocketSmoke;
 
+    bool damageDone = false;
+
     private void Update()
     {
         if(isRocket)
@@ -41,7 +43,16 @@ public class Bullet : MonoBehaviour
 
     public int GetDamage()
     {
-        return damage;
+        if (damageDone)
+        {
+            return 0;
+        }
+        else
+        {
+            damageDone = true;
+            return damage;
+        }
+        
     }
 
     public float GetDisablePlayerRunDuration()

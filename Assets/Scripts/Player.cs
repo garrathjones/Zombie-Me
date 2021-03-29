@@ -76,7 +76,6 @@ public class Player : MonoBehaviour
     {
         if(!pause.paused)
         {
-            Debug.Log("jumpign = " + jumping);
             FallModifier();
             if (alive)
             {
@@ -117,9 +116,6 @@ public class Player : MonoBehaviour
             Vector2 cappedYVelocity = new Vector2(playerRigidBody.velocity.x, velocityCapY);
             playerRigidBody.velocity = cappedYVelocity;
         }
-
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -158,8 +154,7 @@ public class Player : MonoBehaviour
 
 
     private void Duck()
-    {
-        
+    {        
         if (!playerAnimator.GetBool("Duck"))
         {
             float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
@@ -167,8 +162,7 @@ public class Player : MonoBehaviour
             {
                 playerAnimator.SetBool("Duck", true);
             }
-        }       
-    
+        }     
     }
 
     private void UnDuck()
@@ -181,8 +175,7 @@ public class Player : MonoBehaviour
             {
                 playerAnimator.SetBool("Duck", false);
             }
-        }
-            
+        }            
     }
 
     private void RunBob()
@@ -193,8 +186,7 @@ public class Player : MonoBehaviour
 
 
     private void Jump()
-    {
-        
+    {        
         if (PlayerIsFlipping() || PlayerIsSliding())
         {
             return;
@@ -210,7 +202,6 @@ public class Player : MonoBehaviour
             jumping = true;
             StartCoroutine(SmallDelay());
             groundCheckCollider.enabled = true;
-
         }
         if(jumping)
         {
@@ -267,7 +258,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     private void Slide()
     {
 
@@ -298,7 +288,6 @@ public class Player : MonoBehaviour
 
         }
     }
-
 
     private void FallModifier()
     {
@@ -345,8 +334,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-
     IEnumerator PlayerHit(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -388,7 +375,7 @@ public class Player : MonoBehaviour
                 almostDeadBleed.AlmostDeadBleeding();
             }
             if (health <= 0)
-            {
+            {    
                 Die();
             }
         }
@@ -411,7 +398,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-       // BleedWhenDead();
+        // BleedWhenDead();
+        health = 0;
         DeathKick();
         MakeRagDoll();
         slomoController.SlomoOn();
