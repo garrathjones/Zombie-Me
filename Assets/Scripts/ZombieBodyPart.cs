@@ -27,7 +27,8 @@ public class ZombieBodyPart : MonoBehaviour
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
         Machete machete = other.gameObject.GetComponent<Machete>();
         SlideKick slideKick = other.gameObject.GetComponent<SlideKick>();
-        if (!bullet && !machete && !slideKick) { return; }
+        Pipe pipe = other.gameObject.GetComponent<Pipe>();
+        if (!bullet && !machete && !slideKick && !pipe) { return; }
         if (bullet)
         {
             ProcessBulletHit(bullet);
@@ -40,7 +41,18 @@ public class ZombieBodyPart : MonoBehaviour
         {
             ProcessSlideKick(slideKick);
         }
+        if (pipe)
+        {
+            PipeThrust(pipe);
+        }
     }
+
+    private void PipeThrust(Pipe pipe)
+    {
+        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX, bodyPartRigidBody.velocity.y + pipe.thrustY);
+    }
+
+
 
     private void ProcessBulletHit(Bullet bullet)
     {

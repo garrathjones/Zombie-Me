@@ -36,13 +36,24 @@ public class PlayerBodyPart : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
-        if (!bullet) { return; }
+        Pipe pipe = other.gameObject.GetComponent<Pipe>();
+        if (!bullet && !pipe) { return; }
         if (bullet)
         {
             ProcessBulletHit(bullet);
         }
+        if(pipe)
+        {
+            PipeThrust(pipe);
+        }
 
     }
+
+    private void PipeThrust(Pipe pipe)
+    {
+        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX, bodyPartRigidBody.velocity.y + pipe.thrustY);
+    }
+
     private void ProcessBulletHit(Bullet bullet)
     {
         //AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, hitSoundVolume);
