@@ -121,12 +121,33 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
-        if (!bullet) { return; }
+        Pipe pipe = other.gameObject.GetComponent<Pipe>();
+        if (!bullet && !pipe) { return; }
         if (bullet)
         {
             ProcessBulletHit(bullet);
         }
+        if(pipe)
+        {
+            PipeThrust(pipe);
+        }
     }
+
+    private void PipeThrust(Pipe pipe)
+    {
+        playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x + pipe.thrustX, playerRigidBody.velocity.y + pipe.thrustY);
+        AllowXMovementInAir();
+    }
+
+    private void AllowXMovementInAir()
+    {
+        groundCheckCollider.enabled = false;
+        touchingFloor = false;
+        jumping = true;
+        StartCoroutine(SmallDelay());
+        groundCheckCollider.enabled = true;
+    }
+
 
     private void Run()
     {
@@ -197,11 +218,7 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
             Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
             playerRigidBody.velocity = newVelocity;
-            groundCheckCollider.enabled = false;
-            touchingFloor = false;
-            jumping = true;
-            StartCoroutine(SmallDelay());
-            groundCheckCollider.enabled = true;
+            AllowXMovementInAir();
         }
         if(jumping)
         {
