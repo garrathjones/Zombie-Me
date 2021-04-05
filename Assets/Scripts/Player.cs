@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float runBob = 2f;
     [SerializeField] float slideSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float pipeThrustOffset = -2f;
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     //[SerializeField] float RagDollKick = 5f;
@@ -135,7 +136,9 @@ public class Player : MonoBehaviour
 
     private void PipeThrust(Pipe pipe)
     {
-        playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x + pipe.thrustX, playerRigidBody.velocity.y + pipe.thrustY);
+        Debug.Log("player Y velocity before: " + playerRigidBody.velocity.y);
+        playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x + pipe.thrustX, playerRigidBody.velocity.y + pipe.thrustY + pipeThrustOffset);
+        Debug.Log("player Y velocity after: " + playerRigidBody.velocity.y);
         AllowXMovementInAir();
     }
 

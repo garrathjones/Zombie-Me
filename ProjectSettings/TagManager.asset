@@ -62,3 +62,9 @@ TagManager:
   - name: ZombieBlood
     uniqueID: 3874125743
     locked: 0
+  - name: Steam
+    uniqueID: 1785767781
+    locked: 0
+  - name: Pipe
+    uniqueID: 4161736315
+    locked: 0

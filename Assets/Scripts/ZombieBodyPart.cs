@@ -12,6 +12,9 @@ public class ZombieBodyPart : MonoBehaviour
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
 
+    [SerializeField] float pipeThrustMultiplier = 2f;
+
+
     bool bodyPartIsBleeding = false;
 
     void Start()
@@ -49,7 +52,7 @@ public class ZombieBodyPart : MonoBehaviour
 
     private void PipeThrust(Pipe pipe)
     {
-        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX, bodyPartRigidBody.velocity.y + pipe.thrustY);
+        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX * pipeThrustMultiplier, bodyPartRigidBody.velocity.y + pipe.thrustY * pipeThrustMultiplier);
     }
 
 

@@ -9,6 +9,7 @@ public class PlayerBodyPart : MonoBehaviour
     [SerializeField] float bleedingDuration = 5f;
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
+    [SerializeField] float pipeThrustMultiplier = 2f;
 
     bool bodyPartIsBleeding = false;
 
@@ -51,7 +52,7 @@ public class PlayerBodyPart : MonoBehaviour
 
     private void PipeThrust(Pipe pipe)
     {
-        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX, bodyPartRigidBody.velocity.y + pipe.thrustY);
+        bodyPartRigidBody.velocity = new Vector2(bodyPartRigidBody.velocity.x + pipe.thrustX * pipeThrustMultiplier, bodyPartRigidBody.velocity.y + pipe.thrustY * pipeThrustMultiplier);
     }
 
     private void ProcessBulletHit(Bullet bullet)
