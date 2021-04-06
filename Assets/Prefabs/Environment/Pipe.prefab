@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17386c9c6e7815343a909f92ce8d94d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustY: 5
+  thrustY: 7
   thrustX: 0
   steamFX: {fileID: 4152919505272389898}
   steamCollider: {fileID: 4731197233677604750}

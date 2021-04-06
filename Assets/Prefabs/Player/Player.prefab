@@ -5155,6 +5155,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &836655404151655033
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,6 +10115,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &1340400348594211043
 GameObject:
   m_ObjectHideFlags: 0
@@ -10398,6 +10400,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &2043612073365453921
 GameObject:
   m_ObjectHideFlags: 0
@@ -10510,6 +10513,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &2047911396841060331
 GameObject:
   m_ObjectHideFlags: 0
@@ -15962,6 +15966,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &4483534782437986501
 GameObject:
   m_ObjectHideFlags: 0
@@ -16105,6 +16110,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &4600827418320539814
 GameObject:
   m_ObjectHideFlags: 0
@@ -16216,6 +16222,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &4647258803102756794
 GameObject:
   m_ObjectHideFlags: 0
@@ -16359,6 +16366,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &6071610749201883584
 GameObject:
   m_ObjectHideFlags: 0
@@ -16637,6 +16645,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1 &6509723417998583494
 GameObject:
   m_ObjectHideFlags: 0
@@ -22319,6 +22328,8 @@ MonoBehaviour:
   runBob: 0
   slideSpeed: 10
   jumpSpeed: 7
+  pipeThrustOffset: 0
+  pipeHitDelayTime: 0.5
   flipSlomoTime: 1
   fallMultiplier: 2.5
   deathKickSpeed: 10
@@ -22494,6 +22505,7 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
+  pipeThrustMultiplier: 2
 --- !u!1001 &3423460123537618854
 PrefabInstance:
   m_ObjectHideFlags: 0

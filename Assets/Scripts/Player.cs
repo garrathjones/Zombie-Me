@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] float runBob = 2f;
     [SerializeField] float slideSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
-    [SerializeField] float pipeThrustOffset = -2f;
+    [SerializeField] float pipeThrustOffset = 0f;
+    [SerializeField] float pipeHitDelayTime = 0.3f;
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     //[SerializeField] float RagDollKick = 5f;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
     bool alive = true;
     bool touchingFloor;
     bool hit = false;
+    bool pipeHit = false;
     bool torsoBleeding = false;
     bool jumping = false;
 
@@ -84,7 +86,13 @@ public class Player : MonoBehaviour
                 {
                     Run();
                 }
-                                           
+
+                if (pipeHit)
+                {
+                    AllowXMovementInAir();
+                    HorizontalMotionControl();
+                }
+
                 Flip();
                 Jump();
                 FlipSprite();
@@ -136,11 +144,23 @@ public class Player : MonoBehaviour
 
     private void PipeThrust(Pipe pipe)
     {
+        if (pipeHit)
+        {
+            return;
+        }
+        pipeHit = true;
         Debug.Log("player Y velocity before: " + playerRigidBody.velocity.y);
         playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x + pipe.thrustX, playerRigidBody.velocity.y + pipe.thrustY + pipeThrustOffset);
         Debug.Log("player Y velocity after: " + playerRigidBody.velocity.y);
-        AllowXMovementInAir();
+        StartCoroutine(PipeHitDelay(pipeHitDelayTime));
     }
+
+    IEnumerator PipeHitDelay(float waitTime)
+    {
+        yield return new WaitForSeconds(pipeHitDelayTime);
+        pipeHit = false;
+    }
+
 
     private void AllowXMovementInAir()
     {
@@ -158,10 +178,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if(hit)
-        {
-            return;
-        }
+        if(hit) { return; }
         HorizontalMotionControl();
         bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
         playerAnimator.SetBool("Running", playerHasHorizontalSpeed);
