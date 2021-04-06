@@ -9,6 +9,7 @@ public class HittableObject : MonoBehaviour
     Player player;
     Transform playerTransform;
     [SerializeField] float bulletVelocityDampeningMultiplier = 0.1f;
+    [SerializeField] float pipeThrustMultiplier = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class HittableObject : MonoBehaviour
         Bullet bullet = other.gameObject.GetComponent<Bullet>();
         Machete machete = other.gameObject.GetComponent<Machete>();
         SlideKick slideKick = other.gameObject.GetComponent<SlideKick>();
-        if (!bullet && !machete && !slideKick) { return; }
+        Pipe pipe = other.gameObject.GetComponent<Pipe>();
+        if (!bullet && !machete && !slideKick && !pipe) { return; }
         if (bullet)
         {
             ProcessBulletHit(bullet);
@@ -37,6 +39,10 @@ public class HittableObject : MonoBehaviour
         if (slideKick)
         {
             ProcessSlideKick(slideKick);
+        }
+        if (pipe)
+        {
+            PipeThrust(pipe);
         }
     }
 
@@ -61,7 +67,10 @@ public class HittableObject : MonoBehaviour
         Vector2 kickVelocity = slideKick.GetSlideKickVelocity() * new Vector2(DirectionOfPlayer(), 1);
         rigidBody.velocity = kickVelocity;
     }
-
+    private void PipeThrust(Pipe pipe)
+    {
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x + pipe.thrustX * pipeThrustMultiplier, rigidBody.velocity.y + pipe.thrustY * pipeThrustMultiplier);
+    }
     private float DirectionOfPlayer()
     {
         if (playerTransform.position.x > transform.position.x)
