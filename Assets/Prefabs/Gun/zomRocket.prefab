@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  bulletBlastMultiplierX: 2.5
+  bulletBlastMultiplierX: 1.7
   bulletBlastMultiplierY: 40
   bodyPartBulletBlastMultiplierX: 10
   bodyPartBulletBlastMultiplierY: 20

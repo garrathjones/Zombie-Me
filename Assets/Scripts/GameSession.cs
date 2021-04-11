@@ -7,13 +7,18 @@ public class GameSession : MonoBehaviour
 {
     public bool gameWon = false;
     private float finalTime = 0f;
+    private int finalKills = 0;
+
     
     Timer timer;
+    KillCounter killCounter;
     
     private void Awake()
     {
         SetUpSingleton();
     }
+
+
 
     private void SetUpSingleton()
     {
@@ -32,8 +37,11 @@ public class GameSession : MonoBehaviour
    {
         timer = FindObjectOfType<Timer>();
         finalTime = timer.ReadTimer();
+        killCounter = FindObjectOfType<KillCounter>();
+        finalKills = killCounter.ReadKills();
         gameWon = true;
    }
+
 
     public void ResetGame()
     {
@@ -43,5 +51,9 @@ public class GameSession : MonoBehaviour
     public float GetEndTime()
     {
         return finalTime;
+    }
+    public int GetFinalKills()
+    {
+        return finalKills;
     }
 }

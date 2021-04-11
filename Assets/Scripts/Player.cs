@@ -388,7 +388,7 @@ public class Player : MonoBehaviour
             }
             if (!bullet.isRocket)
             {
-                Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), playerRigidBody.velocity.y * bullet.GetBulletBlastMultiplierY());
+                Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x * bullet.GetBulletBlastMultiplierX(), bullet.GetBulletBlastMultiplierY());
                 playerRigidBody.velocity = newVelocity;
             }
             if (playerRigidBody.velocity.x > hitVelocityToCauseFlip || playerRigidBody.velocity.y > hitVelocityToCauseFlip)

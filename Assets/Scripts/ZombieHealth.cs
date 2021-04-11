@@ -119,6 +119,8 @@ public class ZombieHealth : MonoBehaviour
         zombie.MakeRagDoll();
         alive = false;
         zombie.BleedWhenDead();
+        var killCounter = FindObjectOfType<KillCounter>();
+        killCounter.AddKill();
     }
 
 }
