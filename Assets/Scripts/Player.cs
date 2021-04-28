@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityStandardAssets.CrossPlatformInput;
 
 
@@ -19,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
     [SerializeField] float deathKickSpeed = 5f;
+    [SerializeField] float ragDollSpinMin = -500f;
+    [SerializeField] float ragDollSpinMax = 500f;
     [SerializeField] float velocityCapX = 20f;
     [SerializeField] float velocityCapY = 20f;
     [SerializeField] float hitVelocityToCauseFlip = 8f;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] CapsuleCollider2D feetCollider;
     [SerializeField] BoxCollider2D groundCheckCollider;
     [SerializeField] Machete machete;
+    [SerializeField] Gun gun;
     [SerializeField] SlideKick slideKick;
 
     [SerializeField] AudioClip footstepSFX;
@@ -416,6 +418,8 @@ public class Player : MonoBehaviour
     public void FallToDeath()
     {
         health = 0;
+        machete.DropMachete();
+        gun.DropGun();
         BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();
@@ -425,9 +429,11 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        // BleedWhenDead();
-        health = 0;
         DeathKick();
+        health = 0;
+        machete.DropMachete();
+        gun.DropGun();
+        BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();
         alive = false;
@@ -504,6 +510,11 @@ public class Player : MonoBehaviour
             var bodyPartRigidBody = BodyParts[i].GetComponent<Rigidbody2D>();
             bodyPartRigidBody.isKinematic = false;
             bodyPartRigidBody.velocity = playerRigidBody.velocity;
+            if(BodyParts[i].GetComponent<PlayerBodyPart>().isTorso)
+            {            
+                float randomSpin = UnityEngine.Random.Range(ragDollSpinMin, ragDollSpinMax);
+                bodyPartRigidBody.angularVelocity = randomSpin;
+            }
             BodyParts[i].GetComponent<Collider2D>().enabled = true;
         }
         ragDolled = true;

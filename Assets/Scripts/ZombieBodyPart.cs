@@ -11,6 +11,7 @@ public class ZombieBodyPart : MonoBehaviour
     [SerializeField] float bleedingDuration = 5f;
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
+    [SerializeField] public bool isTorso = false;
 
     [SerializeField] float pipeThrustMultiplier = 2f;
 

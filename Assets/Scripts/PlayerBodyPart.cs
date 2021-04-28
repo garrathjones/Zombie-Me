@@ -10,6 +10,7 @@ public class PlayerBodyPart : MonoBehaviour
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
     [SerializeField] float pipeThrustMultiplier = 2f;
+    [SerializeField] public bool isTorso = false; 
 
     bool bodyPartIsBleeding = false;
 

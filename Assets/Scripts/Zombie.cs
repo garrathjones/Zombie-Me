@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Zombie : MonoBehaviour
 {
     [SerializeField] float deathKickSpeed = 5f;
+    [SerializeField] float ragDollSpinMin = -3000f;
+    [SerializeField] float ragDollSpinMax = 3000f;
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
     [SerializeField] GameObject torsoBleedPoint;
@@ -83,6 +84,11 @@ public class Zombie : MonoBehaviour
             var bodyPartRigidBody = BodyParts[i].GetComponent<Rigidbody2D>();
             bodyPartRigidBody.isKinematic = false;
             bodyPartRigidBody.velocity = zombieMovement.zombieRigidBody.velocity;
+            if (BodyParts[i].GetComponent<ZombieBodyPart>().isTorso)
+            {
+                float randomSpin = Random.Range(ragDollSpinMin, ragDollSpinMax);
+                bodyPartRigidBody.angularVelocity = randomSpin;
+            }
             BodyParts[i].GetComponent<Collider2D>().enabled = true;
         }
         zombieMovement.zombieRigidBody.isKinematic = true;

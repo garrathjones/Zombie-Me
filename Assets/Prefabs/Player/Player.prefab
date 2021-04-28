@@ -5156,6 +5156,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &836655404151655033
 GameObject:
   m_ObjectHideFlags: 0
@@ -10116,6 +10117,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &1340400348594211043
 GameObject:
   m_ObjectHideFlags: 0
@@ -10401,6 +10403,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &2043612073365453921
 GameObject:
   m_ObjectHideFlags: 0
@@ -10514,6 +10517,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &2047911396841060331
 GameObject:
   m_ObjectHideFlags: 0
@@ -15967,6 +15971,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &4483534782437986501
 GameObject:
   m_ObjectHideFlags: 0
@@ -16111,6 +16116,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &4600827418320539814
 GameObject:
   m_ObjectHideFlags: 0
@@ -16223,6 +16229,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &4647258803102756794
 GameObject:
   m_ObjectHideFlags: 0
@@ -16367,6 +16374,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1 &6071610749201883584
 GameObject:
   m_ObjectHideFlags: 0
@@ -16646,6 +16654,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 1
 --- !u!1 &6509723417998583494
 GameObject:
   m_ObjectHideFlags: 0
@@ -21776,6 +21785,7 @@ MonoBehaviour:
   macheteHitYVelocity: 2
   macheteDeathHitXVelocity: 5
   macheteDeathHitYVelocity: 8
+  dropMacheteSpin: 1000
   bloodSplat: {fileID: 9099706995083613808, guid: 540ead403bf49804eb8bab43ec77f4d5,
     type: 3}
   splatDuration: 5
@@ -22331,6 +22341,8 @@ MonoBehaviour:
   flipSlomoTime: 1
   fallMultiplier: 2.5
   deathKickSpeed: 10
+  ragDollSpinMin: -500
+  ragDollSpinMax: 500
   velocityCapX: 15
   velocityCapY: 15
   hitVelocityToCauseFlip: 8
@@ -22340,6 +22352,7 @@ MonoBehaviour:
   feetCollider: {fileID: 7919921395628664956}
   groundCheckCollider: {fileID: 8495669949925111809}
   machete: {fileID: 5546204470380019738}
+  gun: {fileID: 1113478804217190963}
   slideKick: {fileID: 3297857555535195949}
   footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
   footstepVolume: 0.3
@@ -22504,6 +22517,7 @@ MonoBehaviour:
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
   pipeThrustMultiplier: 2
+  isTorso: 0
 --- !u!1001 &3423460123537618854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22583,6 +22597,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfe3fe1c556c6434fba07cda664a0af7, type: 3}
+--- !u!114 &1113478804217190963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2373764011673415061, guid: bfe3fe1c556c6434fba07cda664a0af7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3423460123537618854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4af0d8cea2693469254f46de93bd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1113478804217190964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2373764011673415058, guid: bfe3fe1c556c6434fba07cda664a0af7,

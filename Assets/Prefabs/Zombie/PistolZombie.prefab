@@ -654,6 +654,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &487146067798081391
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +872,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &1950160763128927491
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +966,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 1
+  pipeThrustMultiplier: 2
 --- !u!1 &2449953780201422373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1080,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &3008671658148759099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1194,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &3766100390431547097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathKickSpeed: 10
+  ragDollSpinMin: -3000
+  ragDollSpinMax: 3000
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
@@ -1956,6 +1968,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &5492705055262561005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2083,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &6465077441919440302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2228,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &7875606662328943477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2446,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &8586150821707630229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2560,8 @@ MonoBehaviour:
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
     type: 3}
+  isTorso: 0
+  pipeThrustMultiplier: 2
 --- !u!1 &8802090324469753147
 GameObject:
   m_ObjectHideFlags: 0
