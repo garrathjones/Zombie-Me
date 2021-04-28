@@ -9,7 +9,8 @@ public class Machete : MonoBehaviour
     [SerializeField] float macheteHitYVelocity = 2f;
     [SerializeField] float macheteDeathHitXVelocity = 5f;
     [SerializeField] float macheteDeathHitYVelocity = 10f;
-    [SerializeField] GameObject bloodSplat;
+    [SerializeField] float dropMacheteSpin = 1000f;
+[SerializeField] GameObject bloodSplat;
     [SerializeField] float splatDuration = 5f;
     [SerializeField] TrailFX trail;
 
@@ -35,10 +36,10 @@ public class Machete : MonoBehaviour
 
     private void Update()
     {
-        if (!player.PlayerAlive())
-        {
-            DropMachete();
-        }
+        //if (!player.PlayerAlive())
+        //{
+        //    DropMachete();
+        //}
     }
     public int GetDamage()
     {
@@ -71,9 +72,11 @@ public class Machete : MonoBehaviour
 
 
 
-    private void DropMachete()
+    public void DropMachete()
     {
         macheteRigidBody.isKinematic = false;
+        macheteRigidBody.velocity = player.GetComponent<Rigidbody2D>().velocity;
+        macheteRigidBody.angularVelocity = dropMacheteSpin;
         macheteDropCollider.enabled = true;
     }
 

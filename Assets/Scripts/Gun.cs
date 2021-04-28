@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 100f;
+    [SerializeField] float dropGunSpin = 1000f;
     [SerializeField] float bulletFiringPeriod = 0.1f;
     [SerializeField] AudioClip shootSound;
     [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.5f;
@@ -35,10 +36,10 @@ public class Gun : MonoBehaviour
     void Update()
     {
         Fire();
-        if (!player.PlayerAlive())
-        {
-            DropGun();
-        }
+        //if (!player.PlayerAlive())
+        //{
+        //    DropGun();
+        //}
 
     }
 
@@ -89,6 +90,8 @@ public class Gun : MonoBehaviour
     public void DropGun()
     {
         gunRigidBody.isKinematic = false;
+        gunRigidBody.velocity = player.GetComponent<Rigidbody2D>().velocity;
+        gunRigidBody.angularVelocity = dropGunSpin; 
         gunCollider.enabled = true;
     }
 }
