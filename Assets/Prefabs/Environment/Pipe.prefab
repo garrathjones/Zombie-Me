@@ -49,8 +49,9 @@ MonoBehaviour:
   thrustX: 0
   steamFX: {fileID: 4152919505272389898}
   steamCollider: {fileID: 4731197233677604750}
-  timeOn: 5
-  timeOff: 2
+  timeOn: 6
+  colliderDelay: 0.7
+  timeOff: 3
 --- !u!70 &4731197233677604750
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
