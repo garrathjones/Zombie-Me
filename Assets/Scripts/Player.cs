@@ -12,14 +12,12 @@ public class Player : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] float almostDeadhealth = 30;
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] float runBob = 2f;
     [SerializeField] float slideSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float pipeThrustOffset = 0f;
     [SerializeField] float pipeHitDelayTime = 0.3f;
     [SerializeField] float flipSlomoTime = 1f;
     [SerializeField] float fallMultiplier = 3f;
-    //[SerializeField] float RagDollKick = 5f;
     [SerializeField] float deathKickSpeed = 5f;
     [SerializeField] float velocityCapX = 20f;
     [SerializeField] float velocityCapY = 20f;
@@ -52,7 +50,7 @@ public class Player : MonoBehaviour
     bool hit = false;
     bool pipeHit = false;
     bool torsoBleeding = false;
-    bool jumping = false;
+    //bool jumping = false;
 
     Animator playerAnimator;
     Rigidbody2D playerRigidBody;
@@ -82,15 +80,15 @@ public class Player : MonoBehaviour
             FallModifier();
             if (alive)
             {
-                if(touchingFloor)
+                if(!hit)
                 {
                     Run();
                 }
 
-                if (pipeHit)
+                //if (pipeHit)
                 {
-                    AllowXMovementInAir();
-                    HorizontalMotionControl();
+                    //AllowXMovementInAir();
+                    //HorizontalMotionControl();
                 }
 
                 Flip();
@@ -149,9 +147,7 @@ public class Player : MonoBehaviour
             return;
         }
         pipeHit = true;
-        Debug.Log("player Y velocity before: " + playerRigidBody.velocity.y);
         playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x + pipe.thrustX, playerRigidBody.velocity.y + pipe.thrustY + pipeThrustOffset);
-        Debug.Log("player Y velocity after: " + playerRigidBody.velocity.y);
         StartCoroutine(PipeHitDelay(pipeHitDelayTime));
     }
 
@@ -162,14 +158,14 @@ public class Player : MonoBehaviour
     }
 
 
-    private void AllowXMovementInAir()
-    {
-        groundCheckCollider.enabled = false;
-        touchingFloor = false;
-        jumping = true;
-        StartCoroutine(SmallDelay());
-        groundCheckCollider.enabled = true;
-    }
+    //private void AllowXMovementInAir()
+    //{
+    //    groundCheckCollider.enabled = false;
+    //    touchingFloor = false;
+    //    jumping = true;
+    //    StartCoroutine(SmallDelay());
+    //    groundCheckCollider.enabled = true;
+    //}
 
 
     private void Run()
@@ -219,12 +215,6 @@ public class Player : MonoBehaviour
         }            
     }
 
-    private void RunBob()
-    {
-        Vector2 newVelocity = new Vector2(0f, runBob);
-        playerRigidBody.velocity += newVelocity;
-    }
-
 
     private void Jump()
     {        
@@ -238,16 +228,16 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
             Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
             playerRigidBody.velocity = newVelocity;
-            AllowXMovementInAir();
+            //AllowXMovementInAir();
         }
-        if(jumping)
-        {
-            HorizontalMotionControl();
-        }
-        if(touchingFloor)
-        {
-            jumping = false;
-        }
+        //if(jumping)
+        //{
+        //    HorizontalMotionControl();
+        //}
+        //if(touchingFloor)
+        //{
+        //    jumping = false;
+        //}
     }
 
     IEnumerator SmallDelay()
@@ -362,9 +352,9 @@ public class Player : MonoBehaviour
             cinemachineSwitcher.ExplosionCamera();
         }
         hit = true;
-        jumping = false;
-        PlayerDamage(bullet.GetDamage());
+        //jumping = false;
         GivePlayerVelocityOnHit(bullet);
+        PlayerDamage(bullet.GetDamage());
         bullet.DestroyBulletWithBloodSplat();
         float waitTime = bullet.GetDisablePlayerRunDuration();
         StartCoroutine(PlayerHit(waitTime));
