@@ -11,6 +11,7 @@ public class Pipe : MonoBehaviour
     [SerializeField] CapsuleCollider2D steamCollider;
 
     [SerializeField] public float timeOn = 3f;
+    [SerializeField] public float onDelay = 1f;
     [SerializeField] public float timeOff = 1f;
 
     bool steamActive = false;
@@ -19,6 +20,7 @@ public class Pipe : MonoBehaviour
     {
         var main = steamFX.main;
         main.duration = timeOn;
+        steamCollider.enabled = false;
     }
 
 
@@ -32,9 +34,11 @@ public class Pipe : MonoBehaviour
 
     IEnumerator SteamOn(float timeOn)
     {
-        steamActive = true;  
-        steamCollider.enabled = true; 
+        steamActive = true;
         steamFX.Play();
+        yield return new WaitForSeconds(onDelay);
+
+        steamCollider.enabled = true;
         yield return new WaitForSeconds(timeOn);
         StartCoroutine(SteamOff(timeOff));
     }
