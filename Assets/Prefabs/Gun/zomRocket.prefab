@@ -143,7 +143,7 @@ MonoBehaviour:
   bodyPartBulletBlastMultiplierY: 20
   dustDuration: 2
   splatDuration: 5
-  disablePlayerRunDuration: 1.2
+  disablePlayerRunDuration: 2
   bulletImpactDust: {fileID: 2234925482739006672, guid: 9bae0b9ba6d795e45a6817ea5731a321,
     type: 3}
   bloodSplat: {fileID: 9099706995083613808, guid: 2476a061afb8db94aba601cfbb3b45aa,
