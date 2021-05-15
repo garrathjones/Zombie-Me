@@ -22336,15 +22336,15 @@ MonoBehaviour:
   runSpeed: 8
   slideSpeed: 10
   jumpSpeed: 7
-  pipeThrustOffset: 0
-  pipeHitDelayTime: 0.3
+  pipeThrustOffset: 4
+  pipeHitDelayTime: 0
   flipSlomoTime: 1
   fallMultiplier: 2.5
   deathKickSpeed: 10
   ragDollSpinMin: -500
   ragDollSpinMax: 500
   velocityCapX: 15
-  velocityCapY: 15
+  velocityCapY: 20
   hitVelocityToCauseFlip: 8
   torsoLocation: {fileID: 2709668468138644715}
   headCollider: {fileID: 7666401187713325665}

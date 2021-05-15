@@ -14,6 +14,8 @@ public class ZombieBodyPart : MonoBehaviour
     [SerializeField] public bool isTorso = false;
 
     [SerializeField] float pipeThrustMultiplier = 2f;
+    [SerializeField] float slideKickMultiplier = 5f;
+
 
 
     bool bodyPartIsBleeding = false;
@@ -77,7 +79,7 @@ public class ZombieBodyPart : MonoBehaviour
     private void ProcessSlideKick(SlideKick slideKick)
     {
         Vector2 kickVelocity = slideKick.GetSlideKickVelocity() * new Vector2(DirectionOfPlayer(), 1);
-        bodyPartRigidBody.velocity = kickVelocity;
+        bodyPartRigidBody.velocity = kickVelocity * slideKickMultiplier;
     }
 
 
