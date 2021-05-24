@@ -42,16 +42,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4731197233677604851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17386c9c6e7815343a909f92ce8d94d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5867bfb8c397a6042990270217e699d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustY: 7
+  thrustY: 10
   thrustX: 0
   steamFX: {fileID: 4152919505272389898}
   steamCollider: {fileID: 4731197233677604750}
-  timeOn: 6
+  timeOn: 8
   colliderDelay: 0.7
-  timeOff: 3
+  timeOff: 1
 --- !u!70 &4731197233677604750
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
