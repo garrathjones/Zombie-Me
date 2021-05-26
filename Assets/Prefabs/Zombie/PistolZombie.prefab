@@ -1651,7 +1651,7 @@ MonoBehaviour:
   health: 30
   alive: 1
   hitBySlideSFX: {fileID: 8300000, guid: dcc802b17615ef44c8f561f914a27651, type: 3}
-  hitBySlideSFXVolume: 0.25
+  hitBySlideSFXVolume: 0.6
 --- !u!114 &6209749696917032875
 MonoBehaviour:
   m_ObjectHideFlags: 0

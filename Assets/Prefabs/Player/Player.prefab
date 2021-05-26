@@ -22360,7 +22360,7 @@ MonoBehaviour:
   meleeVolume: 1
   dust: {fileID: 1870325020192119610}
   slideSFX: {fileID: 8300000, guid: 4a1816d45bb2e164d8f01b976b8f2bc4, type: 3}
-  slideVolume: 0.375
+  slideVolume: 0.31
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}
