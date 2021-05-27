@@ -25,7 +25,6 @@ public class ZombieAttack : MonoBehaviour
     PlayerPosition playerPosition;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         zombie = GetComponent<Zombie>();
@@ -35,11 +34,6 @@ public class ZombieAttack : MonoBehaviour
         playerPosition = GetComponent<PlayerPosition>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {

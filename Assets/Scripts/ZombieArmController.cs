@@ -11,13 +11,11 @@ public class ZombieArmController : MonoBehaviour
     bool regeneratingAimInaccuracy = false;
     float randomInaccuracy;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerPosition = FindObjectOfType<PlayerPosition>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Aiming();

@@ -8,7 +8,7 @@ public class PlayerPosition : MonoBehaviour
     Transform playerTransform;
     Transform playerTorsoPosition;
 
-    void Start()
+    void Awake()
     {
         player = FindObjectOfType<Player>();
         playerTransform = player.transform;

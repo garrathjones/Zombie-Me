@@ -12,15 +12,12 @@ public class ZombieFireGun : MonoBehaviour
 
     [SerializeField] float bulletFiringPeriod = 0.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
-
         zombieMovement = GetComponent<ZombieMovement>();
         zombieHealth = GetComponent<ZombieHealth>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Fire();

@@ -36,7 +36,6 @@ public class ZombieMovement : MonoBehaviour
     public bool playerInFiringRange = false;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         zombie = GetComponent<Zombie>();
