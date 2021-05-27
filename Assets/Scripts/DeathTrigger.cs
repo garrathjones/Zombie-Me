@@ -27,9 +27,9 @@ public class DeathTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.gameObject.GetComponent<Player>();
-        Zombie zombie = other.gameObject.GetComponent<Zombie>();
+        ZombieHealth zombieHealth = other.gameObject.GetComponent<ZombieHealth>();
 
-        if (!player && !zombie) { return; }
+        if (!player && !zombieHealth) { return; }
         if (player)
         {
             player.FallToDeath();
@@ -38,11 +38,11 @@ public class DeathTrigger : MonoBehaviour
             Destroy(splat, splatDuration);
 
         }
-        if (zombie)
+        if (zombieHealth)
         {
-            zombie.FallToDeath();
+            zombieHealth.FallToDeath();
             DeathSFX();
-            GameObject splat = Instantiate(bloodSplat, zombie.transform.position, zombie.transform.rotation);
+            GameObject splat = Instantiate(bloodSplat, zombieHealth.transform.position, zombieHealth.transform.rotation);
         }
 
     }

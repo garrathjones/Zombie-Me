@@ -13,9 +13,13 @@ public class Zombie : MonoBehaviour
     [SerializeField] GameObject torsoBleedPoint;
     [SerializeField] public GameObject mainBone;  
     [SerializeField] float bleedDuration = 5f;
+    [SerializeField] float destroyDeadZombieDelay = 10f;
+
 
     bool ragDolled = false;
     bool torsoBleeding = false;
+    bool destroyingZombie = false; 
+
 
     ZombieHealth zombieHealth;
     ZombieMovement zombieMovement;
@@ -41,12 +45,7 @@ public class Zombie : MonoBehaviour
         }
     }   
 
-    public void FallToDeath()
-    {
-        MakeRagDoll();
-        zombieHealth.alive = false;
-        BleedWhenDead();
-    }
+
 
     public void DeathKick()
     {
@@ -95,6 +94,21 @@ public class Zombie : MonoBehaviour
         zombieMovement.zombieRigidBody.transform.position = mainBone.transform.position;
         ragDolled = true;
         zombieRigidBody.bodyType = RigidbodyType2D.Static;
+    }
+
+    public void DestroyZombieGameObject()
+    {
+        if(destroyingZombie) { return; }
+        else
+        {
+            StartCoroutine(DestroyZombieDelay());
+        }
+        
+    }
+    IEnumerator DestroyZombieDelay()
+    {
+        yield return new WaitForSeconds(destroyDeadZombieDelay);
+        Destroy(gameObject);
     }
 
 }

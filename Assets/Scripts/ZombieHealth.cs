@@ -29,7 +29,7 @@ public class ZombieHealth : MonoBehaviour
         if (health <= 0)
         {
             zombieMovement.zombieRigidBody.constraints = RigidbodyConstraints2D.None;
-            Die();
+            Killed();            
         }
     }
 
@@ -111,7 +111,7 @@ public class ZombieHealth : MonoBehaviour
         CheckIfDead();
     }
 
-    private void Die()
+    private void Killed()
     {
         //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         slomoController.RandomSlomo();
@@ -121,6 +121,14 @@ public class ZombieHealth : MonoBehaviour
         zombie.BleedWhenDead();
         var killCounter = FindObjectOfType<KillCounter>();
         killCounter.AddKill();
+        zombie.DestroyZombieGameObject();
+    }
+    public void FallToDeath()
+    {
+        zombie.MakeRagDoll();
+        alive = false;
+        zombie.BleedWhenDead();
+        zombie.DestroyZombieGameObject();
     }
 
 }
