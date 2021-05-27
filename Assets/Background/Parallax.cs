@@ -19,7 +19,7 @@ public class Parallax : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         float temp = cam.transform.position.x * (1 - parallaxEffect);
         float dist = cam.transform.position.x * parallaxEffect; //how far we have moved in world space

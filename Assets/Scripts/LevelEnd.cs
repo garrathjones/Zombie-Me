@@ -28,6 +28,6 @@ public class LevelEnd : MonoBehaviour
 
     public void LoadWinScene()
     {
-        SceneManager.LoadScene("SpeedRunWin");
+        SceneManager.LoadScene("AdventureWin");
     }
 }

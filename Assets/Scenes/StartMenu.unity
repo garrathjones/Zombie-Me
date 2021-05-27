@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -242,7 +242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.8267, y: -407}
+  m_AnchoredPosition: {x: -10.8267, y: -378}
   m_SizeDelta: {x: 288.0412, y: 88.3825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307001747
@@ -406,8 +406,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -553,7 +553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.8267, y: -179}
+  m_AnchoredPosition: {x: -10.8267, y: -286}
   m_SizeDelta: {x: 288.0412, y: 88.3825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1340148262
@@ -986,8 +986,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278517565
-  m_fontColor: {r: 0.23754378, g: 1, b: 0.0141509175, a: 1}
+    rgba: 4282954752
+  m_fontColor: {r: 0, g: 0.7075472, b: 0.28320822, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 577fb9a8bd131194b819b036e1c761f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15b101bd9c0f45442a873f1843d38fd7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
