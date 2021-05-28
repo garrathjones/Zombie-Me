@@ -8,7 +8,7 @@ public class CinemachineSwitcher : MonoBehaviour
     Animator animator;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         slomoController = FindObjectOfType<SlomoController>();
         animator = GetComponent<Animator>();

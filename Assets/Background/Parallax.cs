@@ -11,7 +11,7 @@ public class Parallax : MonoBehaviour
 
 
 
-    void Start()
+    void Awake()
     {
 
         startpos = transform.position.x;

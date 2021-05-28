@@ -1686,7 +1686,7 @@ MonoBehaviour:
   bitingBlood: {fileID: 7013355043255392215, guid: 5c512448cc543144a919e083b85f99f6,
     type: 3}
   biteBloodDuration: 5
-  biteSFX: {fileID: 8300000, guid: 75ba34b5c5abcca40afd47304a203d68, type: 3}
+  biteSFX: {fileID: 8300000, guid: 792bbce48155103498aa4a2642c6110e, type: 3}
   biteVolume: 1
 --- !u!114 &3467959068446964199
 MonoBehaviour:

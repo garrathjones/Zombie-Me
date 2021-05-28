@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 12
-  shootSound: {fileID: 8300000, guid: 6771d4dd7581e7c46901c3182c69f079, type: 3}
-  shootSoundVolume: 0.838
+  shootSound: {fileID: 8300000, guid: 0fd9340eae47e4a40a78a7cd029500e0, type: 3}
+  shootSoundVolume: 1
   bulletPrefab: {fileID: 3547458333759893242, guid: 9ecc84d5fdab21b4cad76e7ef9c550c3,
     type: 3}
   bulletSpawner: {fileID: 586882571746128501}

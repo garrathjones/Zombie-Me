@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a934d9ab12f5d434eaa3105702bd564d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
   bulletBlastMultiplierX: 1.7
   bulletBlastMultiplierY: 40
   bodyPartBulletBlastMultiplierX: 10

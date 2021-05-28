@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c6bee028209584d8f1e0ef1c7029f7, type: 3}
-  m_Name: 10secondBreak
+  m_Name: RocketZombiesX1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5443224788286009869, guid: 3f08cc43711069f48bcc289e966631d9,
+  enemyPrefab: {fileID: 5443224788286009869, guid: 47ed99c5314eabf4cbfa211aa9f4227c,
     type: 3}
-  timeBetweenSpawns: 10
+  timeBetweenSpawns: 0.2
   numberOfEnemies: 1

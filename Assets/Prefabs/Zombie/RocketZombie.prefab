@@ -1564,8 +1564,8 @@ GameObject:
   - component: {fileID: 4359190671662179412}
   - component: {fileID: 889859521}
   - component: {fileID: 1184375097}
-  - component: {fileID: -1714912656490199227}
   - component: {fileID: 3135282327333982943}
+  - component: {fileID: -756445700430644478}
   m_Layer: 10
   m_Name: RocketZombie
   m_TagString: Untagged
@@ -1826,7 +1826,21 @@ MonoBehaviour:
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
---- !u!114 &-1714912656490199227
+--- !u!114 &3135282327333982943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443224788286009869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120858e747e31d844ade24b844b3198f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieGun: {fileID: 8449722732310589912}
+  bulletFiringPeriod: 2
+--- !u!114 &-756445700430644478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1848,20 +1862,6 @@ MonoBehaviour:
   biteBloodDuration: 5
   biteSFX: {fileID: 0}
   biteVolume: 1
---- !u!114 &3135282327333982943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5443224788286009869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120858e747e31d844ade24b844b3198f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombieGun: {fileID: 8449722732310589912}
-  bulletFiringPeriod: 2
 --- !u!1 &5474235203516350498
 GameObject:
   m_ObjectHideFlags: 0

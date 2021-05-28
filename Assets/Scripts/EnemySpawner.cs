@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject zombie = Instantiate(waveConfig.GetEnemyPrefab(), transform.position, transform.rotation);
             float randPosOffset = Random.Range(-spawnPositionOffsetRandomness, spawnPositionOffsetRandomness);
-            var randomPosition = new Vector2(zombie.transform.position.x + randPosOffset, zombie.transform.position.y + randPosOffset);
+            var randomPosition = new Vector2(zombie.transform.position.x + randPosOffset, zombie.transform.position.y);
             zombie.transform.position = randomPosition;      
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
         }
