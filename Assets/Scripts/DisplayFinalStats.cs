@@ -7,9 +7,8 @@ public class DisplayFinalStats : MonoBehaviour
 
     public Text finalTime;
     public Text finalKills;
-    private decimal finalTimeDecimal;
-    
-    // Start is called before the first frame update
+    private decimal finalTimeDecimal;    
+
     void Start()
     {
         gameSession = FindObjectOfType<GameSession>();

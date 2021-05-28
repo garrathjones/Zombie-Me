@@ -25,6 +25,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Survival");
     }
 
+    public void LoadSurvivalWin()
+    {
+        SceneManager.LoadScene("SurvivalWin");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

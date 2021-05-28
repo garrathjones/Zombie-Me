@@ -1,9 +1,8 @@
 ﻿
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -436,7 +435,7 @@ public class Player : MonoBehaviour
         BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();
-        alive = false;
+        alive = false;        
         TriggerGameOver();
     }
 
@@ -444,6 +443,7 @@ public class Player : MonoBehaviour
     {
         GameOver gameover = FindObjectOfType<GameOver>();
         gameover.EnableGameOverUI();
+        string activeScene = SceneManager.GetActiveScene().name;
     }
 
     public bool PlayerAlive()
