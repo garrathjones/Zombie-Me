@@ -27336,6 +27336,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1352809542852516528, guid: e885cedb4442baa4492c7e29b4856b51,
         type: 3}
+      propertyPath: slideDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352809542852516528, guid: e885cedb4442baa4492c7e29b4856b51,
+        type: 3}
       propertyPath: ragDollSpin
       value: 2000
       objectReference: {fileID: 0}
