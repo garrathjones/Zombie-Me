@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] float almostDeadhealth = 30;
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] float slideSpeed = 10f;
+    //[SerializeField] float slideSpeed = 10f;
+    [SerializeField] float slideSpeedOffset = 2f;
+    [SerializeField] float slideDelay = 0.5f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float pipeThrustOffset = 0f;
     [SerializeField] float pipeHitDelayTime = 0.3f;
@@ -44,13 +46,14 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject torsoBleedPoint;
     [SerializeField] float bleedDuration = 5f;
 
-    float smallDelay = 0.5f;
+    //float smallDelay = 0.5f;
     bool ragDolled = false;
     bool alive = true;
     bool touchingFloor;
     bool hit = false;
     bool pipeHit = false;
     bool torsoBleeding = false;
+    bool sliding = false;
     //bool jumping = false;
 
     Animator playerAnimator;
@@ -171,10 +174,10 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        if(PlayerIsSliding())
-        {
-            return;
-        }
+        //if(PlayerIsSliding())
+        //{
+        //    return;
+        //}
         if(hit) { return; }
         HorizontalMotionControl();
         bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
@@ -185,8 +188,35 @@ public class Player : MonoBehaviour
     private void HorizontalMotionControl()
     {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        Vector2 playerVeloctiy = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
-        playerRigidBody.velocity = playerVeloctiy;
+        if(PlayerIsSliding())
+        {
+            if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow < 0)
+            {
+                Vector2 playerVeloctiy = new Vector2(controlThrow * (runSpeed + slideSpeedOffset), playerRigidBody.velocity.y);
+                playerRigidBody.velocity = playerVeloctiy;
+            }
+            else if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow > 0)
+            {
+                Vector2 playerVeloctiy = new Vector2(controlThrow * (runSpeed + slideSpeedOffset), playerRigidBody.velocity.y);
+                playerRigidBody.velocity = playerVeloctiy;
+            }
+            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow > 0)
+            {
+                Vector2 playerVeloctiy = new Vector2(0, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = playerVeloctiy;
+            }
+            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow < 0)
+            {
+                Vector2 playerVeloctiy = new Vector2(0, playerRigidBody.velocity.y);
+                playerRigidBody.velocity = playerVeloctiy;
+            }
+
+        }
+        else
+        {
+            Vector2 playerVeloctiy = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
+            playerRigidBody.velocity = playerVeloctiy;
+        }                
     }
 
 
@@ -241,10 +271,10 @@ public class Player : MonoBehaviour
         //}
     }
 
-    IEnumerator SmallDelay()
-    {
-        yield return new WaitForSeconds(smallDelay);
-    }
+    //IEnumerator SmallDelay()
+    //{
+    //    yield return new WaitForSeconds(smallDelay);
+    //}
 
 
     private void Flip()
@@ -292,29 +322,36 @@ public class Player : MonoBehaviour
         float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
         if (verticalInput < 0 && touchingFloor == true)
         {
-            if (PlayerIsSliding())
+            if (PlayerIsSliding() || sliding)
             {
                 return;
             }
+            sliding = true;
             if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running"))
             {
                 if (playerRigidBody.transform.localScale.x == 1)
                 {
                     playerAnimator.SetTrigger("SlideLeft");
                     AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
-                    Vector2 playerVeloctiy = new Vector2(-slideSpeed, playerRigidBody.velocity.y);
-                    playerRigidBody.velocity = playerVeloctiy;
+                    //Vector2 playerVeloctiy = new Vector2(-slideSpeed, playerRigidBody.velocity.y);
+                    //playerRigidBody.velocity = playerVeloctiy;
                 }
                 if (playerRigidBody.transform.localScale.x == -1)
                 {
                     playerAnimator.SetTrigger("SlideRight");
                     AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
-                    Vector2 playerVeloctiy = new Vector2(slideSpeed, playerRigidBody.velocity.y);
-                    playerRigidBody.velocity = playerVeloctiy;
+                    //Vector2 playerVeloctiy = new Vector2(slideSpeed, playerRigidBody.velocity.y);
+                    //playerRigidBody.velocity = playerVeloctiy;
                 }
-            }           
-
+            }
+            StartCoroutine(SlidingDelay(slideDelay));
         }
+    }
+
+    IEnumerator SlidingDelay(float slideDelay)
+    {
+        yield return new WaitForSeconds(slideDelay);
+        sliding = false;
     }
 
     private void FallModifier()

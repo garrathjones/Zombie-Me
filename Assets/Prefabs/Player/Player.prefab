@@ -22334,7 +22334,7 @@ MonoBehaviour:
   health: 100
   almostDeadhealth: 30
   runSpeed: 8
-  slideSpeed: 10
+  slideSpeedOffset: 2
   jumpSpeed: 7
   pipeThrustOffset: 4
   pipeHitDelayTime: 0
