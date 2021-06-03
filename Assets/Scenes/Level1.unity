@@ -27326,11 +27326,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1352809542852516528, guid: e885cedb4442baa4492c7e29b4856b51,
         type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1352809542852516528, guid: e885cedb4442baa4492c7e29b4856b51,
-        type: 3}
       propertyPath: runBob
       value: 0
       objectReference: {fileID: 0}
