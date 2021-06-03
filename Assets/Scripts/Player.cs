@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] float almostDeadhealth = 30;
     [SerializeField] float runSpeed = 7f;
+    [SerializeField] float animateRunSpeed = 1f;
     //[SerializeField] float slideSpeed = 10f;
     [SerializeField] float slideSpeedOffset = 2f;
     [SerializeField] float slideDelay = 0.5f;
@@ -88,13 +89,6 @@ public class Player : MonoBehaviour
                 {
                     Run();
                 }
-
-                //if (pipeHit)
-                {
-                    //AllowXMovementInAir();
-                    //HorizontalMotionControl();
-                }
-
                 Flip();
                 Jump();
                 FlipSprite();
@@ -102,14 +96,6 @@ public class Player : MonoBehaviour
                 Duck();
                 UnDuck();
                 VelocityCap();
-                //if (Input.GetKeyDown("q"))
-                //{
-                //    Die();
-                //}
-                //if (Input.GetKeyDown("g"))
-                //{
-                //    ToggleSloMo();
-                //}
             }
         }
 
@@ -180,8 +166,9 @@ public class Player : MonoBehaviour
         //}
         if(hit) { return; }
         HorizontalMotionControl();
-        bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
-        playerAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        //bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
+        bool animateRun = Mathf.Abs(playerRigidBody.velocity.x) > animateRunSpeed;
+        playerAnimator.SetBool("Running", animateRun);
         Slide();
     }
 
@@ -190,24 +177,28 @@ public class Player : MonoBehaviour
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         if(PlayerIsSliding())
         {
+            //give player velocity when sliding left
             if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow < 0)
             {
                 Vector2 playerVeloctiy = new Vector2(controlThrow * (runSpeed + slideSpeedOffset), playerRigidBody.velocity.y);
                 playerRigidBody.velocity = playerVeloctiy;
             }
-            else if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow > 0)
+            //give player velocity when sliding right
+            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow > 0)
             {
                 Vector2 playerVeloctiy = new Vector2(controlThrow * (runSpeed + slideSpeedOffset), playerRigidBody.velocity.y);
                 playerRigidBody.velocity = playerVeloctiy;
             }
-            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow > 0)
+            //allow player to reduce velocity when sliding left
+            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow > 0 && playerRigidBody.velocity.x < 0)
             {
-                Vector2 playerVeloctiy = new Vector2(0, playerRigidBody.velocity.y);
+                Vector2 playerVeloctiy = new Vector2(playerRigidBody.velocity.x + controlThrow, playerRigidBody.velocity.y);
                 playerRigidBody.velocity = playerVeloctiy;
             }
-            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow < 0)
+            //allow player to reduce velocity when sliding right
+            else if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight") && controlThrow < 0 && playerRigidBody.velocity.x > 0)
             {
-                Vector2 playerVeloctiy = new Vector2(0, playerRigidBody.velocity.y);
+                Vector2 playerVeloctiy = new Vector2(playerRigidBody.velocity.x + controlThrow, playerRigidBody.velocity.y);
                 playerRigidBody.velocity = playerVeloctiy;
             }
 
