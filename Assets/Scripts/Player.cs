@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         cinemachineSwitcher = FindObjectOfType<CinemachineSwitcher>();
     }
 
-    private void Update()
+    void Update()
     {
         if(!pause.paused)
         {

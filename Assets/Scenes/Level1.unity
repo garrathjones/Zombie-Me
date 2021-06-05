@@ -27374,6 +27374,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -0.000004917382
       objectReference: {fileID: 0}
+    - target: {fileID: 2045996383549732715, guid: e885cedb4442baa4492c7e29b4856b51,
+        type: 3}
+      propertyPath: xOffset
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045996383549732715, guid: e885cedb4442baa4492c7e29b4856b51,
+        type: 3}
+      propertyPath: yOffset
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 2752436651449940298, guid: e885cedb4442baa4492c7e29b4856b51,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
