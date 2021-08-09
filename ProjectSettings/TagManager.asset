@@ -53,6 +53,9 @@ TagManager:
   - name: Weapons
     uniqueID: 2890974449
     locked: 0
+  - name: Foreground2
+    uniqueID: 4161736315
+    locked: 0
   - name: Dust
     uniqueID: 3537863227
     locked: 0
@@ -64,7 +67,4 @@ TagManager:
     locked: 0
   - name: Steam
     uniqueID: 1785767781
-    locked: 0
-  - name: Pipe
-    uniqueID: 4161736315
     locked: 0

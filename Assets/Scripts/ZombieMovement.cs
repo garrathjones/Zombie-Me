@@ -144,7 +144,8 @@ public class ZombieMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        transform.localScale = new Vector2(-playerPosition.DirectionOfPlayer(), 1);
+        float absCurrentLocalScaleX = (float)Math.Abs((decimal)transform.localScale.x);
+        transform.localScale = new Vector2(-playerPosition.DirectionOfPlayer()*absCurrentLocalScaleX, transform.localScale.y);
     }
 
     private void RandomJump()
