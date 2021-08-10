@@ -1661,7 +1661,7 @@ MonoBehaviour:
   bodyCollider: {fileID: 3467959068446964200}
   crawlCollider: {fileID: 889859521}
   footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
-  footstepVolume: 0.3
+  footstepVolume: 0
   dust: {fileID: 2234925482739006677, guid: 00a55bfe42acd774787f0cddfbd6fe7c, type: 3}
   zombieRigidBody: {fileID: 3467959068446964198}
   playerInFiringRange: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   torsoBleedPoint: {fileID: 3766100390431547097}
   mainBone: {fileID: 1950160763128927491}
   bleedDuration: 5
-  destroyDeadZombieDelay: 20
+  destroyDeadZombieDelay: 10
   zombieAnimator: {fileID: 3467959068446964202}
   BodyParts:
   - {fileID: 1950160763128927491}
