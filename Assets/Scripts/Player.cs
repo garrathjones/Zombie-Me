@@ -318,6 +318,7 @@ public class Player : MonoBehaviour
                 return;
             }
             sliding = true;
+            headCollider.enabled = false;
             if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running"))
             {
                 if (playerRigidBody.transform.localScale.x == 1)
@@ -342,6 +343,7 @@ public class Player : MonoBehaviour
     IEnumerator SlidingDelay(float slideDelay)
     {
         yield return new WaitForSeconds(slideDelay);
+        headCollider.enabled = true;
         sliding = false;
     }
 
