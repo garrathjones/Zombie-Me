@@ -49,7 +49,7 @@ MonoBehaviour:
   thrustX: 0
   steamFX: {fileID: 4152919505272389898}
   steamCollider: {fileID: 4731197233677604750}
-  timeOn: 8
+  timeOn: 99
   colliderDelay: 0.7
   timeOff: 1
 --- !u!70 &4731197233677604750

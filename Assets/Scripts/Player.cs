@@ -311,8 +311,8 @@ public class Player : MonoBehaviour
     {
 
         float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
-        if (verticalInput < 0 && touchingFloor == true)
-        {
+        if (verticalInput < 0 && playerRigidBody.velocity.y <= 0)
+            {
             if (PlayerIsSliding() || sliding)
             {
                 return;
