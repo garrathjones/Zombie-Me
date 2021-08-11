@@ -9,8 +9,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] bool looping = false;
     [SerializeField] float spawnPositionOffsetRandomness = 3f;
 
+    GameOver gameOver;
+
     IEnumerator Start()
     {
+        gameOver = FindObjectOfType<GameOver>();
         do
         {
             yield return StartCoroutine(SpawnAllWaves());
@@ -22,6 +25,10 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++)
         {
+            if(gameOver.gameOver)
+            {
+                yield break;
+            }
             var currentWave = waveConfigs[waveIndex];
             yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
         }

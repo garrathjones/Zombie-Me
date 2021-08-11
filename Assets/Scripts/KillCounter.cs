@@ -5,16 +5,21 @@ public class KillCounter : MonoBehaviour
 {
     [SerializeField] Text killsDisplayText;
     private int kills = 0;
+    GameOver gameOver;
 
     void Start()
     {
         kills = 0;
         killsDisplayText.text = kills.ToString();
+        gameOver = FindObjectOfType<GameOver>();
     }
     public void AddKill()
     {
-        kills++;
-        killsDisplayText.text = kills.ToString();
+        if(!gameOver.gameOver)
+        {
+            kills++;
+            killsDisplayText.text = kills.ToString();
+        }
     }
     public int ReadKills()
     {
