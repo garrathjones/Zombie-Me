@@ -22361,7 +22361,7 @@ MonoBehaviour:
   footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
   footstepVolume: 0
   meleeSFX: {fileID: 8300000, guid: 179e3a7dbe34e414d8a7c3360eb094c8, type: 3}
-  meleeVolume: 1
+  meleeVolume: 5
   dust: {fileID: 1870325020192119610}
   slideSFX: {fileID: 8300000, guid: 4a1816d45bb2e164d8f01b976b8f2bc4, type: 3}
   slideVolume: 0.31

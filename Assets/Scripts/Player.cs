@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip footstepSFX;
     [SerializeField] [Range(0, 1)] float footstepVolume = 0.3f;
     [SerializeField] AudioClip meleeSFX;
-    [SerializeField] [Range(0, 1)] float meleeVolume = 1f;
+    [SerializeField] [Range(0, 5)] float meleeVolume = 1f;
     [SerializeField] ParticleSystem dust;
     [SerializeField] AudioClip slideSFX;
     [SerializeField] [Range(0, 1)] float slideVolume = 1f;
