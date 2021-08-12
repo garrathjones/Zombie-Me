@@ -162,12 +162,13 @@ MonoBehaviour:
   macheteHitYVelocity: 2
   macheteDeathHitXVelocity: 5
   macheteDeathHitYVelocity: 8
+  dropMacheteSpin: 1000
   bloodSplat: {fileID: 9099706995083613808, guid: 540ead403bf49804eb8bab43ec77f4d5,
     type: 3}
   splatDuration: 5
   trail: {fileID: 5667420316966515992}
-  machetteHitSFX: {fileID: 8300000, guid: dcc802b17615ef44c8f561f914a27651, type: 3}
-  machetteHitVolume: 0.25
+  machetteHitSFX: {fileID: 8300000, guid: b47167ddd7993c840bf6e6f9534892d4, type: 3}
+  machetteHitVolume: 1
 --- !u!50 &30793405642649501
 Rigidbody2D:
   serializedVersion: 4

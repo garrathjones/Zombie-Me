@@ -21792,8 +21792,8 @@ MonoBehaviour:
     type: 3}
   splatDuration: 5
   trail: {fileID: 4852731869242045734}
-  machetteHitSFX: {fileID: 8300000, guid: dcc802b17615ef44c8f561f914a27651, type: 3}
-  machetteHitVolume: 0.25
+  machetteHitSFX: {fileID: 8300000, guid: b47167ddd7993c840bf6e6f9534892d4, type: 3}
+  machetteHitVolume: 1
 --- !u!50 &3617951045234528638
 Rigidbody2D:
   serializedVersion: 4
@@ -22289,7 +22289,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002811432, y: -1.4688661}
+  m_Offset: {x: -0.002811432, y: -1.5582235}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -22300,7 +22300,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69361115, y: 0.27481318}
+  m_Size: {x: 0.69361115, y: 0.45352793}
   m_EdgeRadius: 0
 --- !u!95 &8925190316749440535
 Animator:
@@ -22342,7 +22342,7 @@ MonoBehaviour:
   jumpSpeed: 7
   pipeThrustOffset: 4
   pipeHitDelayTime: 0
-  flipSlomoTime: 1
+  flipSlomoTime: 1.25
   fallMultiplier: 2.5
   deathKickSpeed: 10
   ragDollSpinMin: -500
@@ -22363,7 +22363,7 @@ MonoBehaviour:
   meleeSFX: {fileID: 8300000, guid: 179e3a7dbe34e414d8a7c3360eb094c8, type: 3}
   meleeVolume: 5
   dust: {fileID: 1870325020192119610}
-  slideSFX: {fileID: 8300000, guid: 4a1816d45bb2e164d8f01b976b8f2bc4, type: 3}
+  slideSFX: {fileID: 8300000, guid: c7e102cbb30a4b64b8f5981b8ef1c685, type: 3}
   slideVolume: 0.31
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,

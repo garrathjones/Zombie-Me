@@ -43,3 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f40dd8bb64a93408c98fc2d07fc460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slomoChance: 30
+  minSlomoTime: 1
+  maxSlomoTime: 2.5
+  isSlomoEnabled: 0
+  slomoOnSFX: {fileID: 8300000, guid: 9e1e631a85a325145b070f1b073f06d3, type: 3}
+  slomoOnVolume: 1
+  slomoOffSFX: {fileID: 8300000, guid: f6975a97491ec1e4ca86a8d703cc058b, type: 3}
+  slomoOffVolume: 1

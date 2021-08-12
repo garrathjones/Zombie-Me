@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,12 @@ public class LevelEnd : MonoBehaviour
 {
     GameSession gameSession;
     Timer timer;
+    Player player;
+    [SerializeField] float levelEndDelay = 5f;
+    [SerializeField] [Range(0, 1)] float levelEndVolume = 1f;
+    [SerializeField] AudioClip levelExitSFX;
 
-    
-    //[SerializeField] AudioClip levelExitSFX;
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,10 +25,20 @@ public class LevelEnd : MonoBehaviour
             gameSession.GameWon();
             timer = FindObjectOfType<Timer>();
             timer.StopTimer();
-            LoadWinScene();
+            AudioSource.PlayClipAtPoint(levelExitSFX, Camera.main.transform.position, levelEndVolume);
+            player = FindObjectOfType<Player>();
+            player.LevelEnd();
+            StartCoroutine(WinCoroutine(levelEndDelay));  
         }
         return;
     }
+
+    IEnumerator WinCoroutine(float levelEndDelay)
+    {
+        yield return new WaitForSeconds(levelEndDelay);
+        LoadWinScene();
+    }
+
 
     public void LoadWinScene()
     {

@@ -248,8 +248,16 @@ public class Player : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Jump") && touchingFloor == true)
         {
             AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
-            Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
-            playerRigidBody.velocity = newVelocity;
+            if(playerRigidBody.velocity.y > jumpSpeed/2)
+            {
+                Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, playerRigidBody.velocity.y + jumpSpeed/2);
+                playerRigidBody.velocity = newVelocity;
+            }
+            else
+            {
+                Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
+                playerRigidBody.velocity = newVelocity;
+            }
             //AllowXMovementInAir();
         }
         //if(jumping)
@@ -311,7 +319,7 @@ public class Player : MonoBehaviour
     {
 
         float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
-        if (verticalInput < 0 && playerRigidBody.velocity.y <= 0)
+        if (verticalInput < 0)
             {
             if (PlayerIsSliding() || sliding)
             {
@@ -465,8 +473,17 @@ public class Player : MonoBehaviour
         BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();
-        alive = false;        
-        TriggerGameOver();
+        alive = false;
+        TriggerGameOver();       
+    }
+
+    public void LevelEnd()
+    {
+        DeathKick();
+        machete.DropMachete();
+        gun.DropGun();
+        BleedWhenDead();
+        MakeRagDoll();
     }
 
     public void TriggerGameOver()
@@ -526,7 +543,7 @@ public class Player : MonoBehaviour
         playerRigidBody.velocity = newVelocity;
     }
 
-    private void MakeRagDoll()
+    public void MakeRagDoll()
     {
         if (ragDolled) { return; }
         playerRigidBody.constraints = RigidbodyConstraints2D.None;

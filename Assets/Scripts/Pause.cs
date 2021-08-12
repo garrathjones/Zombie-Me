@@ -12,7 +12,6 @@ public class Pause : MonoBehaviour
 
     SlomoController slomoController;
     GameOver gameOver;
-    Player player;
 
     public bool paused = false;
 
@@ -38,7 +37,6 @@ public class Pause : MonoBehaviour
             else
             {
                 DisablePauseUI();
-                player = FindObjectOfType<Player>();
                 if (slomoController.isSlomoEnabled)
                 {
                     slomoController.SlomoOn();
