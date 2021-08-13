@@ -22359,12 +22359,12 @@ MonoBehaviour:
   gun: {fileID: 1113478804217190963}
   slideKick: {fileID: 3297857555535195949}
   footstepSFX: {fileID: 8300000, guid: 534b66357480a3946a7d3895195ca479, type: 3}
-  footstepVolume: 0
+  footstepVolume: 0.584
   meleeSFX: {fileID: 8300000, guid: 179e3a7dbe34e414d8a7c3360eb094c8, type: 3}
   meleeVolume: 5
   dust: {fileID: 1870325020192119610}
   slideSFX: {fileID: 8300000, guid: c7e102cbb30a4b64b8f5981b8ef1c685, type: 3}
-  slideVolume: 0.31
+  slideVolume: 1
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}

@@ -12,6 +12,7 @@ public class LevelEnd : MonoBehaviour
     [SerializeField] float levelEndDelay = 5f;
     [SerializeField] [Range(0, 1)] float levelEndVolume = 1f;
     [SerializeField] AudioClip levelExitSFX;
+    [SerializeField] ParticleSystem levelEndSplurt;
 
 
 
@@ -27,7 +28,8 @@ public class LevelEnd : MonoBehaviour
             timer.StopTimer();
             AudioSource.PlayClipAtPoint(levelExitSFX, Camera.main.transform.position, levelEndVolume);
             player = FindObjectOfType<Player>();
-            player.LevelEnd();
+            player.DisablePlayer();
+            levelEndSplurt.Play();
             StartCoroutine(WinCoroutine(levelEndDelay));  
         }
         return;

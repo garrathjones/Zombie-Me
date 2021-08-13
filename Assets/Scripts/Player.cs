@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     //float smallDelay = 0.5f;
     bool ragDolled = false;
     bool alive = true;
+    bool disabled = false;
     bool touchingFloor;
     bool hit = false;
     bool pipeHit = false;
@@ -83,19 +84,19 @@ public class Player : MonoBehaviour
         if(!pause.paused)
         {
             FallModifier();
-            if (alive)
+            VelocityCap();
+            if (alive && !disabled)
             {
                 if(!hit)
                 {
                     Run();
+                    FlipSprite();
                 }
                 Flip();
-                Jump();
-                FlipSprite();
+                Jump();                
                 MeleeAttack();
                 Duck();
-                UnDuck();
-                VelocityCap();
+                UnDuck();                
             }
         }
 
@@ -476,16 +477,6 @@ public class Player : MonoBehaviour
         alive = false;
         TriggerGameOver();       
     }
-
-    public void LevelEnd()
-    {
-        DeathKick();
-        machete.DropMachete();
-        gun.DropGun();
-        BleedWhenDead();
-        MakeRagDoll();
-    }
-
     public void TriggerGameOver()
     {
         GameOver gameover = FindObjectOfType<GameOver>();
@@ -541,6 +532,11 @@ public class Player : MonoBehaviour
         playerRigidBody.constraints = RigidbodyConstraints2D.None;
         Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, deathKickSpeed);
         playerRigidBody.velocity = newVelocity;
+    }
+
+    public void DisablePlayer()
+    {
+        disabled = true;
     }
 
     public void MakeRagDoll()
