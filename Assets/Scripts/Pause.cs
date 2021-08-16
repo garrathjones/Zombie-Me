@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     [SerializeField] Text pauseText;
+    [SerializeField] Text continueText;
     [SerializeField] Button menuButton;
     [SerializeField] TextMeshProUGUI menuButtonText;
 
@@ -54,6 +55,7 @@ public class Pause : MonoBehaviour
     public void EnablePauseUI()
     {
         pauseText.enabled = true;
+        continueText.enabled = true;
         menuButton.enabled = true;
         menuButtonText.enabled = true;
         paused = true;
@@ -62,6 +64,7 @@ public class Pause : MonoBehaviour
     public void DisablePauseUI()
     {
         pauseText.enabled = false;
+        continueText.enabled = false;
         menuButton.enabled = false;
         menuButtonText.enabled = false;
         paused = false;

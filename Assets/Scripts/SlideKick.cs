@@ -12,12 +12,12 @@ public class SlideKick : MonoBehaviour
     [SerializeField] AudioClip hitBySlideSFX;
     [SerializeField] [Range(0, 1)] float hitBySlideSFXVolume = 1f;
 
-    BoxCollider2D slideDamageCollider;
+    CapsuleCollider2D slideDamageCollider;
     Player player;
 
     void Start()
     {
-        slideDamageCollider = GetComponent<BoxCollider2D>();
+        slideDamageCollider = GetComponent<CapsuleCollider2D>();
     }
 
     public void EnableDamageCollider(bool enableOrDisable)

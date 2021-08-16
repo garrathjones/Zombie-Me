@@ -1633,8 +1633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   alive: 1
-  hitBySlideSFX: {fileID: 8300000, guid: 6f7227c05eec6974891606fff22b978a, type: 3}
-  hitBySlideSFXVolume: 1
 --- !u!114 &6209749696917032875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,7 +1707,7 @@ MonoBehaviour:
   torsoBleedPoint: {fileID: 3766100390431547097}
   mainBone: {fileID: 1950160763128927491}
   bleedDuration: 5
-  destroyDeadZombieDelay: 10
+  destroyDeadZombieDelay: 7
   zombieAnimator: {fileID: 3467959068446964202}
   BodyParts:
   - {fileID: 1950160763128927491}
