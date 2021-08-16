@@ -9,7 +9,7 @@ public class LevelEnd : MonoBehaviour
     GameSession gameSession;
     Timer timer;
     Player player;
-    [SerializeField] float levelEndDelay = 5f;
+    Win win;
     [SerializeField] [Range(0, 1)] float levelEndVolume = 1f;
     [SerializeField] AudioClip levelExitSFX;
     [SerializeField] ParticleSystem levelEndSplurt;
@@ -30,20 +30,11 @@ public class LevelEnd : MonoBehaviour
             player = FindObjectOfType<Player>();
             player.DisablePlayer();
             levelEndSplurt.Play();
-            StartCoroutine(WinCoroutine(levelEndDelay));  
+            win = FindObjectOfType<Win>();
+            win.EnablewinUI();
         }
         return;
     }
 
-    IEnumerator WinCoroutine(float levelEndDelay)
-    {
-        yield return new WaitForSeconds(levelEndDelay);
-        LoadWinScene();
-    }
 
-
-    public void LoadWinScene()
-    {
-        SceneManager.LoadScene("AdventureWin");
-    }
 }

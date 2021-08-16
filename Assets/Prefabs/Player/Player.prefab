@@ -5039,8 +5039,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 958869566383719676}
   m_Bounds:
-    m_Center: {x: -0.021328658, y: 0.92800754, z: 0}
-    m_Extent: {x: 0.18886542, y: 0.16723543, z: 0}
+    m_Center: {x: -0.02132827, y: 0.9280079, z: 0}
+    m_Extent: {x: 0.18886541, y: 0.16723543, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &553621376497877464
@@ -10887,8 +10887,8 @@ MonoBehaviour:
   - {fileID: 223365690377214387}
   - {fileID: 895653593280226929}
   m_Bounds:
-    m_Center: {x: -0.05847323, y: -0.14649981, z: 0}
-    m_Extent: {x: 0.2813573, y: 0.60739326, z: 0}
+    m_Center: {x: -0.058474958, y: -0.14650011, z: 0}
+    m_Extent: {x: 0.28135717, y: 0.60739386, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3729029068053718247
@@ -16477,8 +16477,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 8925190316652148439}
   m_Bounds:
-    m_Center: {x: -0.27120334, y: -0.40270185, z: 0}
-    m_Extent: {x: 0.41888458, y: 0.69648075, z: 0}
+    m_Center: {x: -0.27120227, y: -0.40270203, z: 0}
+    m_Extent: {x: 0.41888458, y: 0.6964807, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6130918170914119850
@@ -16829,6 +16829,11 @@ MonoBehaviour:
   damage: 10
   slideHitXVelocity: 4
   slideHitYVelocity: 5
+  bloodSplat: {fileID: 7013355043255392215, guid: 98fae068d3f83394ca816d5380e76b8a,
+    type: 3}
+  splatDuration: 3
+  hitBySlideSFX: {fileID: 8300000, guid: 6f7227c05eec6974891606fff22b978a, type: 3}
+  hitBySlideSFXVolume: 1
 --- !u!1 &6800494613660253549
 GameObject:
   m_ObjectHideFlags: 0

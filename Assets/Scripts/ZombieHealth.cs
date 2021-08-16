@@ -13,8 +13,7 @@ public class ZombieHealth : MonoBehaviour
     PlayerPosition playerPosition;
     SlomoController slomoController;
 
-    [SerializeField] AudioClip hitBySlideSFX;
-    [SerializeField] [Range(0, 1)] float hitBySlideSFXVolume = 0.5f;
+
 
     void Start()
     {
@@ -107,7 +106,7 @@ public class ZombieHealth : MonoBehaviour
         zombie.zombieAnimator.SetTrigger("TakingDamage");
         zombie.zombieAnimator.SetBool("Biting", false);
         zombie.zombieAnimator.SetBool("Running", true);
-        AudioSource.PlayClipAtPoint(hitBySlideSFX, Camera.main.transform.position, hitBySlideSFXVolume);
+        slideKick.PlaySlideKickHitFX();
         CheckIfDead();
     }
 
