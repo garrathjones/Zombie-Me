@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
     private void HorizontalMotionControl()
     {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        if(PlayerIsSliding())
+        if(PlayerSlidingAnimationIsPlaying())
         {
             //give player velocity when sliding left
             if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") && controlThrow < 0)
@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {        
-        if (PlayerIsFlipping() || PlayerIsSliding())
+        if (PlayerFlippingAnimationIsPlaying() || PlayerSlidingAnimationIsPlaying())
         {
             return;
         }
@@ -284,7 +284,7 @@ public class Player : MonoBehaviour
         CheckIfTouchingGround();
         if (CrossPlatformInputManager.GetButtonDown("Jump") && touchingFloor == false)
         {
-            if (PlayerIsFlipping() || PlayerIsSliding())
+            if (PlayerFlippingAnimationIsPlaying() || PlayerSlidingAnimationIsPlaying())
             {
                 return;
             }
@@ -324,7 +324,7 @@ public class Player : MonoBehaviour
         float verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
         if (verticalInput < 0)
             {
-            if (PlayerIsSliding() || sliding)
+            if (PlayerSlidingAnimationIsPlaying() || sliding)
             {
                 return;
             }
@@ -493,7 +493,7 @@ public class Player : MonoBehaviour
 
     private void FlipSprite()
     {
-        if(PlayerIsFlipping() || PlayerIsSliding())
+        if(PlayerFlippingAnimationIsPlaying() || PlayerSlidingAnimationIsPlaying())
         {
             return;
         }
@@ -505,7 +505,7 @@ public class Player : MonoBehaviour
 
     }
 
-    private bool PlayerIsSliding()
+    private bool PlayerSlidingAnimationIsPlaying()
     {
         if(playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideLeft") || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("SlideRight"))
         {
@@ -514,7 +514,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private bool PlayerIsFlipping()
+    private bool PlayerFlippingAnimationIsPlaying()
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("FlipLeft") || playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("FlipRight"))
         {

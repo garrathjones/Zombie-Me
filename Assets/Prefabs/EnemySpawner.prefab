@@ -48,4 +48,4 @@ MonoBehaviour:
   - {fileID: 0}
   startingWave: 0
   looping: 0
-  spawnPositionOffsetRandomness: 3
+  spawnPositionOffsetRandomness: 30
