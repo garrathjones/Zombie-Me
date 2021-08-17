@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     AlmostDeadBleed almostDeadBleed;
     SlomoController slomoController;
     CinemachineSwitcher cinemachineSwitcher;
+    Win win;
 
 
     void Start()
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
         pause = FindObjectOfType<Pause>();
         slomoController = FindObjectOfType<SlomoController>();
         cinemachineSwitcher = FindObjectOfType<CinemachineSwitcher>();
+        win = FindObjectOfType<Win>();
     }
 
     void Update()
@@ -432,7 +434,7 @@ public class Player : MonoBehaviour
 
     public void PlayerDamage(float damage)
     {
-        if (alive)
+        if (alive && !win.levelClear)
         {
             playerAnimator.SetTrigger("TakingDamage");
             health -= damage;

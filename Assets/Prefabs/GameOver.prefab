@@ -397,6 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a3b733851d4dd4ea11cd25fe9de6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 4884808717664696938}
   menuButton: {fileID: 4884808716895020046}
+  gameOverText: {fileID: 4884808717664696938}
+  retryButton: {fileID: 0}
+  retryText: {fileID: 0}
   menuButtonText: {fileID: 4884808716931438234}
+  gameOver: 0

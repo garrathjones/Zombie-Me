@@ -730,7 +730,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.41, y: 0.57}
+    oldSize: {x: 0.41, y: 0.58}
     newSize: {x: 0.41, y: 0.57}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -832,10 +832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57095fe40da22d45b36a1842ca0a315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelEndDelay: 5
   levelEndVolume: 1
   levelExitSFX: {fileID: 8300000, guid: 2cb1557efdc0dd94690b50f806537880, type: 3}
-  levelEndSplurt: {fileID: 0}
+  levelEndSplurt: {fileID: 5204291365268655336}
 --- !u!1001 &6637296533385692713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,6 +952,12 @@ PrefabInstance:
 --- !u!4 &6638891830645916524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 17591043289924933, guid: b6356f470e9c83642858d815b68a8a76,
+    type: 3}
+  m_PrefabInstance: {fileID: 6637296533385692713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5204291365268655336 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1451620793398741697, guid: b6356f470e9c83642858d815b68a8a76,
     type: 3}
   m_PrefabInstance: {fileID: 6637296533385692713}
   m_PrefabAsset: {fileID: 0}
