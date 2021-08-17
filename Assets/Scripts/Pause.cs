@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] Text pauseText;
-    [SerializeField] Text continueText;
+    [SerializeField] Button continueButton;
+    [SerializeField] TextMeshProUGUI continueText;
     [SerializeField] Button menuButton;
-    [SerializeField] TextMeshProUGUI menuButtonText;
+    [SerializeField] TextMeshProUGUI menuText;
+    [SerializeField] Button retryButton;
+    [SerializeField] TextMeshProUGUI retryText;
+
 
     SlomoController slomoController;
     GameOver gameOver;
@@ -35,38 +38,45 @@ public class Pause : MonoBehaviour
                 EnablePauseUI();
                 Time.timeScale = 0;
             }
-            else
+            else 
             {
-                DisablePauseUI();
-                if (slomoController.isSlomoEnabled)
-                {
-                    slomoController.SlomoOn();
-                }
-                else
-                {
-                    Time.timeScale = 1;
-                }
+                Continue();
             }
         }
     }
 
-
+    public void Continue()
+    {
+        DisablePauseUI();
+        if (slomoController.isSlomoEnabled)
+        {
+            slomoController.SlomoOn();
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
 
     public void EnablePauseUI()
     {
-        pauseText.enabled = true;
+        continueButton.enabled = true;
         continueText.enabled = true;
         menuButton.enabled = true;
-        menuButtonText.enabled = true;
+        menuText.enabled = true;
+        retryButton.enabled = true;
+        retryText.enabled = true;
         paused = true;
         return;
     }
     public void DisablePauseUI()
     {
-        pauseText.enabled = false;
+        continueButton.enabled = false;
         continueText.enabled = false;
         menuButton.enabled = false;
-        menuButtonText.enabled = false;
+        menuText.enabled = false;
+        retryButton.enabled = false;
+        retryText.enabled = false;
         paused = false;
         return;
     }
