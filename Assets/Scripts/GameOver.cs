@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] Button retryButton;
     [SerializeField] TextMeshProUGUI retryText;
     [SerializeField] TextMeshProUGUI menuButtonText;
+    Timer timer;
 
     public bool gameOver = false;
 
@@ -23,6 +24,8 @@ public class GameOver : MonoBehaviour
         retryButton.enabled = true;
         retryText.enabled = true;
         gameOver = true;
+        timer = FindObjectOfType<Timer>();
+        timer.StopTimer();
         return;
     }
 

@@ -10,7 +10,7 @@ public class KillCounter : MonoBehaviour
     void Start()
     {
         kills = 0;
-        killsDisplayText.text = kills.ToString();
+        killsDisplayText.text = "KILLS " + kills.ToString();
         gameOver = FindObjectOfType<GameOver>();
     }
     public void AddKill()
@@ -18,7 +18,7 @@ public class KillCounter : MonoBehaviour
         if(!gameOver.gameOver)
         {
             kills++;
-            killsDisplayText.text = kills.ToString();
+            killsDisplayText.text = "KILLS " + kills.ToString();
         }
     }
     public int ReadKills()

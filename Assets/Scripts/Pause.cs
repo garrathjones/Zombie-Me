@@ -16,24 +16,30 @@ public class Pause : MonoBehaviour
 
     SlomoController slomoController;
     GameOver gameOver;
+    Win win;
 
     public bool paused = false;
 
-    private void Start()
+    void Start()
     {
+        win = FindObjectOfType<Win>();
+        gameOver = FindObjectOfType<GameOver>();
         slomoController = FindObjectOfType<SlomoController>();
     }
-    private void Update()
+    void Update()
     {
-        PauseGame();
+        if(!win.levelClear && !gameOver.gameOver)
+        {
+            PauseGame();
+        }
     }
 
     private void PauseGame()
     {
         if (Input.GetKeyDown("escape"))
         {
-            gameOver = FindObjectOfType<GameOver>();
-            if (!paused && !gameOver.gameOver)
+
+            if (!paused)
             {
                 EnablePauseUI();
                 Time.timeScale = 0;
