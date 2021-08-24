@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanSeePlayerDistance: 20
   StopAtDistanceFromPlayer: 15
-  runSpeed: 3
+  runSpeed: 5
   jumpSpeed: 5
   velocityCapX: 10
   velocityCapY: 10

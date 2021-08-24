@@ -1662,9 +1662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6726ad8bd12a8ad45a47f4e573aa8a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanSeePlayerDistance: 25
+  CanSeePlayerDistance: 20
   StopAtDistanceFromPlayer: 15
-  runSpeed: 3
+  runSpeed: 5
   jumpSpeed: 5
   velocityCapX: 10
   velocityCapY: 10
