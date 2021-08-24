@@ -11,6 +11,8 @@ public class Win : MonoBehaviour
     [SerializeField] TextMeshProUGUI menuButtonText;
     [SerializeField] Button retryButton;
     [SerializeField] TextMeshProUGUI retryText;
+    [SerializeField] Button nextLevelButton;
+    [SerializeField] TextMeshProUGUI nextLevelText;
 
     public bool levelClear = false;
 
@@ -21,6 +23,8 @@ public class Win : MonoBehaviour
         menuButtonText.enabled = true;
         retryButton.enabled = true;
         retryText.enabled = true;
+        nextLevelButton.enabled = true;
+        nextLevelText.enabled = true;
         levelClear = true;
     }
 }
