@@ -44,8 +44,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveConfigs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: 775dc9f53ef0b78429b759ef18dec8a0, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: acf3dbbeabf94704eb7c0b826a5f6909, type: 2}
+  - {fileID: 11400000, guid: acf3dbbeabf94704eb7c0b826a5f6909, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: 775dc9f53ef0b78429b759ef18dec8a0, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: 775dc9f53ef0b78429b759ef18dec8a0, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: 18cf2c7f1ed1593499a50dd41dbc7578, type: 2}
+  - {fileID: 11400000, guid: 0f2f9ee07ad4baf4c94af938f5e24d1c, type: 2}
+  - {fileID: 11400000, guid: a00d21fc9083bb84796f4c17cf8fe67c, type: 2}
+  - {fileID: 11400000, guid: acf3dbbeabf94704eb7c0b826a5f6909, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: 82142702a783d104ea362580b955eecc, type: 2}
+  - {fileID: 11400000, guid: 82142702a783d104ea362580b955eecc, type: 2}
+  - {fileID: 11400000, guid: 82142702a783d104ea362580b955eecc, type: 2}
+  - {fileID: 11400000, guid: acf3dbbeabf94704eb7c0b826a5f6909, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: dfdcc922f9f61ee488d6ea7f1a7ee431, type: 2}
+  - {fileID: 11400000, guid: f83a7b48a0d683249943c4e2df0d1203, type: 2}
   startingWave: 0
   looping: 0
   spawnPositionOffsetRandomness: 30

@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0251a6c4a85b6c4e8750678e67647b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 1000
   alive: 1
 --- !u!114 &6209749696917032875
 MonoBehaviour:
@@ -1662,16 +1662,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6726ad8bd12a8ad45a47f4e573aa8a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanSeePlayerDistance: 20
-  StopAtDistanceFromPlayer: 10
-  runSpeed: 8
-  jumpSpeed: 5
+  CanSeePlayerDistance: 23
+  StopAtDistanceFromPlayer: 12
+  runSpeed: 12
+  jumpSpeed: 7
+  jumpBackSpeed: 10
   velocityCapX: 10
   velocityCapY: 10
-  fallMultiplier: 3
+  fallMultiplier: 4
   randomJumpMaxTime: 3
   randomJumpMinTime: 1
-  zombieReactionTime: 0.6
+  zombieReactionTime: 0.9
   groundCheckCollider: {fileID: 4359190671662179412}
   bodyCollider: {fileID: 3467959068446964200}
   crawlCollider: {fileID: 889859521}
@@ -1692,7 +1693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24a05d619a0b2c4cb5f50e676c4c671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathKickSpeed: 10
+  deathKickSpeed: 8
   ragDollSpinMin: -3000
   ragDollSpinMax: 3000
   pulseRate: 0.5
@@ -1837,7 +1838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieGun: {fileID: 355711675663513693}
-  bulletFiringPeriod: 1
+  chanceOfStepBackwards: 50
+  bulletFiringPeriod: 1.2
 --- !u!114 &-3174949458044524260
 MonoBehaviour:
   m_ObjectHideFlags: 0

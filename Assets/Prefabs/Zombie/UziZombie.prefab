@@ -1663,14 +1663,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanSeePlayerDistance: 20
-  StopAtDistanceFromPlayer: 15
+  StopAtDistanceFromPlayer: 10
   runSpeed: 5
-  jumpSpeed: 5
+  jumpSpeed: 6
+  jumpBackSpeed: 5
   velocityCapX: 10
   velocityCapY: 10
   fallMultiplier: 3
-  randomJumpMaxTime: 7
-  randomJumpMinTime: 2
+  randomJumpMaxTime: 3
+  randomJumpMinTime: 1
   zombieReactionTime: 0.6
   groundCheckCollider: {fileID: 4359190671662179412}
   bodyCollider: {fileID: 3467959068446964200}
@@ -1837,6 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieGun: {fileID: 5299981230694357509}
+  chanceOfStepBackwards: 20
   bulletFiringPeriod: 0.3
 --- !u!114 &-3174949458044524260
 MonoBehaviour:

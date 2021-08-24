@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieMovement : MonoBehaviour
 {
     Zombie zombie;
     ZombieHealth zombieHealth;
+
     [SerializeField] float CanSeePlayerDistance = 40f;
     [SerializeField] float StopAtDistanceFromPlayer = 10f;
     [SerializeField] float runSpeed = 4f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float jumpBackSpeed = 0f;
     [SerializeField] float velocityCapX = 15f;
     [SerializeField] float velocityCapY = 15f;
 
@@ -176,7 +177,7 @@ public class ZombieMovement : MonoBehaviour
         {
             return;
         }
-        if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running"))
+        if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running") || zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             CheckIfTouchingGround();
             if (touchingFloor)
@@ -187,6 +188,27 @@ public class ZombieMovement : MonoBehaviour
             }
         }
     }
+    public void RandomJumpFwdOrBackwards()
+    {
+        Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x - RandomDirection() * jumpBackSpeed, zombieRigidBody.velocity.y);
+        zombieRigidBody.velocity = newVelocity;
+        Jump();
+    }
+
+    private float RandomDirection()
+    {
+        float randomChance = UnityEngine.Random.Range(0, 100);
+        if (randomChance <= 50)
+        {
+            return -1f;
+        }
+        else
+        {
+            return 1f;
+        }
+    }
+
+
 
     private void CheckIfTouchingGround()
     {

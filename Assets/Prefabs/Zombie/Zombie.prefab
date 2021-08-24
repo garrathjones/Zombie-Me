@@ -1652,8 +1652,8 @@ MonoBehaviour:
   velocityCapX: 10
   velocityCapY: 10
   fallMultiplier: 3
-  randomJumpMaxTime: 5
-  randomJumpMinTime: 2
+  randomJumpMaxTime: 2
+  randomJumpMinTime: 1
   zombieReactionTime: 0.6
   groundCheckCollider: {fileID: 4359190671662179412}
   bodyCollider: {fileID: 3467959068446964200}

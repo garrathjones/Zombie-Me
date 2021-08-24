@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieFireGun : MonoBehaviour
 {
     [SerializeField] ZombieGun zombieGun;
+    [SerializeField] [Range(0, 100)] float chanceOfStepBackwards = 50f;
     ZombieMovement zombieMovement;
     ZombieHealth zombieHealth;
     Coroutine firingCoroutine;
@@ -47,9 +47,18 @@ public class ZombieFireGun : MonoBehaviour
         {
             zombieGun.Fire();
             firing = true;
+            RandomJumpFwdOrBackwards();
             yield return new WaitForSeconds(bulletFiringPeriod);
         }
-
+    }
+    
+    public void RandomJumpFwdOrBackwards()
+    {
+        float randomChance = Random.Range(0, 100);
+        if (randomChance <= chanceOfStepBackwards)
+        {
+            zombieMovement.RandomJumpFwdOrBackwards();
+        }
     }
 
 
