@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2942816598467936356}
   - component: {fileID: 3489214005327247352}
   m_Layer: 17
-  m_Name: BOSSrockets
+  m_Name: BOSSrocket1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1403992847
   m_SortingLayer: 4
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 96064fc5b9587894483390459d5f2f9d, type: 3}
-  m_Color: {r: 1, g: 0.36031806, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 21dbc5f2ebf2e3d4195e5de11697dfe0, type: 3}
+  m_Color: {r: 0.11532295, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.024540337, y: 0.002373896}
-  m_Size: {x: 0.34164777, y: 0.12018923}
+  m_Offset: {x: -0.020460313, y: 0.0023738947}
+  m_Size: {x: 0.3334889, y: 0.120189495}
   m_Direction: 1
 --- !u!114 &-2942816598467936356
 MonoBehaviour:
@@ -136,19 +136,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a934d9ab12f5d434eaa3105702bd564d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  bulletBlastMultiplierX: 0.5
-  bulletBlastMultiplierY: 10
-  bodyPartBulletBlastMultiplierX: 5
-  bodyPartBulletBlastMultiplierY: 10
+  damage: 5
+  bulletBlastMultiplierX: 0.3
+  bulletBlastMultiplierY: 8
+  bodyPartBulletBlastMultiplierX: 3
+  bodyPartBulletBlastMultiplierY: 5
   dustDuration: 2
   splatDuration: 5
-  disablePlayerRunDuration: 2
+  disablePlayerRunDuration: 1.5
   bulletImpactDust: {fileID: 2234925482739006672, guid: 9bae0b9ba6d795e45a6817ea5731a321,
     type: 3}
   bloodSplat: {fileID: 9099706995083613808, guid: 2476a061afb8db94aba601cfbb3b45aa,
     type: 3}
-  explosionFlash: {fileID: 7013355043255392215, guid: 680e247f7f4f7f34aac2674725f0f467,
+  explosionFlash: {fileID: 7013355043255392215, guid: 33337bd3e333dc9469bd396b3bee6f95,
     type: 3}
   explosionSmoke: {fileID: 1317502883944733511, guid: a10dd23e75e824d42a549017298274cc,
     type: 3}
@@ -223,7 +223,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+      key0: {r: 0.25216818, g: 1, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
