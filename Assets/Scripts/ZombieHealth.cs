@@ -6,6 +6,7 @@ using UnityEngine;
 public class ZombieHealth : MonoBehaviour
 {
     [SerializeField] float health = 30;
+    [SerializeField] float machetteHitVelocityMulitplier = 1f;
     //[SerializeField] float KickSpeedLimit = 5f;
     public bool alive = true;
     Zombie zombie;
@@ -85,7 +86,7 @@ public class ZombieHealth : MonoBehaviour
         //}
         health -= machete.GetDamage();
         machete.CreateMacheteHitFX();
-        zombieMovement.zombieRigidBody.velocity += machete.GetMacheteHitVelocity() * new Vector2(-playerPosition.DirectionOfPlayer(), 1);
+        zombieMovement.zombieRigidBody.velocity += machete.GetMacheteHitVelocity() * new Vector2(-playerPosition.DirectionOfPlayer() * machetteHitVelocityMulitplier, 1);
         zombie.zombieAnimator.SetTrigger("TakingDamage");
         zombie.zombieAnimator.SetBool("Biting", false);
         zombie.zombieAnimator.SetBool("Running", true);

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337285064}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 399349157}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 490184774}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightArmSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498780516}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftArmSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677117205}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightArmTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920050891}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 927885220}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftLegSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955107305}
   - component: {fileID: 955107304}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftLegSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202578944}
   - component: {fileID: 1202578943}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightLegSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632513398}
   - component: {fileID: 1632513397}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightArmSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 1788263748}
   - component: {fileID: 1788263747}
   - component: {fileID: 3074746956327777534}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftArmSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898098033}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightLegSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1993752706}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftArmTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 8789356562545623486}
   - component: {fileID: 8789356562545623485}
   - component: {fileID: 8789356562545623488}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 1344559859326768361}
   - component: {fileID: 5997982153304121450}
   - component: {fileID: 1217778182505851892}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 8484964443777522001}
   - component: {fileID: 8484964443777522000}
   - component: {fileID: 8484964443777522003}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 6970110545491336941}
   - component: {fileID: 6970110545491336940}
   - component: {fileID: 6970110545491336942}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 6509224862845023695}
   - component: {fileID: 6509224862845023694}
   - component: {fileID: 6509224862845023697}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 5938665245898526165}
   - component: {fileID: 5938665245898526164}
   - component: {fileID: 5938665245898526167}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1210,7 +1210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5877321154964673548}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: TorsoBleedPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 8327946134921941787}
   - component: {fileID: 5550959859108261262}
   - component: {fileID: 292139231605732326}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 7470424733869989387}
   - component: {fileID: 68150722629943478}
   - component: {fileID: 4193942153158583849}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 2547079377498893968}
   - component: {fileID: 6031133705770588615}
   - component: {fileID: 3652549567069850921}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1566,7 @@ GameObject:
   - component: {fileID: 1184375097}
   - component: {fileID: 3135282327333982943}
   - component: {fileID: -3174949458044524260}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: BOSS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1611,7 +1611,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  machetteHitVelocityMulitplier: 0.1
   alive: 1
 --- !u!114 &6209749696917032875
 MonoBehaviour:
@@ -1665,11 +1666,11 @@ MonoBehaviour:
   CanSeePlayerDistance: 23
   StopAtDistanceFromPlayer: 12
   runSpeed: 12
-  jumpSpeed: 7
+  jumpSpeed: 5
   jumpBackSpeed: 10
   velocityCapX: 10
   velocityCapY: 10
-  fallMultiplier: 4
+  fallMultiplier: 6
   randomJumpMaxTime: 3
   randomJumpMinTime: 1
   zombieReactionTime: 0.9
@@ -1875,7 +1876,7 @@ GameObject:
   - component: {fileID: 3482111083668605900}
   - component: {fileID: 3482111083668605899}
   - component: {fileID: 3482111083668605902}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1990,7 +1991,7 @@ GameObject:
   - component: {fileID: 4003858778426022151}
   - component: {fileID: 4003858778426022150}
   - component: {fileID: 4003858778426022153}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2102,7 +2103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2493015951163834431}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2138,7 @@ GameObject:
   - component: {fileID: 2324993615021021175}
   - component: {fileID: 2324993615021021174}
   - component: {fileID: 2324993615021021177}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2250,7 +2251,7 @@ GameObject:
   - component: {fileID: 8641821194890278034}
   - component: {fileID: 8675378589390939957}
   - component: {fileID: 4956854468800178750}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,7 +2357,7 @@ GameObject:
   - component: {fileID: 1583842122129317395}
   - component: {fileID: 1583842122129317394}
   - component: {fileID: 1583842122129317397}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2471,7 +2472,7 @@ GameObject:
   - component: {fileID: 901477296849587583}
   - component: {fileID: 901477296849587582}
   - component: {fileID: 901477296849587585}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,7 +2585,7 @@ GameObject:
   - component: {fileID: 1183562324911295716}
   - component: {fileID: 3008547668391784900}
   - component: {fileID: 9157884047148641968}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2692,7 +2693,7 @@ PrefabInstance:
     - target: {fileID: 2234925482739006672, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2234925482739006678, guid: 00a55bfe42acd774787f0cddfbd6fe7c,
         type: 3}
@@ -2774,6 +2775,11 @@ PrefabInstance:
       propertyPath: zombie
       value: 
       objectReference: {fileID: 3467959068446964199}
+    - target: {fileID: 2153267894926868116, guid: 56f5f7bcc4d7d4e48ab7db57a5d7ad2d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2373764011673415057, guid: 56f5f7bcc4d7d4e48ab7db57a5d7ad2d,
         type: 3}
       propertyPath: m_Name

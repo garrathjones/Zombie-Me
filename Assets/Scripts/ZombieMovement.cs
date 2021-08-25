@@ -173,25 +173,27 @@ public class ZombieMovement : MonoBehaviour
     private void Jump()
     {
         if (!zombieHealth.alive) { return; }
-        if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("TakingDamage"))
-        {
-            return;
-        }
-        if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running") || zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-        {
+        //if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("TakingDamage"))
+        //{
+        //    return;
+        //}
+        //if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Running") || zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        //{
             CheckIfTouchingGround();
             if (touchingFloor)
             {
                 AudioSource.PlayClipAtPoint(footstepSFX, Camera.main.transform.position, footstepVolume);
                 Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x, jumpSpeed);
                 zombieRigidBody.velocity = newVelocity;
+                zombie.zombieAnimator.SetBool("Running", true);
             }
-        }
+        //}
     }
     public void RandomJumpFwdOrBackwards()
     {
         Vector2 newVelocity = new Vector2(zombieRigidBody.velocity.x - RandomDirection() * jumpBackSpeed, zombieRigidBody.velocity.y);
         zombieRigidBody.velocity = newVelocity;
+        zombie.zombieAnimator.SetBool("Running", true);
         Jump();
     }
 

@@ -21,8 +21,8 @@ TagManager:
   - ZombieBullet
   - PlayerBullet
   - PostProcessing
-  - 
-  - 
+  - BossZombie
+  - BossBullet
   - 
   - 
   - 

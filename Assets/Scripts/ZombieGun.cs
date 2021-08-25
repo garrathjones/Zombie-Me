@@ -16,8 +16,6 @@ public class ZombieGun : MonoBehaviour
 
     [SerializeField] Zombie zombie;
 
-
-
     public bool firing = false;
     void Start()
     {
@@ -28,7 +26,7 @@ public class ZombieGun : MonoBehaviour
     public void Fire()
     {
         var zombieDirection = ZombieDirection();
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;        
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawner.transform.position, bulletSpawner.transform.rotation) as GameObject;
         AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
         flashFX.Play();
         smokeFX.Play();

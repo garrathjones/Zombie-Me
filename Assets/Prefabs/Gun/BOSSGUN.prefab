@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586882571746128501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.333, y: 0.168, z: 0}
+  m_LocalPosition: {x: -0.065, y: 0.168, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2373764011673415058}
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 7
-  shootSound: {fileID: 8300000, guid: 0fd9340eae47e4a40a78a7cd029500e0, type: 3}
-  shootSoundVolume: 0.5
+  shootSound: {fileID: 8300000, guid: e27a58eb2de41a44fa38f776a5e5f8cb, type: 3}
+  shootSoundVolume: 0.765
   bulletPrefab: {fileID: 3547458333759893242, guid: 501b64c21203ef34fa9982d7fd361fe6,
     type: 3}
   bulletSpawner: {fileID: 586882571746128501}
