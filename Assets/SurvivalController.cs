@@ -7,6 +7,7 @@ public class SurvivalController : MonoBehaviour
 {
     [SerializeField] Text enemiesRemainingText;
     [SerializeField] int enemiesInWave = 50;
+    [SerializeField] bool disablePlayeronWin = true;
     int enemiesRemaining;
     Win win;
     Player player;
@@ -25,7 +26,10 @@ public class SurvivalController : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString();
         if(enemiesRemaining<=0)
         {
-            player.DisablePlayer();
+            if(disablePlayeronWin)
+            {
+                player.DisablePlayer();
+            }
             win.levelClear = true;
             win.EnablewinUI();
         }

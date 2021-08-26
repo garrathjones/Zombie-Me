@@ -33,6 +33,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Survival");
     }
 
+    public void LoadBossBattle()
+    {
+        SceneManager.LoadScene("BossBattle");
+    }
+
     public void LoadSurvivalWin()
     {
         SceneManager.LoadScene("SurvivalWin");
