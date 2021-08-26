@@ -35,4 +35,12 @@ public class Parallax : MonoBehaviour
             startpos -= length;
         }            
     }
+
+    public void ResetZPos()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+
+
+
 }

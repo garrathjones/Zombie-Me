@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     SlomoController slomoController;
     CinemachineSwitcher cinemachineSwitcher;
     Win win;
+    Parallax parallax;
 
 
     void Start()
@@ -79,6 +80,7 @@ public class Player : MonoBehaviour
         slomoController = FindObjectOfType<SlomoController>();
         cinemachineSwitcher = FindObjectOfType<CinemachineSwitcher>();
         win = FindObjectOfType<Win>();
+        parallax = FindObjectOfType<Parallax>();
     }
 
     void Update()
@@ -101,7 +103,6 @@ public class Player : MonoBehaviour
                 UnDuck();                
             }
         }
-
     }
 
     private void VelocityCap()
@@ -391,6 +392,8 @@ public class Player : MonoBehaviour
     {
         if(bullet.isRocket)
         {
+            //to fix bug where background is lost after camera shake, reset the z pos of background each time player is hit
+            parallax.ResetZPos();
             cinemachineSwitcher.ExplosionCamera();
         }
         hit = true;
