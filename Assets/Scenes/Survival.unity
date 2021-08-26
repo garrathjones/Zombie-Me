@@ -1770,7 +1770,7 @@ Camera:
   far clip plane: 5000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4499,7 +4499,7 @@ PrefabInstance:
     - target: {fileID: 1352809542852516528, guid: e885cedb4442baa4492c7e29b4856b51,
         type: 3}
       propertyPath: health
-      value: 150
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1507987618699178313, guid: e885cedb4442baa4492c7e29b4856b51,
         type: 3}
@@ -8440,9 +8440,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3689298318005210918, guid: c63cfa49c25e02449b125fd85f390c94,
         type: 3}
+      propertyPath: waveConfigs.Array.size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689298318005210918, guid: c63cfa49c25e02449b125fd85f390c94,
+        type: 3}
+      propertyPath: waveConfigs.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7aac5ebab736e3b49999a3aa5dc91e48,
+        type: 2}
+    - target: {fileID: 3689298318005210918, guid: c63cfa49c25e02449b125fd85f390c94,
+        type: 3}
       propertyPath: waveConfigs.Array.data[29]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: acf3dbbeabf94704eb7c0b826a5f6909,
+        type: 2}
     - target: {fileID: 3689298318005210918, guid: c63cfa49c25e02449b125fd85f390c94,
         type: 3}
       propertyPath: waveConfigs.Array.data[30]
