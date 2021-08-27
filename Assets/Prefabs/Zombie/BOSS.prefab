@@ -1669,6 +1669,9 @@ MonoBehaviour:
   health: 1000
   machetteHitVelocityMulitplier: 0.1
   slideHitVelocityMulitplier: 0.3
+  gateBoss: 0
+  zombieDeathSFX: {fileID: 8300000, guid: 74f2c79dd86b9e54b9af07cd88a4fe0d, type: 3}
+  zombieDeathVolume: 10
   alive: 1
 --- !u!114 &6209749696917032875
 MonoBehaviour:
@@ -1690,7 +1693,7 @@ MonoBehaviour:
   velocityCapX: 10
   velocityCapY: 10
   fallMultiplier: 6
-  randomJumpMaxTime: 3
+  randomJumpMaxTime: 2
   randomJumpMinTime: 1
   zombieReactionTime: 0.9
   groundCheckCollider: {fileID: 4359190671662179412}
@@ -1859,7 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieGun: {fileID: 355711675663513693}
   chanceOfStepBackwards: 100
-  bulletFiringPeriod: 1.5
+  bulletFiringPeriod: 1.4
 --- !u!114 &-3174949458044524260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,7 +1899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombieGun: {fileID: 7287091748564518941}
   chanceOfStepBackwards: 100
-  bulletFiringPeriod: 2
+  bulletFiringPeriod: 1.9
 --- !u!1 &5474235203516350498
 GameObject:
   m_ObjectHideFlags: 0

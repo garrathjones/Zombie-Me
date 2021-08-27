@@ -22360,6 +22360,8 @@ MonoBehaviour:
   dust: {fileID: 1870325020192119610}
   slideSFX: {fileID: 8300000, guid: c7e102cbb30a4b64b8f5981b8ef1c685, type: 3}
   slideVolume: 1
+  deathSFX: {fileID: 8300000, guid: 2a89f710310cfa64d9dd275ad9158c8f, type: 3}
+  deathVolume: 10
   pulseRate: 0.5
   bloodSplurt: {fileID: 7013355043255392215, guid: 398e4fc168d13544db531b35caff9295,
     type: 3}

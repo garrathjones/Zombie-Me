@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] float almostDeadhealth = 30;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float animateRunSpeed = 1f;
-    //[SerializeField] float slideSpeed = 10f;
     [SerializeField] float slideSpeedOffset = 2f;
     [SerializeField] float slideDelay = 0.5f;
     [SerializeField] float jumpSpeed = 5f;
@@ -41,6 +40,8 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem dust;
     [SerializeField] AudioClip slideSFX;
     [SerializeField] [Range(0, 1)] float slideVolume = 1f;
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] [Range(0, 10)] float deathVolume = 1f;
 
     [SerializeField] float pulseRate = 0.5f;
     [SerializeField] GameObject bloodSplurt;
@@ -151,26 +152,10 @@ public class Player : MonoBehaviour
         pipeHit = false;
     }
 
-
-    //private void AllowXMovementInAir()
-    //{
-    //    groundCheckCollider.enabled = false;
-    //    touchingFloor = false;
-    //    jumping = true;
-    //    StartCoroutine(SmallDelay());
-    //    groundCheckCollider.enabled = true;
-    //}
-
-
     private void Run()
     {
-        //if(PlayerIsSliding())
-        //{
-        //    return;
-        //}
         if(hit) { return; }
-        HorizontalMotionControl();
-        //bool playerHasHorizontalSpeed = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;        
+        HorizontalMotionControl(); 
         bool animateRun = Mathf.Abs(playerRigidBody.velocity.x) > animateRunSpeed;
         playerAnimator.SetBool("Running", animateRun);
         Slide();
@@ -262,22 +247,8 @@ public class Player : MonoBehaviour
                 Vector2 newVelocity = new Vector2(playerRigidBody.velocity.x, jumpSpeed);
                 playerRigidBody.velocity = newVelocity;
             }
-            //AllowXMovementInAir();
         }
-        //if(jumping)
-        //{
-        //    HorizontalMotionControl();
-        //}
-        //if(touchingFloor)
-        //{
-        //    jumping = false;
-        //}
     }
-
-    //IEnumerator SmallDelay()
-    //{
-    //    yield return new WaitForSeconds(smallDelay);
-    //}
 
 
     private void Flip()
@@ -337,15 +308,11 @@ public class Player : MonoBehaviour
                 {
                     playerAnimator.SetTrigger("SlideLeft");
                     AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
-                    //Vector2 playerVeloctiy = new Vector2(-slideSpeed, playerRigidBody.velocity.y);
-                    //playerRigidBody.velocity = playerVeloctiy;
                 }
                 if (playerRigidBody.transform.localScale.x == -1)
                 {
                     playerAnimator.SetTrigger("SlideRight");
                     AudioSource.PlayClipAtPoint(slideSFX, Camera.main.transform.position, slideVolume);
-                    //Vector2 playerVeloctiy = new Vector2(slideSpeed, playerRigidBody.velocity.y);
-                    //playerRigidBody.velocity = playerVeloctiy;
                 }
             }
             StartCoroutine(SlidingDelay(slideDelay));
@@ -397,7 +364,6 @@ public class Player : MonoBehaviour
             cinemachineSwitcher.ExplosionCamera();
         }
         hit = true;
-        //jumping = false;
         GivePlayerVelocityOnHit(bullet);
         PlayerDamage(bullet.GetDamage());
         bullet.DestroyBulletWithBloodSplat();
@@ -476,6 +442,7 @@ public class Player : MonoBehaviour
         health = 0;
         machete.DropMachete();
         gun.DropGun();
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathVolume);
         BleedWhenDead();
         MakeRagDoll();
         slomoController.SlomoOn();

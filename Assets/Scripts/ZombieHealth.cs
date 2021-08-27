@@ -8,13 +8,16 @@ public class ZombieHealth : MonoBehaviour
     [SerializeField] float health = 30;
     [SerializeField] float machetteHitVelocityMulitplier = 1f;
     [SerializeField] float slideHitVelocityMulitplier = 1f;
-    //[SerializeField] float KickSpeedLimit = 5f;
+    [SerializeField] bool gateBoss = false;
+    [SerializeField] AudioClip zombieDeathSFX;
+    [SerializeField] [Range(0, 10)] float zombieDeathVolume = 1f;
+
     public bool alive = true;
     Zombie zombie;
     ZombieMovement zombieMovement;
     PlayerPosition playerPosition;
     SlomoController slomoController;
-
+    Gate gate;
 
 
 
@@ -81,10 +84,6 @@ public class ZombieHealth : MonoBehaviour
 
     private void ProcessMacheteHit(Machete machete)
     {
-        //if (zombie.zombieRigidBody.velocity.y > KickSpeedLimit)
-        //{
-        //    return;
-        //}
         health -= machete.GetDamage();
         machete.CreateMacheteHitFX();
         zombieMovement.zombieRigidBody.velocity += machete.GetMacheteHitVelocity() * new Vector2(-playerPosition.DirectionOfPlayer() * machetteHitVelocityMulitplier, 1);
@@ -96,10 +95,6 @@ public class ZombieHealth : MonoBehaviour
 
     private void ProcessSlideKick(SlideKick slideKick)
     {
-        //if (zombie.zombieRigidBody.velocity.y > KickSpeedLimit)
-        //{
-        //    return;
-        //}
         if (zombie.zombieAnimator.GetCurrentAnimatorStateInfo(0).IsName("TakingDamage"))
         {
             return;
@@ -115,12 +110,17 @@ public class ZombieHealth : MonoBehaviour
 
     private void Killed()
     {
-        //AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
         slomoController.RandomSlomo();
         zombie.DeathKick();
         zombie.MakeRagDoll();
         alive = false;
         zombie.BleedWhenDead();
+        AudioSource.PlayClipAtPoint(zombieDeathSFX, Camera.main.transform.position, zombieDeathVolume);
+        if (gateBoss)
+        {
+            gate = FindObjectOfType<Gate>();
+            gate.DestroyGate();
+        }
         var killCounter = FindObjectOfType<KillCounter>();
         killCounter.AddKill();
         zombie.DestroyZombieGameObject();
@@ -131,6 +131,11 @@ public class ZombieHealth : MonoBehaviour
         alive = false;
         zombie.BleedWhenDead();
         zombie.DestroyZombieGameObject();
+    }
+
+    public float GetZombieHealth()
+    {
+        return health;
     }
 
 }

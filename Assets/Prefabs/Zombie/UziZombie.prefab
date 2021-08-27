@@ -1649,6 +1649,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  machetteHitVelocityMulitplier: 1
+  slideHitVelocityMulitplier: 1
+  gateBoss: 0
+  zombieDeathSFX: {fileID: 8300000, guid: ab5d8ddbaaf95004bbe76bf1d3b05763, type: 3}
+  zombieDeathVolume: 10
   alive: 1
 --- !u!114 &6209749696917032875
 MonoBehaviour:
@@ -1670,7 +1675,7 @@ MonoBehaviour:
   velocityCapX: 10
   velocityCapY: 10
   fallMultiplier: 3
-  randomJumpMaxTime: 3
+  randomJumpMaxTime: 2
   randomJumpMinTime: 1
   zombieReactionTime: 0.6
   groundCheckCollider: {fileID: 4359190671662179412}
