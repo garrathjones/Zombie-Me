@@ -33,6 +33,8 @@ public class ZombieHealth : MonoBehaviour
     {
         if (health <= 0)
         {
+            //in case health goes negative then set it to zero
+            health = 0;
             zombieMovement.zombieRigidBody.constraints = RigidbodyConstraints2D.None;
             Killed();            
         }
