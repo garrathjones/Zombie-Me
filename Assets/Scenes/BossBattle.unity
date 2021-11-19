@@ -2812,6 +2812,31 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -0.3440573
       objectReference: {fileID: 0}
+    - target: {fileID: 6209749696917032875, guid: a9e0967a8ef09b4419749a053dc9e31c,
+        type: 3}
+      propertyPath: runSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209749696917032875, guid: a9e0967a8ef09b4419749a053dc9e31c,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209749696917032875, guid: a9e0967a8ef09b4419749a053dc9e31c,
+        type: 3}
+      propertyPath: jumpBackSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209749696917032875, guid: a9e0967a8ef09b4419749a053dc9e31c,
+        type: 3}
+      propertyPath: zombieReactionTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209749696917032875, guid: a9e0967a8ef09b4419749a053dc9e31c,
+        type: 3}
+      propertyPath: CanSeePlayerDistance
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 6509224862845023694, guid: a9e0967a8ef09b4419749a053dc9e31c,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
