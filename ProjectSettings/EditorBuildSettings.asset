@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 7c8f2438bb363684ab7d15e66562ef72
   - enabled: 0
-    path: Assets/Scenes/About.unity
+    path: Assets/Scenes/AboutOLD.unity
     guid: e66bbc8ac15bb3544901b426a1c8c917
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BossBattle.unity
     guid: 449cf56a6aeae0842aad166d3fa6cfa0
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: ea25a2375135d154ebc9d1c385c77422
   m_configObjects: {}
